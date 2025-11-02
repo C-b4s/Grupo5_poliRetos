@@ -21,6 +21,11 @@ public class App {
 
         servicio.adivinarAnagramasWhile(ingresoDatos);
 
+        System.out.println("Por favor, ingrese un texto para alternar entre mayúsculas y minúsculas: ");
+        String textoParaAlternar = ingresoDatos.nextLine();
+        String textoAlternado = servicio.alternarMayusYMinusFor(textoParaAlternar);
+        System.out.println("El texto con alternancia de mayúsculas y minúsculas es: " + textoAlternado);
+
         ingresoDatos.close();
     }
 }

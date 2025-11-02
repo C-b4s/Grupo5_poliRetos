@@ -396,7 +396,6 @@ public class Service {
             String respuestaUsuario = ingresoDatos.nextLine();
             if (respuestaUsuario.equalsIgnoreCase(solucionAnagrama)){
                 System.out.println("¡Felicidades! Has adivinado el anagrama correctamente.");
-                ingresoDatos.close();
                 break;
             }else{
                 intentos++;
@@ -405,7 +404,7 @@ public class Service {
                     System.out.println("Respuesta incorrecta. Intenta de nuevo.");
                 }else{
                     System.out.println("Lo siento, has agotado tus intentos. La respuesta correcta era: " + solucionAnagrama);
-                    ingresoDatos.close();
+
                 }
             }
         }
@@ -437,7 +436,6 @@ public class Service {
             String respuestaUsuario = ingresoDatos.nextLine();
             if (respuestaUsuario.equalsIgnoreCase(solucionAnagrama)){
                 System.out.println("¡Felicidades! Has adivinado el anagrama correctamente.");
-                ingresoDatos.close();
                 break;
             }else{
                 intentos++;
@@ -447,7 +445,7 @@ public class Service {
                     System.out.println("Respuesta incorrecta. Intenta de nuevo.");
                 }else{
                     System.out.println("Lo siento, has agotado tus intentos. La respuesta correcta era: " + solucionAnagrama);
-                    ingresoDatos.close();
+
                 }
             }
         }
@@ -478,7 +476,6 @@ public class Service {
             String respuestaUsuario = ingresoDatos.nextLine();
             if(respuestaUsuario.equalsIgnoreCase(solucionAnagrama)){
                 System.out.println("¡Felicidades! Has adivinado el anagrama correctamente.");
-                ingresoDatos.close();
                 break;
             }else{
                 intentos++;
@@ -487,7 +484,7 @@ public class Service {
                     System.out.println("Respuesta incorrecta. Intenta de nuevo.");
                 }else{
                     System.out.println("Lo siento, has agotado tus intentos. La respuesta correcta era: " + solucionAnagrama);
-                    ingresoDatos.close();
+
                 }
                 
             }
@@ -495,6 +492,61 @@ public class Service {
 
     }
 
+    public String alternarMayusYMinusFor(String textoIngresado){
+        StringBuilder textoAlternado = new StringBuilder();
+    
+        if (textoIngresado == null || textoIngresado.length() == 0){
+            return textoAlternado.toString();
+        }
+
+        for (int i = 0; i < textoIngresado.length(); i++){
+            if (i % 2 == 0){
+                textoAlternado.append(Character.toUpperCase(textoIngresado.charAt(i)));
+            }else{
+                textoAlternado.append(Character.toLowerCase(textoIngresado.charAt(i)));
+            }
+        }
+
+        return textoAlternado.toString();
+    }
+
+    public String alternarMayusYMinusWhile(String textoIngresado){
+        StringBuilder textoAlternado = new StringBuilder();
+        int i = 0;
+
+        if (textoIngresado == null || textoIngresado.length() == 0){
+            return "";
+        }
+
+        while (i < textoIngresado.length()){
+            if( i % 2 == 0){
+                textoAlternado.append(Character.toUpperCase(textoIngresado.charAt(i)));
+            }else{
+                textoAlternado.append(Character.toLowerCase(textoIngresado.charAt(i)));
+            }
+            i++;
+        }
+        return textoAlternado.toString();
+    }
+
+    public String alternarMayusYMinusDoWhile (String textoIngresado){
+        StringBuilder textoAlternado = new StringBuilder();
+        int i = 0;
+
+        if (textoIngresado == null || textoIngresado.length() == 0){
+            return "";
+        }
+
+        do{
+            if (i % 2 == 0){
+                textoAlternado.append(Character.toUpperCase(textoIngresado.charAt(i)));
+            }else{
+                textoAlternado.append(Character.toLowerCase(textoIngresado.charAt(i)));
+            }
+            i++;
+        }while (i < textoIngresado.length());
+        return textoAlternado.toString();
+    }
 
 
 
