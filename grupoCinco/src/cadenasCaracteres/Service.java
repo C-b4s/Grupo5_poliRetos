@@ -100,104 +100,211 @@ public class Service {
     }
 
     public String eliminarVocalFor(String textoIngresado, char vocalAEliminar){
-        String resultado = "";
+        String textoSinVocal = "";
         if (textoIngresado.length() == 0) {
-            return resultado;
+            return textoSinVocal;
         }
         for (int i : textoIngresado.toCharArray()) {
             if (textoIngresado.charAt(i) == vocalAEliminar) {
-                resultado += " ";
+                textoSinVocal += " ";
             }
             else {
-                resultado += textoIngresado.charAt(i);
+                textoSinVocal += textoIngresado.charAt(i);
             }
         }
-        return resultado;
+        return textoSinVocal;
     }
 
     public String eliminarVocalWhile(String textoIngresado, char vocalAEliminar){
-        String resultado = "";
+        String textoSinVocal = "";
         int i = 0;
         if (textoIngresado.length() == 0) {
-            return resultado;
+            return textoSinVocal;
         }
         while (i < textoIngresado.length()) {
             if (textoIngresado.charAt(i) == vocalAEliminar) {
-                resultado += " ";
+                textoSinVocal += " ";
             }else {
-                resultado += textoIngresado.charAt(i);
+                textoSinVocal += textoIngresado.charAt(i);
             }
             i++;
         }
-        return resultado;
+        return textoSinVocal;
     }
 
     public String eliminarVocalDoWhile(String textoIngresado, char vocalAEliminar){
-        String resultado = "";
+        String textoSinVocal = "";
         int i = 0;
         if (textoIngresado.length() == 0) {
-            return resultado;
+            return textoSinVocal;
         }
         do {
             if (textoIngresado.charAt(i) == vocalAEliminar) {
-                resultado += " ";
+                textoSinVocal += " ";
             }else{
-                resultado += textoIngresado.charAt(i);
+                textoSinVocal += textoIngresado.charAt(i);
             }
             i++;
         } while (i < textoIngresado.length());
-        return resultado;
+        return textoSinVocal;
     }
 
     public String eliminarConsonanteFor(String textoIngresado, char consonanteAEliminar){
-        String resultado = "";
+        String textoSinConsonante = "";
         if (textoIngresado.length() == 0) {
-            return resultado;
+            return textoSinConsonante;
         }
         for (int i : textoIngresado.toCharArray()) {
             if (textoIngresado.charAt(i) == consonanteAEliminar) {
-                resultado += " ";
+                textoSinConsonante += " ";
             }
             else {
-                resultado += textoIngresado.charAt(i);
+                textoSinConsonante += textoIngresado.charAt(i);
             }
         }
-        return resultado;
+        return textoSinConsonante;
     }
 
     public String eliminarConsonanteWhile(String textoIngresado, char consonanteAEliminar){
-        String resultado = "";
+        String textoSinConsonante = "";
         int i = 0;
         if (textoIngresado.length() == 0) {
-            return resultado;
+            return textoSinConsonante;
         }
         while (i < textoIngresado.length()) {
             if (textoIngresado.charAt(i) == consonanteAEliminar) {
-                resultado += " ";
+                textoSinConsonante += " ";
             }else {
-                resultado += textoIngresado.charAt(i);
+                textoSinConsonante += textoIngresado.charAt(i);
             }
             i++;
         }
-        return resultado;
+        return textoSinConsonante;
     }
 
     public String eliminarConsonanteDoWhile(String textoIngresado, char consonanteAEliminar){
-        String resultado = "";
+        String textoSinConsonante = "";
         int i = 0;
         if (textoIngresado.length() == 0) {
-            return resultado;
+            return textoSinConsonante;
         }
         do {
             if (textoIngresado.charAt(i) == consonanteAEliminar) {
-                resultado += " ";
+                textoSinConsonante += " ";
             }else{
-                resultado += textoIngresado.charAt(i);
+                textoSinConsonante += textoIngresado.charAt(i);
             }
             i++;
         } while (i < textoIngresado.length());
-        return resultado;
+        return textoSinConsonante;
     }
 
-    
+    public String invertirConVocalesMayusFor(String textoIngresado){
+        String textoInvertido = "";
+        if (textoIngresado.length() == 0) {
+            return textoInvertido;
+        }
+        for (int i = textoIngresado.length() - 1; i >= 0; i--) {
+            char caracterActual = textoIngresado.charAt(i);
+            if ("áéíóúaeiou".indexOf(Character.toLowerCase(caracterActual)) != -1) {
+                textoInvertido += Character.toUpperCase(caracterActual);
+            } else {
+                textoInvertido += caracterActual;
+            }
+        }
+        return textoInvertido;
+    }
+
+    public String invertirConVocalesMayusWhile(String textoIngresado){
+        String textoInvertido = "";
+        int i = textoIngresado.length() - 1;
+        if (textoIngresado.length() == 0) {
+            return textoInvertido;
+        }
+        while (i >= 0) {
+            char caracterActual = textoIngresado.charAt(i);
+            if ("áéíóúaeiou".indexOf(Character.toLowerCase(caracterActual)) != -1) {
+                textoInvertido += Character.toUpperCase(caracterActual);
+            } else {
+                textoInvertido += caracterActual;
+            }
+            i--;
+        }
+        return textoInvertido;
+    }
+
+    public String invertirConVocalesMayusDoWhile(String textoIngresado){
+        String textoInvertido = "";
+        int i = textoIngresado.length() - 1;
+        if (textoIngresado.length() == 0) {
+            return textoInvertido;
+        }
+        do {
+            char caracterActual = textoIngresado.charAt(i);
+            if ("áéíóúaeiou".indexOf(Character.toLowerCase(caracterActual)) != -1) {
+                textoInvertido += Character.toUpperCase(caracterActual);
+            } else {
+                textoInvertido += caracterActual;
+            }
+            i--;
+        } while (i >= 0);
+        return textoInvertido;
+    }
+
+    public String invertirConConsonantesMayusFor(String textoIngresado){
+        String textoInvertido = "";
+        if (textoIngresado.length() == 0) {
+            return textoInvertido;
+        }
+        for (int i = textoIngresado.length() - 1; i >= 0; i--) {
+            char caracterActual = textoIngresado.charAt(i);
+            if (Character.isLetter(caracterActual) && "áéíóúaeiou".indexOf(Character.toLowerCase(caracterActual)) == -1) {
+                textoInvertido += Character.toUpperCase(caracterActual);
+            } else {
+                textoInvertido += caracterActual;
+            }
+        }
+        return textoInvertido;
+    }
+
+    public String invertirConConsonantesMayusWhile(String textoIngresado){
+        String textoInvertido = " ";
+        int i = textoIngresado.length() - 1;
+
+        if (textoIngresado.length()== 0){
+            return textoInvertido;
+        }
+
+        while (i >= 0){
+            char caracterActual = textoIngresado.charAt(i);
+            if (Character.isLetter(caracterActual) && "áéíóúaeiou".indexOf(caracterActual) == -1){
+                textoInvertido += Character.toUpperCase(caracterActual);
+            }else{
+                textoInvertido += caracterActual;
+            }
+        }
+        return textoInvertido;
+    }
+
+    public String invertirConConsonantesMayusDoWhile(String textoIngresado){
+        String textoInvertido = " ";
+        int i = textoIngresado.length() - 1;
+
+        if(textoIngresado.length()== 0){
+            return textoInvertido;
+        }
+
+        do{
+            char caracterActual = textoIngresado.charAt(i);
+            if(Character.isLetter(caracterActual) && "áéíóúaeiou".indexOf(caracterActual) == -1){
+                textoInvertido += Character.toUpperCase(caracterActual);
+            }else{
+                textoInvertido += Character.toUpperCase(caracterActual);
+            }
+        } while (i >= 0);
+        return textoInvertido;
+    }    
+
+
+
 }
