@@ -1,11 +1,18 @@
 package src.cadenasCaracteres;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.Scanner;
+
 public class Service {
     public int contarVocalesFor(String textoIngresado) {
         int contVocales = 0;
         String cadenaVocales = "áéíóúaeiou";
         cadenaVocales.toLowerCase();
-        if (textoIngresado.length() == 0) {
+        if (textoIngresado == null || textoIngresado.length() == 0) {
             return contVocales;
         }
         for (int i = 0; i < textoIngresado.length(); i++) {
@@ -21,7 +28,7 @@ public class Service {
         String cadenaVocales = "áéíóúaeiou";
         cadenaVocales.toLowerCase();
         int i = 0;
-        if (textoIngresado.length() == 0) {
+        if (textoIngresado == null || textoIngresado.length() == 0) {
             return contVocales;
         }
         while (i < textoIngresado.length()) {
@@ -38,7 +45,7 @@ public class Service {
         String cadenaVocales = "áéíóúaeiou";
         cadenaVocales.toLowerCase();
         int i = 0;
-        if (textoIngresado.length() == 0) {
+        if (textoIngresado == null || textoIngresado.length() == 0) {
             return contVocales;
         }
         do {
@@ -54,10 +61,10 @@ public class Service {
         int contConstantes = 0;
         String cadenaVocales = "áéíóúaeiou";
         cadenaVocales.toLowerCase();
-        if (textoIngresado.length() == 0) {
+        if (textoIngresado == null || textoIngresado.length() == 0) {
             return contConstantes;
         }
-        for (int i : textoIngresado.toCharArray()) {
+        for (char i : textoIngresado.toCharArray()) {
             if (Character.isLetter(i) && cadenaVocales.indexOf(i) == -1) {
                 contConstantes++;
             }
@@ -70,7 +77,7 @@ public class Service {
         String cadenaVocales = "áéíóúaeiou";
         cadenaVocales.toLowerCase();
         int i = 0;
-        if (textoIngresado.length() == 0) {
+        if (textoIngresado == null || textoIngresado.length() == 0) {
             return contConstantes;
         }
         while (i < textoIngresado.length()) {
@@ -87,7 +94,7 @@ public class Service {
         String cadenaVocales = "áéíóúaeiou";
         cadenaVocales.toLowerCase();
         int i = 0;
-        if (textoIngresado.length() == 0) {
+        if (textoIngresado == null || textoIngresado.length() == 0) {
             return contConstantes;
         }
         do {
@@ -101,10 +108,10 @@ public class Service {
 
     public String eliminarVocalFor(String textoIngresado, char vocalAEliminar){
         String textoSinVocal = "";
-        if (textoIngresado.length() == 0) {
+        if (textoIngresado == null || textoIngresado.length() == 0) {
             return textoSinVocal;
         }
-        for (int i : textoIngresado.toCharArray()) {
+        for (char i : textoIngresado.toCharArray()) {
             if (textoIngresado.charAt(i) == vocalAEliminar) {
                 textoSinVocal += " ";
             }
@@ -118,7 +125,7 @@ public class Service {
     public String eliminarVocalWhile(String textoIngresado, char vocalAEliminar){
         String textoSinVocal = "";
         int i = 0;
-        if (textoIngresado.length() == 0) {
+        if (textoIngresado == null || textoIngresado.length() == 0) {
             return textoSinVocal;
         }
         while (i < textoIngresado.length()) {
@@ -135,7 +142,7 @@ public class Service {
     public String eliminarVocalDoWhile(String textoIngresado, char vocalAEliminar){
         String textoSinVocal = "";
         int i = 0;
-        if (textoIngresado.length() == 0) {
+        if (textoIngresado == null || textoIngresado.length() == 0) {
             return textoSinVocal;
         }
         do {
@@ -151,10 +158,10 @@ public class Service {
 
     public String eliminarConsonanteFor(String textoIngresado, char consonanteAEliminar){
         String textoSinConsonante = "";
-        if (textoIngresado.length() == 0) {
+        if (textoIngresado == null || textoIngresado.length() == 0) {
             return textoSinConsonante;
         }
-        for (int i : textoIngresado.toCharArray()) {
+        for (char i : textoIngresado.toCharArray()) {
             if (textoIngresado.charAt(i) == consonanteAEliminar) {
                 textoSinConsonante += " ";
             }
@@ -168,7 +175,7 @@ public class Service {
     public String eliminarConsonanteWhile(String textoIngresado, char consonanteAEliminar){
         String textoSinConsonante = "";
         int i = 0;
-        if (textoIngresado.length() == 0) {
+        if (textoIngresado == null || textoIngresado.length() == 0) {
             return textoSinConsonante;
         }
         while (i < textoIngresado.length()) {
@@ -185,7 +192,7 @@ public class Service {
     public String eliminarConsonanteDoWhile(String textoIngresado, char consonanteAEliminar){
         String textoSinConsonante = "";
         int i = 0;
-        if (textoIngresado.length() == 0) {
+        if (textoIngresado == null || textoIngresado.length() == 0) {
             return textoSinConsonante;
         }
         do {
@@ -201,7 +208,7 @@ public class Service {
 
     public String invertirConVocalesMayusFor(String textoIngresado){
         String textoInvertido = "";
-        if (textoIngresado.length() == 0) {
+        if (textoIngresado == null || textoIngresado.length() == 0) {
             return textoInvertido;
         }
         for (int i = textoIngresado.length() - 1; i >= 0; i--) {
@@ -218,7 +225,7 @@ public class Service {
     public String invertirConVocalesMayusWhile(String textoIngresado){
         String textoInvertido = "";
         int i = textoIngresado.length() - 1;
-        if (textoIngresado.length() == 0) {
+        if (textoIngresado == null || textoIngresado.length() == 0) {
             return textoInvertido;
         }
         while (i >= 0) {
@@ -236,7 +243,7 @@ public class Service {
     public String invertirConVocalesMayusDoWhile(String textoIngresado){
         String textoInvertido = "";
         int i = textoIngresado.length() - 1;
-        if (textoIngresado.length() == 0) {
+        if (textoIngresado == null || textoIngresado.length() == 0) {
             return textoInvertido;
         }
         do {
@@ -253,7 +260,7 @@ public class Service {
 
     public String invertirConConsonantesMayusFor(String textoIngresado){
         String textoInvertido = "";
-        if (textoIngresado.length() == 0) {
+        if (textoIngresado == null || textoIngresado.length() == 0) {
             return textoInvertido;
         }
         for (int i = textoIngresado.length() - 1; i >= 0; i--) {
@@ -268,7 +275,7 @@ public class Service {
     }
 
     public String invertirConConsonantesMayusWhile(String textoIngresado){
-        String textoInvertido = " ";
+        String textoInvertido = "";
         int i = textoIngresado.length() - 1;
 
         if (textoIngresado.length()== 0){
@@ -282,12 +289,13 @@ public class Service {
             }else{
                 textoInvertido += caracterActual;
             }
+            i--;
         }
         return textoInvertido;
     }
 
     public String invertirConConsonantesMayusDoWhile(String textoIngresado){
-        String textoInvertido = " ";
+        String textoInvertido = "";
         int i = textoIngresado.length() - 1;
 
         if(textoIngresado.length()== 0){
@@ -301,9 +309,193 @@ public class Service {
             }else{
                 textoInvertido += Character.toUpperCase(caracterActual);
             }
+            i--;
         } while (i >= 0);
         return textoInvertido;
-    }    
+    }
+    
+    public String convertirAMayusSinJFor (String textoIngresado){
+        StringBuilder textoEnMayus = new StringBuilder();
+        if (textoIngresado == null || textoIngresado.length() == 0) {
+            return textoEnMayus.toString();
+        }
+
+        String textoAOperar = textoIngresado.toLowerCase();
+
+        for (char caracterTexto : textoAOperar.toCharArray()){
+            if (caracterTexto == 'j'){
+
+            }else{
+                textoEnMayus.append(Character.toUpperCase(caracterTexto));
+            }
+        }
+        return textoEnMayus.toString();
+    }
+
+    public String convertirAMayusSinJWhile(String textoIngresado){
+        StringBuilder textoEnMayus = new StringBuilder();
+        int i = 0;
+
+        if (textoIngresado == null || textoIngresado.length()==0){
+            return textoEnMayus.toString();
+        }
+
+        while (i < textoIngresado.length()){
+            char caracterTexto = textoIngresado.charAt(i);
+            if (caracterTexto == 'j'){
+
+            }else{
+                textoEnMayus.append(Character.toUpperCase(caracterTexto));
+            }
+            i++;
+        }
+        return textoEnMayus.toString();
+    }
+
+    public String convertirAMayusSinJDoWhile(String textoIngresado){
+        StringBuilder textoEnMayus = new StringBuilder();
+        int i = 0;
+
+        if (textoIngresado == null || textoIngresado.length()==0){
+            return textoEnMayus.toString();
+        }
+
+        do{
+            char caracterTexto = textoIngresado.charAt(i);
+            if (caracterTexto == 'j'){
+
+            }else{
+                textoEnMayus.append(Character.toUpperCase(caracterTexto));
+            }
+            i++;
+        }while (i < textoIngresado.length());
+        return textoEnMayus.toString();
+    }
+
+    public void adivinarAnagramasFor (Scanner ingresoDatos){
+        
+        Map<String, String> anagramas = new HashMap<>();
+        anagramas.put("calor", "colar");
+        anagramas.put("Sergio", "riesgo");
+        anagramas.put("mejorar", "remojar");
+        anagramas.put("abusar", "basura");
+        anagramas.put("animales", "milanesa");
+
+        List <String> anagramasKeys = new ArrayList<>(anagramas.keySet());
+        Random palabraAleatoria = new Random();
+
+        String parDeAnagrama = anagramasKeys.get(palabraAleatoria.nextInt(anagramasKeys.size()));
+        String solucionAnagrama = anagramas.get(parDeAnagrama);
+
+        int intentos = 0;
+        System.out.println("\n================ JUEGO DE ANAGRAMAS ================");
+        System.out.println("Adivina la palabra anagrama de: " + parDeAnagrama);
+
+        for (int i = 0; i < 3; i++){
+            System.out.println("\n--- INTENTO NO. " + (i+1) + " ---");
+            String respuestaUsuario = ingresoDatos.nextLine();
+            if (respuestaUsuario.equalsIgnoreCase(solucionAnagrama)){
+                System.out.println("¡Felicidades! Has adivinado el anagrama correctamente.");
+                ingresoDatos.close();
+                break;
+            }else{
+                intentos++;
+
+                if(intentos < 3){
+                    System.out.println("Respuesta incorrecta. Intenta de nuevo.");
+                }else{
+                    System.out.println("Lo siento, has agotado tus intentos. La respuesta correcta era: " + solucionAnagrama);
+                    ingresoDatos.close();
+                }
+            }
+        }
+        
+    }
+
+    public void adivinarAnagramasWhile (Scanner ingresoDatos){
+        // Implementación similar a la del método for, pero usando while
+        Map <String, String> anagramas = new HashMap <>();
+        anagramas.put("calor", "colar");
+        anagramas.put("Sergio", "riesgo");
+        anagramas.put("mejorar", "remojar");
+        anagramas.put("abusar", "basura");
+        anagramas.put("animales", "milanesa");
+
+        List <String> anagramasKeys = new ArrayList <> (anagramas.keySet());
+        Random palabraAleatoria = new Random();
+
+        String parDeAnagrama = anagramasKeys.get(palabraAleatoria.nextInt(anagramasKeys.size()));
+        String solucionAnagrama = anagramas.get(parDeAnagrama);
+
+        int i = 0, intentos = 0;
+
+        System.out.println("\n================ JUEGO DE ANAGRAMAS ================");
+        System.out.println("Adivina la palabra anagrama de: " + parDeAnagrama);
+
+        while (i < 3){
+            System.out.println("\n--- INTENTO NO. " + (i+1) + " ---");
+            String respuestaUsuario = ingresoDatos.nextLine();
+            if (respuestaUsuario.equalsIgnoreCase(solucionAnagrama)){
+                System.out.println("¡Felicidades! Has adivinado el anagrama correctamente.");
+                ingresoDatos.close();
+                break;
+            }else{
+                intentos++;
+                i++;
+
+                if(intentos < 3){
+                    System.out.println("Respuesta incorrecta. Intenta de nuevo.");
+                }else{
+                    System.out.println("Lo siento, has agotado tus intentos. La respuesta correcta era: " + solucionAnagrama);
+                    ingresoDatos.close();
+                }
+            }
+        }
+    }
+
+    public void adivinarAnagramasDoWhile (Scanner ingresoDatos){
+        // Implementación similar a la del método for, pero usando do while
+        
+        Map <String, String> anagramas = new HashMap <>();
+        anagramas.put("calor", "colar");
+        anagramas.put("Sergio", "riesgo");
+        anagramas.put("mejorar", "remojar");
+        anagramas.put("abusar", "basura");
+        anagramas.put("animales", "milanesa");
+
+        List <String> anagramasKeys = new ArrayList <> (anagramas.keySet());
+        Random palabraAleatoria = new Random();
+        String parDeAnagrama = anagramasKeys.get(palabraAleatoria.nextInt(anagramas.size()));
+        String solucionAnagrama = anagramas.get(parDeAnagrama);
+
+        int i = 0, intentos = 0;
+
+        System.out.println("\n================ JUEGO DE ANAGRAMAS ================");
+        System.out.println("Adivina la palabra anagrama de: " + parDeAnagrama);
+
+        do{
+            System.out.println("\n--- INTENTO NO. " + (i + 1) + " ---");
+            String respuestaUsuario = ingresoDatos.nextLine();
+            if(respuestaUsuario.equalsIgnoreCase(solucionAnagrama)){
+                System.out.println("¡Felicidades! Has adivinado el anagrama correctamente.");
+                ingresoDatos.close();
+                break;
+            }else{
+                intentos++;
+                i++;
+                if (intentos <3){
+                    System.out.println("Respuesta incorrecta. Intenta de nuevo.");
+                }else{
+                    System.out.println("Lo siento, has agotado tus intentos. La respuesta correcta era: " + solucionAnagrama);
+                    ingresoDatos.close();
+                }
+                
+            }
+        }while (intentos < 3);
+
+    }
+
+
 
 
 
