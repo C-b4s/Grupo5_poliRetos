@@ -9,7 +9,10 @@ public class App {
 
         ArrayService servicioArray = new ArrayService();
         
-        servicioArray.graficarNombre2XFor("Sebastián Zúñiga");
+        servicioArray.imprimirXConNombre("Sebastián Zúñiga");
+        servicioArray.graficarNombre2xWhile("Sebastián");
+
+
         System.out.println("Mi nombre es Sebastián Zúñiga");
         System.out.print("Tamaño de la matriz: ");
         int tamanioMatriz = ingresoDatos.nextInt();
