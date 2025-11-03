@@ -1,7 +1,5 @@
 package src;
-import java.util.Arrays;
 import java.util.Scanner;
-
 import src.array.ArrayService;
 import src.cadenaCaracteres.CadenaService;
 
