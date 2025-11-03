@@ -221,9 +221,8 @@ public class ArrayService {
                     j++;
                 }while (j < tamIngresado);
             }else if (i < mitad - 1){
-
                 matIniciales[i][0] = caracterUsuario;
-            
+        
             }else{
                 matIniciales [i][tamIngresado - 1] = caracterUsuario;
                     
@@ -251,6 +250,275 @@ public class ArrayService {
         return matIniciales;
     }
 
+    public void graficarNombre2XFor(String name) {
+        if (name == null) name = "";
+        
+        int[] cps = name.codePoints().toArray();
+        String[] letras = new String[cps.length];
+        for (int i = 0; i < cps.length; i++) {
+            letras[i] = new String(Character.toChars(cps[i]));
+        }
 
+        int n = letras.length;
+        int height = Math.max(6, n);          
+        int ancho = Math.max(20, Math.max(10, n * 3)); 
+
+        plotNameOn2xFor(name, letras, ancho, height);
+    }
+
+    private void plotNameOn2xFor(String rawName, String[] letras, int ancho, int height) {
+        int n = letras.length;
+
+        int yLabelWidth = Integer.toString(height).length(); 
+        int yAxisCol = yLabelWidth + 1; 
+
+        int availableCols = ancho - (yAxisCol + 1); 
+        if (availableCols < 1) availableCols = 1;
+
+        double yRealMax = (n == 0) ? 0.0 : 2.0 * n;
+
+        double scaleY = (yRealMax > 0) ? (height / yRealMax) : 1.0;
+
+        int filas = height + 1; 
+        int cols = yAxisCol + 1 + availableCols;
+        String[][] plano = new String[filas][cols];
+
+        
+        for (int r = 0; r < filas; r++) {
+            Arrays.fill(plano[r], " ");
+        }
+
+        for (int r = 0; r < filas; r++) {
+            plano[r][yAxisCol] = "|";
+        }
+        
+        int horizonRow = filas - 1;
+        for (int c = yAxisCol; c < cols; c++) {
+            plano[horizonRow][c] = "_"; 
+        }
+        plano[horizonRow][yAxisCol] = "+"; 
+
+        for (int i = 0; i < n; i++) {
+            double x = i + 1; 
+            double yReal = 2.0 * x;
+            
+            double yScaled = yReal * scaleY;
+            int yInt = (int) Math.round(yScaled); 
+            
+            int rowIndex = filas - 1 - yInt; 
+
+            
+            int colIndex;
+            if (n == 1) {
+                colIndex = yAxisCol + 1 + (availableCols / 2);
+            } else {
+                // Espaciado proporcional
+                double posFraction = (double) i / (double) (Math.max(1, n - 1));
+                colIndex = yAxisCol + 1 + (int) Math.round(posFraction * (availableCols - 1));
+            }
+
+            
+            if (colIndex <= yAxisCol) colIndex = yAxisCol + 1;
+            if (colIndex >= cols) colIndex = cols - 1;
+
+            
+            plano[rowIndex][colIndex] = letras[i];
+        }
+
+        
+        for (int r = 0; r < filas; r++) {
+            int yValue = filas - 1 - r; 
+            String label = String.format("%" + yLabelWidth + "d ", yValue);
+            StringBuilder line = new StringBuilder();
+            line.append(label);
+            
+            for (int c = 0; c < cols; c++) {
+                line.append(plano[r][c]);
+            }
+            System.out.println(line.toString());
+        }
+
+        StringBuilder xLabelsPrefix = new StringBuilder();
+        for (int i = 0; i < yLabelWidth + 1; i++) xLabelsPrefix.append(" ");
+        StringBuilder xLine = new StringBuilder(xLabelsPrefix.toString());
+        for (int c = 0; c < cols - (yLabelWidth + 1); c++) xLine.append(" ");
+        System.out.println(xLine.toString());
+        System.out.println(); 
+    }
+
+    public void graficarNombre2XWhile(String name) {
+        if (name == null) name = "";
+        
+        int[] cps = name.codePoints().toArray();
+        String[] letras = new String[cps.length];
+        int i = 0;
+        while (i < cps.length) {
+            letras[i] = new String(Character.toChars(cps[i]));
+            i++;
+        }
+
+        int n = letras.length;
+        int height = Math.max(6, n);          
+        int ancho = Math.max(20, Math.max(10, n * 3)); 
+
+        plotNameOn2xWhile(name, letras, ancho, height);
+    }
+
+    private void plotNameOn2xWhile(String name, String[] letras, int ancho, int height) {
+        int n = letras.length;
+
+        int yLabelWidth = Integer.toString(height).length(); 
+        int yAxisCol = yLabelWidth + 1; 
+
+        int availableCols = ancho - (yAxisCol + 1); 
+        if (availableCols < 1) availableCols = 1;
+
+        double yRealMax = (n == 0) ? 0.0 : 2.0 * n;
+
+        double scaleY = (yRealMax > 0) ? (height / yRealMax) : 1.0;
+
+        int filas = height + 1; 
+        int cols = yAxisCol + 1 + availableCols;
+        String[][] plano = new String[filas][cols];
+
+        
+        int r = 0;
+        while (r < filas) {
+            Arrays.fill(plano[r], " ");
+            r++;
+        }
+
+        r = 0;
+        while (r < filas) {
+            plano[r][yAxisCol] = "|";
+            r++;
+        }
+        
+        int horizonRow = filas - 1;
+        int c = yAxisCol;
+        while (c < cols) {
+            plano[horizonRow][c] = "_"; 
+            c++;
+        }
+        plano[horizonRow][yAxisCol] = "+"; 
+
+        int i = 0;
+        while (i < n) {
+            double x = i + 1; 
+            double yReal = 2.0 * x;
+            
+            double yScaled = yReal * scaleY;
+            int yInt = (int) Math.round(yScaled); 
+            
+            int rowIndex = filas - 1 - yInt; 
+
+            
+            int colIndex;
+            if (n == 1) {
+                colIndex = yAxisCol + 1 + (availableCols / 2);
+            } else {
+                // Espaciado proporcional
+                double posFraction = (double) i / (double) (Math.max(1, n - 1));
+                colIndex = yAxisCol + 1 + (int) Math.round(posFraction * (availableCols - 1));
+            }
+
+            
+            if (colIndex <= yAxisCol) colIndex = yAxisCol + 1;
+            if (colIndex >= cols) colIndex = cols - 1;
+
+            
+            plano[rowIndex][colIndex] = letras[i];
+            i++;
+        }
+    }
+
+    public void graficarNombre2XDoWhile(String name) {
+        if (name == null) name = "";
+        
+        int[] cps = name.codePoints().toArray();
+        String[] letras = new String[cps.length];
+        int i = 0;
+        do{
+            if (i >= cps.length) break;
+            letras[i] = new String(Character.toChars(cps[i]));
+            i++;
+        }while (true);
+
+        int n = letras.length;
+        int height = Math.max(6, n);          
+        int ancho = Math.max(20, Math.max(10, n * 3)); 
+
+        plotNameOn2xDoWhile(name, letras, ancho, height);
+    }
+
+    public void plotNameOn2xDoWhile(String name, String[] letras, int ancho, int height) {
+        int n = letras.length;
+
+        int yLabelWidth = Integer.toString(height).length(); 
+        int yAxisCol = yLabelWidth + 1; 
+
+        int availableCols = ancho - (yAxisCol + 1); 
+        if (availableCols < 1) availableCols = 1;
+
+        double yRealMax = (n == 0) ? 0.0 : 2.0 * n;
+
+        double scaleY = (yRealMax > 0) ? (height / yRealMax) : 1.0;
+
+        int filas = height + 1; 
+        int cols = yAxisCol + 1 + availableCols;
+        String[][] plano = new String[filas][cols];
+
+        
+        int r = 0;
+        do{
+            if (r >= filas) break;
+            Arrays.fill(plano[r], " ");
+            r++;
+        }while (true);
+
+        r = 0;
+        do{
+            if (r >= filas) break;
+            plano[r][yAxisCol] = "|";
+            r++;
+        }while (true);
+        
+        int horizonRow = filas - 1;
+        int c = yAxisCol;
+        do{
+            if (c >= cols) break;
+            plano[horizonRow][c] = "_"; 
+            c++;
+        }while (true);
+        plano[horizonRow][yAxisCol] = "+"; 
+
+        int i = 0;
+        do{
+            if (i >= n) break;
+            double x = i + 1; 
+            double yReal = 2.0 * x;
+            
+            double yScaled = yReal * scaleY;
+            int yInt = (int) Math.round(yScaled); 
+            
+            int rowIndex = filas - 1 - yInt; 
+
+            
+            int colIndex;
+            if (n == 1) {
+                colIndex = yAxisCol + 1 + (availableCols / 2);
+            } else {
+                // Espaciado proporcional
+                double posFraction = (double) i / (double) (Math.max(1, n - 1));
+                colIndex = yAxisCol + 1 + (int) Math.round(posFraction * (availableCols - 1));
+            }
+
+            
+            if (colIndex <= yAxisCol) colIndex = yAxisCol + 1;
+            if (colIndex >= cols) colIndex = cols - 1;
+            plano[rowIndex][colIndex] = letras[i];
+            i++;
+        }while (true);
+    }
 
 }

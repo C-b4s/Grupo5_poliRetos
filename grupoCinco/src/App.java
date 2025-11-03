@@ -7,9 +7,9 @@ public class App {
     public static void main(String[] args) {
         Scanner ingresoDatos = new Scanner(System.in);
 
-         ArrayService servicioArray = new ArrayService();
+        ArrayService servicioArray = new ArrayService();
         
-
+        servicioArray.graficarNombre2XFor("Sebastián Zúñiga");
         System.out.println("Mi nombre es Sebastián Zúñiga");
         System.out.print("Tamaño de la matriz: ");
         int tamanioMatriz = ingresoDatos.nextInt();
@@ -18,7 +18,7 @@ public class App {
         System.out.print("Caracter para imprimir las iniciales de mi nombre: ");
         char caracterImpresion = ingresoDatos.nextLine().charAt(0);
 
-        char [] [] matrizIniciales = servicioArray.crearMatrizIniciales(tamanioMatriz, caracterImpresion);
+        char [] [] matrizIniciales = servicioArray.crearMatrizInicialesFor(tamanioMatriz, caracterImpresion);
         System.out.println(" ");
 
         for (char [] fila : matrizIniciales){
@@ -43,7 +43,7 @@ public class App {
 
        
 
-    servicioArray.mostrarPorcentajesDoWhile(palabrasNombre, porcentajes);
+        servicioArray.mostrarPorcentajesDoWhile(palabrasNombre, porcentajes);
         
 
         System.out.println("Bienvenido al proyecto realizado por el grupo cinco. Ingrese un texto:");
