@@ -22,7 +22,7 @@ public class App {
         }
 
         ArrayService servicioArray = new src.array.ArrayService();
-        servicioArray.mostrarPorcentajesNombreFor(palabrasNombre, porcentajes);
+        servicioArray.mostrarPorcentajesDoWhile(palabrasNombre, porcentajes);
 
 
         
