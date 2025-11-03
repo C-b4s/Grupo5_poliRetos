@@ -4,11 +4,12 @@ import src.array.ArrayService;
 import src.cadenaCaracteres.CadenaService;
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Scanner ingresoDatos = new Scanner(System.in);
 
         ArrayService servicioArray = new ArrayService();
         
+        servicioArray.colocarLetrasNombreAleatorioFor("Sebastián Josué Zúñiga Mendoza", 500);
         servicioArray.imprimirXConNombre("Sebastián Zúñiga");
         servicioArray.graficarNombre2xWhile("Sebastián");
 
