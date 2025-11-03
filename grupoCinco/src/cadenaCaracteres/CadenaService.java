@@ -1,13 +1,12 @@
-package src.cadenasCaracteres;
+package src.cadenaCaracteres;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Service {
+public class CadenaService {
     public int contarVocalesFor(String textoIngresado) {
         int contVocales = 0;
         String cadenaVocales = "áéíóúaeiou";
@@ -381,7 +380,7 @@ public class Service {
         anagramas.put("abusar", "basura");
         anagramas.put("animales", "milanesa");
 
-        List <String> anagramasKeys = new ArrayList<>(anagramas.keySet());
+        ArrayList <String> anagramasKeys = new ArrayList<>(anagramas.keySet());
         Random palabraAleatoria = new Random();
 
         String parDeAnagrama = anagramasKeys.get(palabraAleatoria.nextInt(anagramasKeys.size()));
@@ -420,7 +419,7 @@ public class Service {
         anagramas.put("abusar", "basura");
         anagramas.put("animales", "milanesa");
 
-        List <String> anagramasKeys = new ArrayList <> (anagramas.keySet());
+        ArrayList <String> anagramasKeys = new ArrayList <> (anagramas.keySet());
         Random palabraAleatoria = new Random();
 
         String parDeAnagrama = anagramasKeys.get(palabraAleatoria.nextInt(anagramasKeys.size()));
@@ -461,7 +460,7 @@ public class Service {
         anagramas.put("abusar", "basura");
         anagramas.put("animales", "milanesa");
 
-        List <String> anagramasKeys = new ArrayList <> (anagramas.keySet());
+        ArrayList <String> anagramasKeys = new ArrayList <> (anagramas.keySet());
         Random palabraAleatoria = new Random();
         String parDeAnagrama = anagramasKeys.get(palabraAleatoria.nextInt(anagramas.size()));
         String solucionAnagrama = anagramas.get(parDeAnagrama);

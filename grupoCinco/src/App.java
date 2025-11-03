@@ -1,14 +1,35 @@
 package src;
 import java.util.Scanner;
 
-import src.cadenasCaracteres.Service;
+import src.array.ArrayService;
+import src.cadenaCaracteres.CadenaService;
 
 public class App {
     public static void main(String[] args) {
         Scanner ingresoDatos = new Scanner(System.in);
+
+        System.out.println("Bienvenido. Por favor, ingrese su nombre:");
+        String nombreUsuario = ingresoDatos.nextLine();
+        String [] palabrasNombre = nombreUsuario.split(" ");
+
+        System.out.println("Por favor, ingrese los porcentajes asociados a cada palabra de su nombre, separados por espacios:");
+
+        String [] porcentajesStr = ingresoDatos.nextLine().split(" ");
+        double [] porcentajes = new double [porcentajesStr.length];
+
+        for (int i = 0; i < porcentajesStr.length; i++){
+            porcentajes[i] = Double.parseDouble(porcentajesStr[i]);
+        }
+
+        ArrayService servicioArray = new src.array.ArrayService();
+        servicioArray.mostrarPorcentajesNombreFor(palabrasNombre, porcentajes);
+
+
+        
+
         System.out.println("Bienvenido al proyecto realizado por el grupo cinco. Ingrese un texto:");
         String textoIngresado = ingresoDatos.nextLine();
-        Service servicio = new Service();
+        CadenaService servicio = new CadenaService();
         int cantidadVocales = servicio.contarVocalesFor(textoIngresado);
         System.out.println("La cantidad de vocales en el texto ingresado es: " + cantidadVocales);
         
