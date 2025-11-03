@@ -1,4 +1,5 @@
 package src;
+import java.util.Arrays;
 import java.util.Scanner;
 
 import src.array.ArrayService;
@@ -7,6 +8,27 @@ import src.cadenaCaracteres.CadenaService;
 public class App {
     public static void main(String[] args) {
         Scanner ingresoDatos = new Scanner(System.in);
+
+         ArrayService servicioArray = new ArrayService();
+        
+
+        System.out.println("Mi nombre es Sebastián Zúñiga");
+        System.out.print("Tamaño de la matriz: ");
+        int tamanioMatriz = ingresoDatos.nextInt();
+        ingresoDatos.nextLine(); // Limpiar el buffer
+
+        System.out.print("Caracter para imprimir las iniciales de mi nombre: ");
+        char caracterImpresion = ingresoDatos.nextLine().charAt(0);
+
+        char [] [] matrizIniciales = servicioArray.crearMatrizIniciales(tamanioMatriz, caracterImpresion);
+        System.out.println(" ");
+
+        for (char [] fila : matrizIniciales){
+            System.out.println(new String(fila));
+        }
+
+        System.out.println(" ");
+        
 
         System.out.println("Bienvenido. Por favor, ingrese su nombre:");
         String nombreUsuario = ingresoDatos.nextLine();
@@ -21,10 +43,9 @@ public class App {
             porcentajes[i] = Double.parseDouble(porcentajesStr[i]);
         }
 
-        ArrayService servicioArray = new src.array.ArrayService();
-        servicioArray.mostrarPorcentajesDoWhile(palabrasNombre, porcentajes);
+       
 
-
+    servicioArray.mostrarPorcentajesDoWhile(palabrasNombre, porcentajes);
         
 
         System.out.println("Bienvenido al proyecto realizado por el grupo cinco. Ingrese un texto:");

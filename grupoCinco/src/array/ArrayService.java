@@ -1,5 +1,7 @@
 package src.array;
 
+import java.util.Arrays;
+
 public class ArrayService {
     public void mostrarPorcentajesFor (String [] palabrasNombre, double porcentajes []){        
         for (int i = 0; i < palabrasNombre.length; i++){
@@ -112,5 +114,47 @@ public class ArrayService {
         return barra.append("] ").toString();
     }
 
-    
+    public char [] [] crearMatrizIniciales (int tamIngresado, char caracterUsuario){
+        char [] [] matIniciales = new char [tamIngresado][(tamIngresado * 2) + 5];
+
+        for (int i = 0; i < tamIngresado; i++){
+            Arrays.fill(matIniciales[i], ' ');
+        }
+
+        int mitad = (int) Math.ceil(tamIngresado / 2.0);
+
+        for (int i = 0; i < tamIngresado; i++){
+                if (i == 0|| i == mitad - 1 || i == tamIngresado - 1){
+                    for (int j = 0; j < tamIngresado; j++){
+                        matIniciales [i][j] = caracterUsuario;
+                    }
+                }else if (i < mitad - 1){
+
+                    matIniciales[i][0] = caracterUsuario;
+                
+                }else{
+                    matIniciales [i][tamIngresado - 1] = caracterUsuario;
+                        
+                }
+        }           
+                  
+        
+        int offset = tamIngresado + 3;
+
+        for (int i = 0; i < tamIngresado; i++){
+            
+             if (i == 0 || i == tamIngresado - 1){
+                    for (int j = 0; j < tamIngresado; j++){
+                        matIniciales [i][offset + j] = caracterUsuario;
+                    }
+            }else{
+                matIniciales[i][offset + (tamIngresado - i - 1)] = caracterUsuario;
+            }
+        }
+
+        return matIniciales;
+    }
+
+
+
 }
