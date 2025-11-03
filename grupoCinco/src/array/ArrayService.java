@@ -221,9 +221,8 @@ public class ArrayService {
                     j++;
                 }while (j < tamIngresado);
             }else if (i < mitad - 1){
-
                 matIniciales[i][0] = caracterUsuario;
-            
+        
             }else{
                 matIniciales [i][tamIngresado - 1] = caracterUsuario;
                     
@@ -251,6 +250,272 @@ public class ArrayService {
         return matIniciales;
     }
 
+    public void graficarNombre2xFor(String nombre) {
+
+        int n = nombre.length();
+
+        // Pendiente de la función f(x) = 2x
+        int m = 2;
+
+        // Dimensiones de la matriz (lienzo)
+        int altura = m * (n - 1) + 3; // margen superior
+        int anchura = n + 3;          // margen derecho
+
+        // Crear matriz vacía
+        char[][] plano = new char[altura][anchura];
+
+        // Inicializar con espacios
+        for (int i = 0; i < altura; i++) {
+            for (int j = 0; j < anchura; j++) {
+                plano[i][j] = ' ';
+            }
+        }
+
+        // Dibujar ejes
+        for (int i = 0; i < anchura; i++) plano[0][i] = '_';      // eje X
+        for (int i = 0; i < altura; i++) plano[i][0] = '|';       // eje Y
+        plano[0][0] = '+';                                        // origen
+
+        // Graficar letras del nombre en f(x) = 2x
+        for (int x = 0; x < n; x++) {
+            int y = m * x; // f(x) = 2x
+
+            if (y < altura && x < anchura) {
+                char letra = nombre.charAt(x);
+                plano[y][x] = letra;
+            }
+        }
+
+        for (int i = altura - 1; i >= 0; i--) {
+            System.out.printf("%2d %s\n", i, new String(plano[i]));
+        }
 
 
+    }
+
+    public void graficarNombre2xWhile(String nombre) {
+        int n = nombre.length();
+        int m = 2;
+
+        int altura = m * (n - 1) + 3;
+        int anchura = n + 3;
+
+        char[][] plano = new char[altura][anchura];
+
+        int i = 0;
+        while (i < altura) {
+            int j = 0;
+            while (j < anchura) {
+                plano[i][j] = ' ';
+                j++;
+            }
+            i++;
+        }
+
+        i = 0;
+        while (i < anchura) {
+            plano[0][i] = '_';
+            i++;
+        }
+
+        i = 0;
+        while (i < altura) {
+            plano[i][0] = '|';
+            i++;
+        }
+        plano[0][0] = '+';
+
+        int x = 0;
+        while (x < n) {
+            int y = m * x;
+
+            if (y < altura && x < anchura) {
+                char letra = nombre.charAt(x);
+                plano[y][x] = letra;
+            }
+            x++;
+        }
+
+        i = altura - 1;
+        while (i >= 0) {
+            System.out.printf("%2d %s\n", i, new String(plano[i]));
+            i--;
+        }
+    }
+
+    public void graficarNombre2xDoWhile(String nombre) {
+        int n = nombre.length();
+        int m = 2;
+
+        int altura = m * (n - 1) + 3;
+        int anchura = n + 3;
+
+        char[][] plano = new char[altura][anchura];
+
+        int i = 0;
+        do {
+            int j = 0;
+            do {
+                plano[i][j] = ' ';
+                j++;
+            } while (j < anchura);
+            i++;
+        } while (i < altura);
+
+        i = 0;
+        do {
+            plano[0][i] = '_';
+            i++;
+        } while (i < anchura);
+
+        i = 0;
+        do {
+            plano[i][0] = '|';
+            i++;
+        } while (i < altura);
+        plano[0][0] = '+';
+
+        int x = 0;
+        do {
+            int y = m * x;
+
+            if (y < altura && x < anchura) {
+                char letra = nombre.charAt(x);
+                plano[y][x] = letra;
+            }
+            x++;
+        } while (x < n);
+
+        i = altura - 1;
+        do {
+            System.out.printf("%2d %s\n", i, new String(plano[i]));
+            i--;
+        } while (i >= 0);
+    }
+    
+    public void imprimirXConNombre(String nombreCompleto) {
+        // Eliminar espacios para usar solo los caracteres
+        String nombreSinEspacios = nombreCompleto.replace(" ", "");
+        String nombre = nombreSinEspacios.substring(0,9);
+        String apellido = nombreSinEspacios.substring(9, 15);
+        int nombreTamanio = nombre.length(); // Tamaño de la matriz cuadrada
+        char[][] matriz = new char[nombreTamanio][nombreTamanio];
+
+        // Inicializar la matriz con espacios
+        for (int i = 0; i < nombreTamanio; i++) {
+            for (int j = 0; j < nombreTamanio; j++) {
+                matriz[i][j] = ' ';
+            }
+        }
+
+        // Rellenar las diagonales con las letras del nombre
+        for (int i = 0; i < nombre.length(); i++) {
+            char letraNombre = nombre.charAt(i);
+            matriz[i][i] = letraNombre;               
+        }
+
+        for (int i = 0; i < apellido.length(); i++) {
+            char letraApellido = apellido.charAt(i);
+            matriz[i][nombreTamanio - 1 - i] = letraApellido;       
+        }
+
+        // Imprimir la matriz
+        for (int i = 0; i < nombreTamanio; i++) {
+            for (int j = 0; j < nombreTamanio; j++) {
+                System.out.print(matriz[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public void imprimirXConNombreWhile(String nombreCompleto) {
+        String nombreSinEspacios = nombreCompleto.replace(" ", "");
+        String nombre = nombreSinEspacios.substring(0, 9);
+        String apellido = nombreSinEspacios.substring(9, 15);
+        int nombreTamanio = nombre.length();
+        char[][] matriz = new char[nombreTamanio][nombreTamanio];
+
+        int i = 0;
+        while (i < nombreTamanio) {
+            int j = 0;
+            while (j < nombreTamanio) {
+                matriz[i][j] = ' ';
+                j++;
+            }
+            i++;
+        }
+
+        i = 0;
+        while (i < nombre.length()) {
+            char letraNombre = nombre.charAt(i);
+            matriz[i][i] = letraNombre;
+            i++;
+        }
+
+        i = 0;
+        while (i < apellido.length()) {
+            char letraApellido = apellido.charAt(i);
+            matriz[i][nombreTamanio - 1 - i] = letraApellido;
+            i++;
+        }
+
+        i = 0;
+        while (i < nombreTamanio) {
+            int j = 0;
+            while (j < nombreTamanio) {
+                System.out.print(matriz[i][j] + " ");
+                j++;
+            }
+            System.out.println();
+            i++;
+        }
+    }
+
+    public void imprimirXConNombreDoWhile(String nombreCompleto) {
+        String nombreSinEspacios = nombreCompleto.replace(" ", "");
+        String nombre = nombreSinEspacios.substring(0, 9);
+        String apellido = nombreSinEspacios.substring(9, 15);
+        int nombreTamanio = nombre.length();
+        char[][] matriz = new char[nombreTamanio][nombreTamanio];
+
+        int i = 0;
+        do {
+            int j = 0;
+            do {
+                matriz[i][j] = ' ';
+                j++;
+            } while (j < nombreTamanio);
+            i++;
+        } while (i < nombreTamanio);
+
+        i = 0;
+        do {
+            char letraNombre = nombre.charAt(i);
+            matriz[i][i] = letraNombre;
+            i++;
+        } while (i < nombre.length());
+
+        i = 0;
+        do {
+            char letraApellido = apellido.charAt(i);
+            matriz[i][nombreTamanio - 1 - i] = letraApellido;
+            i++;
+        } while (i < apellido.length());
+
+        i = 0;
+        do {
+            int j = 0;
+            do {
+                System.out.print(matriz[i][j] + " ");
+                j++;
+            } while (j < nombreTamanio);
+            System.out.println();
+            i++;
+        } while (i < nombreTamanio);
+    }
+
+    
 }
+
+
+    
