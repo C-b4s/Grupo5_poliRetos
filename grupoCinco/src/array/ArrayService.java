@@ -4,6 +4,13 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class ArrayService {
+    /**
+     * Este método muestra los porcentajes asociados a cada palabra del nombre
+     * utilizando un bucle for.
+     * @param palabrasNombre: String[]
+     * @param porcentajes: double[]
+     */
+    
     public void mostrarPorcentajesFor (String [] palabrasNombre, double porcentajes []){        
         for (int i = 0; i < palabrasNombre.length; i++){
             String barraPalabra = generarBarraFor(porcentajes[i]);
@@ -13,6 +20,12 @@ public class ArrayService {
         }
     }
 
+
+    /**
+     * 
+     * @param porcentaje
+     * @return
+     */
     private String generarBarraFor (double porcentaje){
         int espaciosTotales = 15;
         int espaciosLlenos = (int) (porcentaje / 100 * espaciosTotales);
