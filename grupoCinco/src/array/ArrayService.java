@@ -10,7 +10,7 @@ public class ArrayService {
      * @param palabrasNombre: String[]
      * @param porcentajes: double[]
      */
-    
+
     public void mostrarPorcentajesFor (String [] palabrasNombre, double porcentajes []){        
         for (int i = 0; i < palabrasNombre.length; i++){
             String barraPalabra = generarBarraFor(porcentajes[i]);
@@ -22,10 +22,11 @@ public class ArrayService {
 
 
     /**
-     * 
-     * @param porcentaje
-     * @return
+     * Este método genera una barra de progreso basada en el porcentaje dado.
+     * @param porcentaje : double
+     * @return String barra de progreso
      */
+    
     private String generarBarraFor (double porcentaje){
         int espaciosTotales = 15;
         int espaciosLlenos = (int) (porcentaje / 100 * espaciosTotales);
