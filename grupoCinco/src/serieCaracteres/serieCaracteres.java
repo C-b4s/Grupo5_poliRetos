@@ -102,7 +102,7 @@ public class serieCaracteres {
      * @param n
      * @return
      */
-    public String g6_generarS7(int n) {
+    public String g5_generarS7(int n) {
         String resultado = "";
         char letra = 'a';
         for (int i = 0; i < n; i++) {

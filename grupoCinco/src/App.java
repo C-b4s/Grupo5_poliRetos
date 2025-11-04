@@ -4,6 +4,7 @@ import src.array.ArrayService;
 import src.cadenaCaracteres.CadenaService;
 import src.recursividad.OperacionesDatos;
 import src.recursividad.recursion;
+import src.serieCaracteres.serieCaracteres;
 
 public class App {
     public static void main(String[] args) {
@@ -109,7 +110,20 @@ public class App {
         rec.contarDesde(op.getN());
 
         //...
+        serieCaracteres caracteres=new serieCaracteres();
+        System.out.print("Ingrese la cantidad de elementos n: ");
+        int n = ingresoDatos.nextInt();
 
+        System.out.println("\n S1: " + caracteres.g5_generarS1(n));
+        System.out.println(" S2: " + caracteres.g5_generarS2(n));
+        System.out.println(" S3: " + caracteres.g5_generarS3(n));
+        System.out.println(" S4: " + caracteres.g5_generarS4(n));
+        System.out.println(" S5: " + caracteres.g5_generarS5(n));
+        System.out.println(" S6: " + caracteres.g5_generarS6(n));
+        System.out.println(" S7: " + caracteres.g5_generarS7(n));
+        System.out.println(" S8: " + caracteres.g5_generarS8(n));
+        System.out.println(" S9: " + caracteres.g5_generarS9(n));
         
+        // ...
     }
 }
