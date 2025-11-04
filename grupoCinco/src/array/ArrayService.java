@@ -567,7 +567,7 @@ public class ArrayService {
             Thread.sleep(delayMs);
         }
 
-        System.out.println("\n✅ Inserción completada.");
+        System.out.println("\nInserción completada.");
     }
 
     public void colocarLetrasNombreAleatorioWhile (String nombreCompleto, int delayMs) throws InterruptedException {
@@ -623,7 +623,7 @@ public class ArrayService {
             k++;
         }
 
-        System.out.println("\n✅ Inserción completada.");
+        System.out.println("\nInserción completada.");
     }
 
     public void colocarLetrasNOmbreAleatorioDoWhile (String nombreCompleto, int delayMs) throws InterruptedException {
@@ -679,7 +679,7 @@ public class ArrayService {
             k++;
         } while (k < texto.length());
 
-        System.out.println("\n✅ Inserción completada.");
+        System.out.println("\nInserción completada.");
     }
 
     /** Imprime la matriz con ejes verticales y horizontales. */
