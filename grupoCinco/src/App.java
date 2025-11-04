@@ -2,10 +2,23 @@ package src;
 import java.util.Scanner;
 import src.array.ArrayService;
 import src.cadenaCaracteres.CadenaService;
+import src.recursividad.OperacionesDatos;
+import src.recursividad.recursion;
+import src.serieCaracteres.serieCaracteres;
 
 public class App {
     public static void main(String[] args) throws InterruptedException {
         Scanner ingresoDatos = new Scanner(System.in);
+
+        System.out.println("Bienvenido al proyecto realizado por el grupo cinco");
+        System.out.println("Los integrantes del grupo son:\n");
+        System.out.println("1. Sebastián Zúñiga");
+        System.out.println("2. Victoria Torres");
+        System.out.println("3. Robinson Tandazo");
+        System.out.println("4. Matias Quinchiguano");
+        System.out.println("5. Michael Sornoza");
+        System.out.println("6. Micaela Sagñal");
+       
 
         ArrayService servicioArray = new ArrayService();
         
@@ -56,7 +69,7 @@ public class App {
         int cantidadVocales = servicio.contarVocalesFor(textoIngresado);
         System.out.println("La cantidad de vocales en el texto ingresado es: " + cantidadVocales);
         
-        System.out.println("El texto en mayúsculas sin la letra 'J' es: " + servicio.convertirAMayusSinJDoWhile(textoIngresado));
+        System.out.println("El texto en mayúingresoDatosulas sin la letra 'J' es: " + servicio.convertirAMayusSinJDoWhile(textoIngresado));
 
         System.out.println("Ingrese una vocal a eliminar del texto:");
         char vocalAEliminar = ingresoDatos.nextLine().charAt(0);
@@ -65,11 +78,53 @@ public class App {
 
         servicio.adivinarAnagramasWhile(ingresoDatos);
 
-        System.out.println("Por favor, ingrese un texto para alternar entre mayúsculas y minúsculas: ");
+        System.out.println("Por favor, ingrese un texto para alternar entre mayúingresoDatosulas y minúingresoDatosulas: ");
         String textoParaAlternar = ingresoDatos.nextLine();
         String textoAlternado = servicio.alternarMayusYMinusFor(textoParaAlternar);
-        System.out.println("El texto con alternancia de mayúsculas y minúsculas es: " + textoAlternado);
+        System.out.println("El texto con alternancia de mayúingresoDatosulas y minúingresoDatosulas es: " + textoAlternado);
 
         ingresoDatos.close();
+
+
+        //...
+        recursion rec=new recursion();
+        OperacionesDatos op = new OperacionesDatos();
+
+        System.out.print("Ingrese el valor de n: ");
+        op.setN(ingresoDatos.nextInt());
+
+        System.out.print("Ingrese el valor de a: ");
+        op.setA(ingresoDatos.nextInt());
+
+        System.out.print("Ingrese el valor de b: ");
+        op.setB(ingresoDatos.nextInt());
+
+        System.out.println("\nFactorial de " + op.getN() + ": " + rec.g5_factorial(op.getN()));
+        System.out.println("Suma recursiva de " + op.getA() + " + " + op.getB() + ": " + rec.g5_sumar(op.getA(), op.getB()));
+        System.out.println("Multiplicación recursiva de " + op.getA() + " x " + op.getB() + ": " + rec.g5_multiplicar(op.getA(), op.getB()));
+        System.out.println("Potencia recursiva de " + op.getA() + "^" + op.getB() + ": " + rec.potencia(op.getA(), op.getB()));
+
+        System.out.println("\nConteo progresivo hasta " + op.getN() + ":");
+        rec.contarHasta(op.getN());
+
+        System.out.println("\nConteo regresivo desde " + op.getN() + " hasta 0:");
+        rec.contarDesde(op.getN());
+
+        //...
+        serieCaracteres caracteres=new serieCaracteres();
+        System.out.print("Ingrese la cantidad de elementos n: ");
+        int n = ingresoDatos.nextInt();
+
+        System.out.println("\n S1: " + caracteres.g5_generarS1(n));
+        System.out.println(" S2: " + caracteres.g5_generarS2(n));
+        System.out.println(" S3: " + caracteres.g5_generarS3(n));
+        System.out.println(" S4: " + caracteres.g5_generarS4(n));
+        System.out.println(" S5: " + caracteres.g5_generarS5(n));
+        System.out.println(" S6: " + caracteres.g5_generarS6(n));
+        System.out.println(" S7: " + caracteres.g5_generarS7(n));
+        System.out.println(" S8: " + caracteres.g5_generarS8(n));
+        System.out.println(" S9: " + caracteres.g5_generarS9(n));
+        
+        // ...
     }
 }
