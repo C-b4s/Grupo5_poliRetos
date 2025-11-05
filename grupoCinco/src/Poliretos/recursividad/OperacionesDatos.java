@@ -1,4 +1,4 @@
-package src.recursividad;
+package src.Poliretos.recursividad;
 
 public class OperacionesDatos {
     private int n;

@@ -1,4 +1,4 @@
-package src.cadenaCaracteres;
+package src.Poliretos.cadenaCaracteres;
 
 import java.util.ArrayList;
 import java.util.HashMap;
