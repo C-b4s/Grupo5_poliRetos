@@ -19,7 +19,7 @@ public class App {
         System.out.println("3. Robinson Tandazo");
         System.out.println("4. Matias Quinchiguano");
         System.out.println("5. Michael Sornoza");
-        System.out.println("6. Micaela Sagñal");
+        System.out.println("6. Micaela Sagñay");
        
 
         ArrayService servicioArray = new ArrayService();
@@ -144,3 +144,5 @@ public class App {
         // ...
     }
 }
+
+        
