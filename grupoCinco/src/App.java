@@ -23,14 +23,11 @@ public class App {
        
 
         ArrayService servicioArray = new ArrayService();
-<<<<<<< HEAD
         
         servicioArray.colocarLetrasNombreAleatorioFor("Sebastián Josué Zúñiga Mendoza", 500);
-=======
 
         automatas automatas = new automatas();
 
->>>>>>> 6e7a6c9c89bd8b022b47047e8af347df4eb48218
         servicioArray.imprimirXConNombre("Sebastián Zúñiga");
         servicioArray.graficarNombre2xWhile("Sebastián");
 
