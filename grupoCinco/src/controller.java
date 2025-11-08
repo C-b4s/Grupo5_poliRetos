@@ -1,4 +1,5 @@
-package src.Poliretos.Controler;
+package src;
+
 import java.util.Scanner;
 import src.Poliretos.array.ArrayService;
 import src.Poliretos.automatas.automatas;
