@@ -284,7 +284,7 @@ public class FigurasService11_19 {
                 i++;
             }
         }
-        /*
+        /*6
          * 
          */
         public void figuraº16DoWhile(int filasImpares){
