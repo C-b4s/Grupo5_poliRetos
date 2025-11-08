@@ -1,4 +1,4 @@
-package src.serieCaracteres;
+package src.Poliretos.serieCaracteres;
 
 public class serieCaracteres {
 
