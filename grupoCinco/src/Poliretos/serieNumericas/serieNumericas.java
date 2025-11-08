@@ -1,4 +1,5 @@
-package src.serieNumericas;
+   
+package src.Poliretos.serieNumericas;
 
 import java.util.Scanner;
 
@@ -466,3 +467,4 @@ public class serieNumericas {
         scanner.close();
     }
 }
+

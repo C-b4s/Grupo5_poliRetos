@@ -1,7 +1,7 @@
-public class FigurasService {
-    
-    
-    
+package src.Poliretos.Figuras;
+
+public class FigurasService11_19 {
+
     /*
      * 
      */
@@ -284,7 +284,7 @@ public class FigurasService {
                 i++;
             }
         }
-        /*
+        /*6
          * 
          */
         public void figuraº16DoWhile(int filasImpares){

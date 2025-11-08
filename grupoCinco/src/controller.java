@@ -1,20 +1,29 @@
 package src;
-public class App {
-    public static void main(String[] args)throws InterruptedException {
 
-        Controller controlador=new Controller();
-        controlador.Inicializar();
+import java.util.Scanner;
+import src.Poliretos.array.ArrayService;
+import src.Poliretos.automatas.automatas;
+import src.Poliretos.cadenaCaracteres.CadenaService;
+import src.Poliretos.recursividad.OperacionesDatos;
+import src.Poliretos.serieCaracteres.SeriesCaracteres;
+import src.Poliretos.recursividad.g5_Recursividad;
 
-<<<<<<< HEAD
-        ArrayService servicioArray = new ArrayService();
-<<<<<<< HEAD
+public class Controller {
+    public void Inicializar() throws InterruptedException{
+        Scanner ingresoDatos = new Scanner(System.in);
+    
+        System.out.println("¡Bienvenido al proyecto realizado por el grupo cinco!");
+        System.out.println("Integrantes del grupo:");
+        System.out.println("1. Sebastián Zúñiga");
+        System.out.println("2. Victoria Torres");
+        System.out.println("3. Andrés Sánchez");
+        System.out.println("4. Matías Quinchiguango");
+        System.out.println("5. Michael Sotomayor");
+        System.out.println("6. Micaela Sajal");
         
+        ArrayService servicioArray = new ArrayService();
         servicioArray.colocarLetrasNombreAleatorioFor("Sebastián Josué Zúñiga Mendoza", 500);
-=======
-
         automatas automatas = new automatas();
-
->>>>>>> 6e7a6c9c89bd8b022b47047e8af347df4eb48218
         servicioArray.imprimirXConNombre("Sebastián Zúñiga");
         servicioArray.graficarNombre2xWhile("Sebastián");
 
@@ -59,8 +68,7 @@ public class App {
         
         System.out.println("El texto en mayúingresoDatosulas sin la letra 'J' es: " + servicio.convertirAMayusSinJDoWhile(textoIngresado));
 
-        System.out.println(
-                "El texto en mayúsculas sin la letra 'J' es: " + servicio.convertirAMayusSinJDoWhile(textoIngresado));
+        System.out.println("El texto en mayúsculas sin la letra 'J' es: " + servicio.convertirAMayusSinJDoWhile(textoIngresado));
 
         System.out.println("Ingrese una vocal a eliminar del texto:");
         char vocalAEliminar = ingresoDatos.nextLine().charAt(0);
@@ -87,100 +95,62 @@ public class App {
 
 
         //...
-        recursion rec=new recursion();
+
+
+        g5_Recursividad rec=new g5_Recursividad();
         OperacionesDatos op = new OperacionesDatos();
 
         System.out.print("Ingrese el valor de n: ");
         op.setN(ingresoDatos.nextInt());
-
         System.out.print("Ingrese el valor de a: ");
         op.setA(ingresoDatos.nextInt());
 
         System.out.print("Ingrese el valor de b: ");
         op.setB(ingresoDatos.nextInt());
 
-        System.out.println("\nFactorial de " + op.getN() + ": " + rec.g5_factorial(op.getN()));
-        System.out.println("Suma recursiva de " + op.getA() + " + " + op.getB() + ": " + rec.g5_sumar(op.getA(), op.getB()));
-        System.out.println("Multiplicación recursiva de " + op.getA() + " x " + op.getB() + ": " + rec.g5_multiplicar(op.getA(), op.getB()));
-        System.out.println("Potencia recursiva de " + op.getA() + "^" + op.getB() + ": " + rec.potencia(op.getA(), op.getB()));
+        System.out.println("\n*Factorial de " + op.getN() + " con el buble for: " + rec.g5_factorialFor(op.getN()));
+        System.out.println("Factorial de " + op.getN() + " con el buble for: " + rec.g5_factorialWhile(op.getN()));
+        System.out.println("Factorial de " + op.getN() + " con el buble do_while: " + rec.g5_factorialDoWhile(op.getN()));
 
-        System.out.println("\nConteo progresivo hasta " + op.getN() + ":");
-        rec.contarHasta(op.getN());
+        System.out.println("Suma recursiva de " + op.getA() + " + " + op.getB() + " con el bucle For: " + rec.g5_sumarFor(op.getA(), op.getB()));
+        System.out.println("Suma recursiva de " + op.getA() + " + " + op.getB() + " con el bucle While: " + rec.g5_sumarWhile(op.getA(), op.getB()));
+        System.out.println("Suma recursiva de " + op.getA() + " + " + op.getB() + " con el bucle Do_While: " + rec.g5_sumarDoWhile(op.getA(), op.getB()));
+        
+        System.out.println("Multiplicacion recursiva de " + op.getA() + " + " + op.getB() + " con el bucle For: " + rec.g5_multiplicarFor(op.getA(), op.getB()));
+        System.out.println("Multiplicacion recursiva de " + op.getA() + " + " + op.getB() + " con el bucle While: " + rec.g5_multiplicarWhile(op.getA(), op.getB()));
+        System.out.println("Multiplicacion recursiva de " + op.getA() + " + " + op.getB() + " con el bucle Do_While: " + rec.g5_multiplicarDoWhile(op.getA(), op.getB()));
+        
 
-        System.out.println("\nConteo regresivo desde " + op.getN() + " hasta 0:");
-        rec.contarDesde(op.getN());
+        System.out.println("Potencia recursiva de " + op.getA() + "^" + op.getB() + " con el bucle For: " + rec.potenciaFor(op.getA(), op.getB()));
+        System.out.println("Potencia recursiva de " + op.getA() + "^" + op.getB() + " con el bucle While: " + rec.potenciaWhile(op.getA(), op.getB()));
+        System.out.println("Potencia recursiva de " + op.getA() + "^" + op.getB() + " con el bucle Do_While: " + rec.potenciaDoWhile(op.getA(), op.getB()));
+        
+        System.out.println("Conteo progresivo hasta " + op.getN() + " con el bucle for: ");
+         rec.contarFor(op.getN());
+        System.out.println("Conteo progresivo hasta " + op.getN() +" con el bucle while:");
+         rec.contarWhile(op.getN());
+        System.out.println("Conteo progresivo hasta " + op.getN() +" con el bucle do_while:");
+         rec.contarDoWhile(op.getN());
+
+        System.out.println("Conteo regresivo desde " + op.getN() + " hasta 0 con el bucle for: ");
+         rec.contarDesdeFor(op.getN());
+         System.out.println("Conteo regresivo desde " + op.getN() + " hasta 0 con el bucle while: ");
+         rec.contarDesdeWhile(op.getN());
+         System.out.println("Conteo regresivo desde " + op.getN() + " hasta 0 con el bucle do_while: ");
+         rec.contarDesdeDoWhile(op.getN());
 
         //...
-        serieCaracteres caracteres=new serieCaracteres();
+
+        SeriesCaracteres caracteres=new SeriesCaracteres();
+
         System.out.print("Ingrese la cantidad de elementos n: ");
         int n = ingresoDatos.nextInt();
 
-        System.out.println("\n S1: " + caracteres.g5_generarS1(n));
-        System.out.println(" S2: " + caracteres.g5_generarS2(n));
-        System.out.println(" S3: " + caracteres.g5_generarS3(n));
-        System.out.println(" S4: " + caracteres.g5_generarS4(n));
-        System.out.println(" S5: " + caracteres.g5_generarS5(n));
-        System.out.println(" S6: " + caracteres.g5_generarS6(n));
-        System.out.println(" S7: " + caracteres.g5_generarS7(n));
-        System.out.println(" S8: " + caracteres.g5_generarS8(n));
-        System.out.println(" S9: " + caracteres.g5_generarS9(n));
+       
+        
         
         // ...
-    }
-}
 
-=======
-        /**
-         * serieNumericas series = new serieNumericas();
-        
-        System.out.println("--- INICIO DEL PROGRAMA DE GENERACIÓN DE SERIES (S1 - S12) ---");
-        
-        // Ejecución de todos los métodos en orden secuencial (S1 a S12)
-        
-        // S1: Fibonacci (FOR)
-        series.g5_generarS1Fibonacci();
-        
-        // S2: Alternante (FOR)
-        series.g5_generarS2Alternante();
-        
-        // S3: Fracciones Impares (WHILE)
-        series.g5_generarS3FraccionesImpares();
-        
-        // S4: Fracciones Pares (WHILE)
-        series.g5_generarS4FraccionesPares();
-        
-        // S5: Primos (WHILE + FOR)
-        series.g5_generarS5Primos();
-        
-        // S6: Cuadrados (DO-WHILE)
-        series.g5_generarS6Cuadrados();
-        
-        // S7: Aritmética +3 (FOR)
-        series.g5_generarS7Aritmetica3();
-        
-        // S8: Aritmética +5 (WHILE)
-        series.g5_generarS8Aritmetica5();
-        
-        // S9: Potencias de 2 (DO-WHILE)
-        series.g5_generarS9PotenciasDeDos();
-        
-        // S10: Potencias de 3 (WHILE)
-        series.g5_generarS10PotenciasDeTres();
-        
-        // S11: Aritmética +4 (DO-WHILE)
-        series.g5_generarS11Aritmetica4();
-        
-        // S12: n*(n+1) (FOR)
-        series.g5_generarS12FactorialCompuesto();
-        
-        // Cierra el Scanner al finalizar el programa
-        series.closeScanner();
-        
-        System.out.println("--- FIN DEL PROGRAMA ---");
-    }
-         */
-       
+
     }
 }
->>>>>>> 83fbcb2e17889704bb9949101110e63803424887
-        

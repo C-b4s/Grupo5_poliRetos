@@ -1,4 +1,4 @@
-package src.automatas;
+package src.Poliretos.automatas;
 
 import java.util.Scanner;
 
