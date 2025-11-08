@@ -16,7 +16,7 @@ public class Controller_Poliretos {
             
             String [] opcMenuPrincipal = {"1. Ver integrantes del grupo", "2. Ingresar al menú de operaciones", "3. Salir"};
             String [] secciones = {"1. Series numericas", "2. Series de caracteres", "3. Figuras", "4. Cadenas de caracteres", "5. Arrays", "6. Loading", "7. Recursion", "8. Grafos y automatas"};
-            String [] integrantes = {"1. Matias Quinchiguango", "2. Micaela Sajal", "3. Michael Sotomayor", "4. Robbinson Tandazo", "5. Victoria Torres", "6. Sebastián Zúñiga"};
+            String [] integrantes = {"1. Matias Quinchiguano", "2. Micaela Sajal", "3. Michael Sotomayor", "4. Robbinson Tandazo", "5. Victoria Torres", "6. Sebastián Zúñiga"};
             
             boolean entradaValida, operacionValida, confirmacionValida;
 
@@ -78,7 +78,11 @@ public class Controller_Poliretos {
                                 // Figuras
                                 break;
                             case 4:
-                                // Cadenas de caracteres
+                                System.out.println("Usted ha seleccionado realizar operaciones con cadenas de caracteres.");
+                                String [] cadenasCaracteres = {"Cadenas 1)", "Cadenas 2)", "Cadenas 3)", "Cadenas 4)", "Cadenas 5)", "Cadenas 6)", "Cadenas 7)", "Cadenas 8)", "Cadenas 9)"};
+
+                                imprimirMenu(cadenasCaracteres, "CADENAS DE CARACTERES");
+
                                 break;
                             case 5:
                                 // Arrays
