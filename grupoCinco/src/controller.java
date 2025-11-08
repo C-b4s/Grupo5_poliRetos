@@ -4,13 +4,9 @@ import src.Poliretos.array.ArrayService;
 import src.Poliretos.automatas.automatas;
 import src.Poliretos.cadenaCaracteres.CadenaService;
 import src.Poliretos.recursividad.OperacionesDatos;
-import src.Poliretos.recursividad.g5_ContadorRegresivo;
-import src.Poliretos.recursividad.gr5_Factorial;
-import src.Poliretos.recursividad.gr5_Multiplicacion;
-import src.Poliretos.recursividad.gr5_Sumar;
-import src.Poliretos.recursividad.gr5_Potencia;
-import src.Poliretos.recursividad.gr5_ContadorProgresivo;
-import src.Poliretos.serieCaracteres.serieCaracteres;
+import src.Poliretos.serieCaracteres.SeriesCaracteres;
+import src.Poliretos.recursividad.g5_Recursividad;
+
 public class Controller {
     public void Inicializar() throws InterruptedException{
         Scanner ingresoDatos = new Scanner(System.in);
@@ -100,12 +96,7 @@ public class Controller {
         //...
 
 
-        gr5_Factorial fac=new gr5_Factorial();
-        gr5_Sumar sum = new gr5_Sumar();
-        gr5_Multiplicacion mul = new gr5_Multiplicacion();
-        gr5_Potencia pot = new gr5_Potencia();
-        g5_ContadorRegresivo reg = new g5_ContadorRegresivo();
-        gr5_ContadorProgresivo prog = new gr5_ContadorProgresivo();
+        g5_Recursividad rec=new g5_Recursividad();
         OperacionesDatos op = new OperacionesDatos();
 
         System.out.print("Ingrese el valor de n: ");
@@ -116,51 +107,46 @@ public class Controller {
         System.out.print("Ingrese el valor de b: ");
         op.setB(ingresoDatos.nextInt());
 
-        System.out.println("\n*Factorial de " + op.getN() + " con el buble for: " + fac.g5_factorialFor(op.getN()));
-        System.out.println("Factorial de " + op.getN() + " con el buble for: " + fac.g5_factorialWhile(op.getN()));
-        System.out.println("Factorial de " + op.getN() + " con el buble do_while: " + fac.g5_factorialDoWhile(op.getN()));
+        System.out.println("\n*Factorial de " + op.getN() + " con el buble for: " + rec.g5_factorialFor(op.getN()));
+        System.out.println("Factorial de " + op.getN() + " con el buble for: " + rec.g5_factorialWhile(op.getN()));
+        System.out.println("Factorial de " + op.getN() + " con el buble do_while: " + rec.g5_factorialDoWhile(op.getN()));
 
-        System.out.println("Suma recursiva de " + op.getA() + " + " + op.getB() + " con el bucle For: " + sum.g5_sumarFor(op.getA(), op.getB()));
-        System.out.println("Suma recursiva de " + op.getA() + " + " + op.getB() + " con el bucle While: " + sum.g5_sumarWhile(op.getA(), op.getB()));
-        System.out.println("Suma recursiva de " + op.getA() + " + " + op.getB() + " con el bucle Do_While: " + sum.g5_sumarDoWhile(op.getA(), op.getB()));
+        System.out.println("Suma recursiva de " + op.getA() + " + " + op.getB() + " con el bucle For: " + rec.g5_sumarFor(op.getA(), op.getB()));
+        System.out.println("Suma recursiva de " + op.getA() + " + " + op.getB() + " con el bucle While: " + rec.g5_sumarWhile(op.getA(), op.getB()));
+        System.out.println("Suma recursiva de " + op.getA() + " + " + op.getB() + " con el bucle Do_While: " + rec.g5_sumarDoWhile(op.getA(), op.getB()));
         
-        System.out.println("Multiplicacion recursiva de " + op.getA() + " + " + op.getB() + " con el bucle For: " + mul.g5_multiplicarFor(op.getA(), op.getB()));
-        System.out.println("Multiplicacion recursiva de " + op.getA() + " + " + op.getB() + " con el bucle While: " + mul.g5_multiplicarWhile(op.getA(), op.getB()));
-        System.out.println("Multiplicacion recursiva de " + op.getA() + " + " + op.getB() + " con el bucle Do_While: " + mul.g5_multiplicarDoWhile(op.getA(), op.getB()));
+        System.out.println("Multiplicacion recursiva de " + op.getA() + " + " + op.getB() + " con el bucle For: " + rec.g5_multiplicarFor(op.getA(), op.getB()));
+        System.out.println("Multiplicacion recursiva de " + op.getA() + " + " + op.getB() + " con el bucle While: " + rec.g5_multiplicarWhile(op.getA(), op.getB()));
+        System.out.println("Multiplicacion recursiva de " + op.getA() + " + " + op.getB() + " con el bucle Do_While: " + rec.g5_multiplicarDoWhile(op.getA(), op.getB()));
         
 
-        System.out.println("Potencia recursiva de " + op.getA() + "^" + op.getB() + " con el bucle For: " + pot.potenciaFor(op.getA(), op.getB()));
-        System.out.println("Potencia recursiva de " + op.getA() + "^" + op.getB() + " con el bucle While: " + pot.potenciaWhile(op.getA(), op.getB()));
-        System.out.println("Potencia recursiva de " + op.getA() + "^" + op.getB() + " con el bucle Do_While: " + pot.potenciaDoWhile(op.getA(), op.getB()));
+        System.out.println("Potencia recursiva de " + op.getA() + "^" + op.getB() + " con el bucle For: " + rec.potenciaFor(op.getA(), op.getB()));
+        System.out.println("Potencia recursiva de " + op.getA() + "^" + op.getB() + " con el bucle While: " + rec.potenciaWhile(op.getA(), op.getB()));
+        System.out.println("Potencia recursiva de " + op.getA() + "^" + op.getB() + " con el bucle Do_While: " + rec.potenciaDoWhile(op.getA(), op.getB()));
         
         System.out.println("Conteo progresivo hasta " + op.getN() + " con el bucle for: ");
-         prog.contarFor(op.getN());
+         rec.contarFor(op.getN());
         System.out.println("Conteo progresivo hasta " + op.getN() +" con el bucle while:");
-         prog.contarWhile(op.getN());
+         rec.contarWhile(op.getN());
         System.out.println("Conteo progresivo hasta " + op.getN() +" con el bucle do_while:");
-         prog.contarDoWhile(op.getN());
+         rec.contarDoWhile(op.getN());
 
         System.out.println("Conteo regresivo desde " + op.getN() + " hasta 0 con el bucle for: ");
-         reg.contarDesdeFor(op.getN());
+         rec.contarDesdeFor(op.getN());
          System.out.println("Conteo regresivo desde " + op.getN() + " hasta 0 con el bucle while: ");
-         reg.contarDesdeWhile(op.getN());
+         rec.contarDesdeWhile(op.getN());
          System.out.println("Conteo regresivo desde " + op.getN() + " hasta 0 con el bucle do_while: ");
-         reg.contarDesdeDoWhile(op.getN());
+         rec.contarDesdeDoWhile(op.getN());
 
         //...
-        serieCaracteres caracteres=new serieCaracteres();
+
+        SeriesCaracteres caracteres=new SeriesCaracteres();
+
         System.out.print("Ingrese la cantidad de elementos n: ");
         int n = ingresoDatos.nextInt();
 
-        System.out.println("\n S1: " + caracteres.g5_generarS1(n));
-        System.out.println(" S2: " + caracteres.g5_generarS2(n));
-        System.out.println(" S3: " + caracteres.g5_generarS3(n));
-        System.out.println(" S4: " + caracteres.g5_generarS4(n));
-        System.out.println(" S5: " + caracteres.g5_generarS5(n));
-        System.out.println(" S6: " + caracteres.g5_generarS6(n));
-        System.out.println(" S7: " + caracteres.g5_generarS7(n));
-        System.out.println(" S8: " + caracteres.g5_generarS8(n));
-        System.out.println(" S9: " + caracteres.g5_generarS9(n));
+       
+        
         
         // ...
 
