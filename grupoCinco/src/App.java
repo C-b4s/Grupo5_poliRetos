@@ -1,8 +1,11 @@
 package src;
+
+import src.Poliretos.Controller_Poliretos;
+
 public class App {
     public static void main(String[] args)throws InterruptedException {
 
-        Controller controlador=new Controller();
+        Controller_Poliretos controlador=new Controller_Poliretos();
         controlador.Inicializar();
 
         /**
