@@ -1,159 +1,206 @@
 package src.Poliretos;
+import java.util.InputMismatchException;
 import java.util.Scanner;
-import src.Poliretos.array.ArrayService;
-import src.Poliretos.automatas.automatas;
-import src.Poliretos.cadenaCaracteres.CadenaService;
-import src.Poliretos.recursividad.OperacionesDatos;
-import src.Poliretos.recursividad.g5_ContadorRegresivo;
-import src.Poliretos.recursividad.gr5_Factorial;
-import src.Poliretos.recursividad.gr5_Multiplicacion;
-import src.Poliretos.recursividad.gr5_Sumar;
-import src.Poliretos.recursividad.gr5_Potencia;
-import src.Poliretos.recursividad.gr5_ContadorProgresivo;
-import src.Poliretos.serieCaracteres.serieCaracteres;
+
 public class Controller_Poliretos {
-    public void Inicializar() throws InterruptedException{
-        Scanner ingresoDatos = new Scanner(System.in);
+    public final String ROJO = "\u001B[31m";
+    public final String RESET = "\u001B[0m";
+    public final String VERDE = "\u001B[32m";
     
-        System.out.println("¡Bienvenido al proyecto realizado por el grupo cinco!");
-        System.out.println("Integrantes del grupo:");
-        System.out.println("1. Sebastián Zúñiga");
-        System.out.println("2. Victoria Torres");
-        System.out.println("3. Andrés Sánchez");
-        System.out.println("4. Matías Quinchiguango");
-        System.out.println("5. Michael Sotomayor");
-        System.out.println("6. Micaela Sajal");
+    Integer operaciones;
+        public void iniciar(){ 
+            Scanner ingresoDatos = null;
+            try {
+                ingresoDatos = new Scanner(System.in);
+            int opcionGeneral = 0, continuar = 0, operacionARealizar = 0, seguirOperaciones = 0;
+            
+            String [] opcMenuPrincipal = {"1. Ver integrantes del grupo", "2. Ingresar al menú de operaciones", "3. Salir"};
+            String [] secciones = {"1. Series numericas", "2. Series de caracteres", "3. Figuras", "4. Cadenas de caracteres", "5. Arrays", "6. Loading", "7. Recursion", "8. Grafos y automatas"};
+            String [] integrantes = {"1. Matias Quinchiguango", "2. Micaela Sajal", "3. Michael Sotomayor", "4. Robbinson Tandazo", "5. Victoria Torres", "6. Sebastián Zúñiga"};
+            
+            boolean entradaValida, operacionValida, confirmacionValida;
+
+            imprimirTitulo();
+                 
+
+        do{   
+            imprimirMenu(opcMenuPrincipal, "menu general");
+           entradaValida = false;
+            do{
+                
+            try {
+                System.out.print("Opción ingresada: ");
+                opcionGeneral = ingresoDatos.nextInt();
+                ingresoDatos.nextLine();
+
+                if (opcionGeneral >= 1 && opcionGeneral <= 3){
+                    entradaValida = true;
+                }else{
+                    imprimirErrorOpcionIncorrecta();
+                }
+                
+            } catch (InputMismatchException e) {
+                imprimirErrorDatosInvalidos();
+                ingresoDatos.nextLine();
+            }
+            }while (!entradaValida);    
+            
+
+              
+            
+            switch (opcionGeneral) {
+                case 1:
+                    imprimirMenu(integrantes, "integrantes");
+                    break;
+                case 2:
+                    do {
+                        operacionValida = false;
+                        imprimirMenu(secciones, "operaciones");
+                        System.out.print("Operación seleccionada: ");
+                        try {
+                            operacionARealizar = ingresoDatos.nextInt();
+                            ingresoDatos.nextLine();
+                            if (operacionARealizar >= 1 && operacionARealizar <= 8) operacionValida = true;
+                            else imprimirErrorOpcionIncorrecta();
+
+                        } catch (InputMismatchException e) {
+                            imprimirErrorDatosInvalidos();
+                            ingresoDatos.nextLine();
+                        }
+                        switch(operacionARealizar) {
+                            case 1:
+                                // Series numericas
+                                break;
+                            case 2:
+                                // Series de caracteres
+                                break;
+                            case 3:
+                                // Figuras
+                                break;
+                            case 4:
+                                // Cadenas de caracteres
+                                break;
+                            case 5:
+                                // Arrays
+                                break;
+                            case 6:
+                                // Loading
+                                break;
+                            case 7:
+                                // Recursion
+                                break;
+                            case 8:
+                                // Grafos y automatas
+                                break;
+                            default:
+                                imprimirErrorOpcionIncorrecta();
+                                operacionARealizar = 0;
+                                break;
+                        }
+
+                        if (operacionValida){
+                            System.out.println("Si desea realizar otra operacción, digite 2. De lo contrario, digite 1.");
+                            
+                            do{
+                                System.out.print("Opción ingresada: ");
+                                confirmacionValida = false;
+                                try {
+                                    seguirOperaciones = ingresoDatos.nextInt();
+                                    ingresoDatos.nextLine();
+                                    if (seguirOperaciones == 1 || seguirOperaciones == 2) confirmacionValida = true;
+                                    else imprimirErrorOpcionIncorrecta();
+
+                                } catch (InputMismatchException e) {
+                                    imprimirErrorDatosInvalidos();
+                                    ingresoDatos.nextLine();
+                                }
+                                
+                            }while (!confirmacionValida);
+                            
+                        }
+                    }while (!operacionValida || seguirOperaciones == 2);
+                    continuar = 1;
+                    break;
+                case 3:
+                    System.out.println("Usted ha salido del programa POLIRETOS - GRUPO 5");
+                    break;
+                default:
+                    imprimirErrorOpcionIncorrecta();
+                    break;
+            }
         
-        ArrayService servicioArray = new ArrayService();
-        servicioArray.colocarLetrasNombreAleatorioFor("Sebastián Josué Zúñiga Mendoza", 500);
-        automatas automatas = new automatas();
-        servicioArray.imprimirXConNombre("Sebastián Zúñiga");
-        servicioArray.graficarNombre2xWhile("Sebastián");
+            if (opcionGeneral != 3 && opcionGeneral != 2){
+                do {
+                    entradaValida = false;
+                    System.out.print("Digite 1 para regresar al menú principal: ");
+                try {
+                    continuar = ingresoDatos.nextInt();
+                    ingresoDatos.nextLine();
+                    if (continuar == 1) entradaValida = true;
+                    else imprimirErrorRegresarMenu();
 
-        System.out.println("Mi nombre es Sebastián Zúñiga");
-        System.out.print("Tamaño de la matriz: ");
-        int tamanioMatriz = ingresoDatos.nextInt();
-        ingresoDatos.nextLine(); // Limpiar el buffer
-
-        System.out.print("Caracter para imprimir las iniciales de mi nombre: ");
-        char caracterImpresion = ingresoDatos.nextLine().charAt(0);
-
-        char[][] matrizIniciales = servicioArray.crearMatrizInicialesFor(tamanioMatriz, caracterImpresion);
-        System.out.println(" ");
-
-        for (char[] fila : matrizIniciales) {
-            System.out.println(new String(fila));
-        }
-
-        System.out.println(" ");
-
-        System.out.println("Bienvenido. Por favor, ingrese su nombre:");
-        String nombreUsuario = ingresoDatos.nextLine();
-        String[] palabrasNombre = nombreUsuario.split(" ");
-
-        System.out.println(
-                "Por favor, ingrese los porcentajes asociados a cada palabra de su nombre, separados por espacios:");
-
-        String[] porcentajesStr = ingresoDatos.nextLine().split(" ");
-        double[] porcentajes = new double[porcentajesStr.length];
-
-        for (int i = 0; i < porcentajesStr.length; i++) {
-            porcentajes[i] = Double.parseDouble(porcentajesStr[i]);
-        }
-
-        servicioArray.mostrarPorcentajesDoWhile(palabrasNombre, porcentajes);
-
-        System.out.println("Bienvenido al proyecto realizado por el grupo cinco. Ingrese un texto:");
-        String textoIngresado = ingresoDatos.nextLine();
-        CadenaService servicio = new CadenaService();
-        int cantidadVocales = servicio.contarVocalesFor(textoIngresado);
-        System.out.println("La cantidad de vocales en el texto ingresado es: " + cantidadVocales);
-        
-        System.out.println("El texto en mayúingresoDatosulas sin la letra 'J' es: " + servicio.convertirAMayusSinJDoWhile(textoIngresado));
-
-        System.out.println("El texto en mayúsculas sin la letra 'J' es: " + servicio.convertirAMayusSinJDoWhile(textoIngresado));
-
-        System.out.println("Ingrese una vocal a eliminar del texto:");
-        char vocalAEliminar = ingresoDatos.nextLine().charAt(0);
-        String textoModificado = servicio.eliminarVocalDoWhile(textoIngresado, vocalAEliminar);
-        System.out.println("El texto modificado es: " + textoModificado);
-
-        servicio.adivinarAnagramasWhile(ingresoDatos);
-
-        System.out.println("Por favor, ingrese un texto para alternar entre mayúingresoDatosulas y minúingresoDatosulas: ");
-        String textoParaAlternar = ingresoDatos.nextLine();
-        String textoAlternado = servicio.alternarMayusYMinusFor(textoParaAlternar);
-        System.out.println("El texto con alternancia de mayúingresoDatosulas y minúingresoDatosulas es: " + textoAlternado);
-
-        System.out.println("======== Autómatas y Validaciones ========");
-        automatas.automata1(ingresoDatos);
-        automatas.automata2(ingresoDatos);
-        automatas.automata3(ingresoDatos);
-        automatas.automata4(ingresoDatos);
-        automatas.validarVariable(ingresoDatos);
-        automatas.validarPalabraReservada(ingresoDatos);
-        automatas.validarContrasena(ingresoDatos);
-
-        ingresoDatos.close();
-
-
-        //...
-
-
-        g5_Recursividad rec=new g5_Recursividad();
-        OperacionesDatos op = new OperacionesDatos();
-
-        System.out.print("Ingrese el valor de n: ");
-        op.setN(ingresoDatos.nextInt());
-        System.out.print("Ingrese el valor de a: ");
-        op.setA(ingresoDatos.nextInt());
-
-        System.out.print("Ingrese el valor de b: ");
-        op.setB(ingresoDatos.nextInt());
-
-        System.out.println("\n*Factorial de " + op.getN() + " con el buble for: " + rec.g5_factorialFor(op.getN()));
-        System.out.println("Factorial de " + op.getN() + " con el buble for: " + rec.g5_factorialWhile(op.getN()));
-        System.out.println("Factorial de " + op.getN() + " con el buble do_while: " + rec.g5_factorialDoWhile(op.getN()));
-
-        System.out.println("Suma recursiva de " + op.getA() + " + " + op.getB() + " con el bucle For: " + rec.g5_sumarFor(op.getA(), op.getB()));
-        System.out.println("Suma recursiva de " + op.getA() + " + " + op.getB() + " con el bucle While: " + rec.g5_sumarWhile(op.getA(), op.getB()));
-        System.out.println("Suma recursiva de " + op.getA() + " + " + op.getB() + " con el bucle Do_While: " + rec.g5_sumarDoWhile(op.getA(), op.getB()));
-        
-        System.out.println("Multiplicacion recursiva de " + op.getA() + " + " + op.getB() + " con el bucle For: " + rec.g5_multiplicarFor(op.getA(), op.getB()));
-        System.out.println("Multiplicacion recursiva de " + op.getA() + " + " + op.getB() + " con el bucle While: " + rec.g5_multiplicarWhile(op.getA(), op.getB()));
-        System.out.println("Multiplicacion recursiva de " + op.getA() + " + " + op.getB() + " con el bucle Do_While: " + rec.g5_multiplicarDoWhile(op.getA(), op.getB()));
-        
-
-        System.out.println("Potencia recursiva de " + op.getA() + "^" + op.getB() + " con el bucle For: " + rec.potenciaFor(op.getA(), op.getB()));
-        System.out.println("Potencia recursiva de " + op.getA() + "^" + op.getB() + " con el bucle While: " + rec.potenciaWhile(op.getA(), op.getB()));
-        System.out.println("Potencia recursiva de " + op.getA() + "^" + op.getB() + " con el bucle Do_While: " + rec.potenciaDoWhile(op.getA(), op.getB()));
-        
-        System.out.println("Conteo progresivo hasta " + op.getN() + " con el bucle for: ");
-         rec.contarFor(op.getN());
-        System.out.println("Conteo progresivo hasta " + op.getN() +" con el bucle while:");
-         rec.contarWhile(op.getN());
-        System.out.println("Conteo progresivo hasta " + op.getN() +" con el bucle do_while:");
-         rec.contarDoWhile(op.getN());
-
-        System.out.println("Conteo regresivo desde " + op.getN() + " hasta 0 con el bucle for: ");
-         rec.contarDesdeFor(op.getN());
-         System.out.println("Conteo regresivo desde " + op.getN() + " hasta 0 con el bucle while: ");
-         rec.contarDesdeWhile(op.getN());
-         System.out.println("Conteo regresivo desde " + op.getN() + " hasta 0 con el bucle do_while: ");
-         rec.contarDesdeDoWhile(op.getN());
-
-        //...
-
-        SeriesCaracteres caracteres=new SeriesCaracteres();
-
-        System.out.print("Ingrese la cantidad de elementos n: ");
-        int n = ingresoDatos.nextInt();
-
-       
-        
-        
-        // ...
-
-
+                } catch (InputMismatchException e) {
+                    imprimirErrorDatosInvalidos();
+                    ingresoDatos.nextLine();
+                }
+                } while (continuar != 1);
+            }
+           
+                
+        }while (!entradaValida || opcionGeneral != 3);
+            } finally {
+                if (ingresoDatos != null) {
+                    ingresoDatos.close();
+                }
+            }
     }
+    
+
+        public void imprimirErrorRegresarMenu(){
+            System.out.println(ROJO + "\n============= ERROR =============");
+            System.out.println("Digite 1 para regresar al menu general." + RESET + "\n");
+        }
+        public void imprimirErrorOpcionIncorrecta(){
+            System.out.println(ROJO + "\n============= ERROR =============");
+            System.out.println("La opción ingresada no es correcta. Intente nuevamente." + RESET + "\n");
+        }
+
+        public void imprimirErrorDatosInvalidos() {
+            System.out.println(ROJO + "\n============= ERROR =============");
+            System.out.println("El valor ingresado no es válido. Intente nuevamente." + RESET + "\n");
+        }
+
+    
+
+        public void imprimirTitulo( ){
+            
+            String titulo = "================== POLIRETOS - GRUPO 5 ==================";
+            System.out.println(ROJO + " ".repeat(15) + titulo + RESET);
+            System.out.println(" ".repeat(30) + "Bienvenido a Poliretos.");
+            System.out.println(" ".repeat(30) +"Por favor, elija una opción: ");   
+            System.out.println();
+
+        }
+
+        public void imprimirMenu (String [] datos, String nombreMenu){
+            
+            String subtitulo = "============== " + nombreMenu.toUpperCase() + " =============";
+            int offset = 60 - subtitulo.length();
+            System.out.println(VERDE + " ".repeat(offset) + subtitulo + RESET);
+
+            for (String elemento : datos){
+                int espaciosDentro = subtitulo.length() - 2 - elemento.length();
+                if (espaciosDentro < 0) espaciosDentro = 0;
+
+                String textoMenu = "|" + elemento + " ".repeat(espaciosDentro) + "|";
+
+
+
+                System.out.println(" ".repeat(offset) + textoMenu);
+            }
+            
+            System.out.println(" ".repeat(offset) + "_".repeat(subtitulo.length()) + "\n");
+        }
+
 }
+
