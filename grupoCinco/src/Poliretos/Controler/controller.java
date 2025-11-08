@@ -4,6 +4,7 @@ import src.Poliretos.array.ArrayService;
 import src.Poliretos.automatas.automatas;
 import src.Poliretos.cadenaCaracteres.CadenaService;
 import src.Poliretos.recursividad.OperacionesDatos;
+import src.Poliretos.recursividad.g5_ContadorRegresivo;
 import src.Poliretos.recursividad.gr5_Factorial;
 import src.Poliretos.recursividad.gr5_Multiplicacion;
 import src.Poliretos.recursividad.gr5_Sumar;
@@ -13,7 +14,6 @@ import src.Poliretos.recursividad.gr5_ContadorProgresivo;
 import src.Poliretos.serieCaracteres.serieCaracteres;
 public class Controller {
     public void Inicializar() throws InterruptedException{
-        
         Scanner ingresoDatos = new Scanner(System.in);
     
         System.out.println("¡Bienvenido al proyecto realizado por el grupo cinco!");
@@ -24,9 +24,9 @@ public class Controller {
         System.out.println("4. Matías Quinchiguango");
         System.out.println("5. Michael Sotomayor");
         System.out.println("6. Micaela Sajal");
-        ArrayService servicioArray = new ArrayService();
         
-        servicioArray.colocarLetrasNombreAleatorioFor("Sebastián Zúñiga", 5000);
+        ArrayService servicioArray = new ArrayService();
+        servicioArray.colocarLetrasNombreAleatorioFor("Sebastián Josué Zúñiga Mendoza", 500);
         automatas automatas = new automatas();
         servicioArray.imprimirXConNombre("Sebastián Zúñiga");
         servicioArray.graficarNombre2xWhile("Sebastián");
@@ -105,7 +105,7 @@ public class Controller {
         gr5_Sumar sum = new gr5_Sumar();
         gr5_Multiplicacion mul = new gr5_Multiplicacion();
         gr5_Potencia pot = new gr5_Potencia();
-        gr5_ContadorRegresivo reg = new gr5_ContadorRegresivo();
+        g5_ContadorRegresivo reg = new g5_ContadorRegresivo();
         gr5_ContadorProgresivo prog = new gr5_ContadorProgresivo();
         OperacionesDatos op = new OperacionesDatos();
 
@@ -121,16 +121,14 @@ public class Controller {
         System.out.println("Factorial de " + op.getN() + " con el buble for: " + fac.g5_factorialWhile(op.getN()));
         System.out.println("Factorial de " + op.getN() + " con el buble do_while: " + fac.g5_factorialDoWhile(op.getN()));
 
-        System.out.println("Multiplicacion recursiva de " + op.getA() + " + " + op.getB() + " con el bucle For: " + mul.g5_multiplicarFor(op.getA(), op.getB()));
-        System.out.println("Multiplicacion recursiva de " + op.getA() + " + " + op.getB() + " con el bucle While: " + mul.g5_multiplicarWhile(op.getA(), op.getB()));
-        System.out.println("Multiplicacion recursiva de " + op.getA() + " + " + op.getB() + " con el bucle Do_While: " + mul.g5_multiplicarDoWhile(op.getA(), op.getB()));
-        
-
         System.out.println("Suma recursiva de " + op.getA() + " + " + op.getB() + " con el bucle For: " + sum.g5_sumarFor(op.getA(), op.getB()));
         System.out.println("Suma recursiva de " + op.getA() + " + " + op.getB() + " con el bucle While: " + sum.g5_sumarWhile(op.getA(), op.getB()));
         System.out.println("Suma recursiva de " + op.getA() + " + " + op.getB() + " con el bucle Do_While: " + sum.g5_sumarDoWhile(op.getA(), op.getB()));
         
-
+        System.out.println("Multiplicacion recursiva de " + op.getA() + " + " + op.getB() + " con el bucle For: " + mul.g5_multiplicarFor(op.getA(), op.getB()));
+        System.out.println("Multiplicacion recursiva de " + op.getA() + " + " + op.getB() + " con el bucle While: " + mul.g5_multiplicarWhile(op.getA(), op.getB()));
+        System.out.println("Multiplicacion recursiva de " + op.getA() + " + " + op.getB() + " con el bucle Do_While: " + mul.g5_multiplicarDoWhile(op.getA(), op.getB()));
+        
 
         System.out.println("Potencia recursiva de " + op.getA() + "^" + op.getB() + " con el bucle For: " + pot.potenciaFor(op.getA(), op.getB()));
         System.out.println("Potencia recursiva de " + op.getA() + "^" + op.getB() + " con el bucle While: " + pot.potenciaWhile(op.getA(), op.getB()));
@@ -166,6 +164,7 @@ public class Controller {
         System.out.println(" S9: " + caracteres.g5_generarS9(n));
         
         // ...
+
 
     }
 }
