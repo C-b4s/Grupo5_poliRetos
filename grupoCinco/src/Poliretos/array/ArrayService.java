@@ -1,5 +1,4 @@
-package src.array;
-
+package src.Poliretos.array;
 import java.util.Arrays;
 import java.util.Random;
 
