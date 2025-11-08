@@ -5,8 +5,8 @@ import src.Poliretos.Controller_Poliretos;
 public class App {
     public static void main(String[] args)throws InterruptedException {
 
-        Controller_Poliretos controlador=new Controller_Poliretos();
-        controlador.Inicializar();
+        Controller_Poliretos controller =new Controller_Poliretos();
+        controller.Inicializar();
 
         /**
          * serieNumericas series = new serieNumericas();
