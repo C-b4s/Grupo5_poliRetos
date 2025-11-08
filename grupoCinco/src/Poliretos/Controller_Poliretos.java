@@ -1,4 +1,4 @@
-package src.Poliretos.Controler;
+package src.Poliretos;
 import java.util.Scanner;
 import src.Poliretos.array.ArrayService;
 import src.Poliretos.automatas.automatas;
@@ -11,7 +11,7 @@ import src.Poliretos.recursividad.gr5_Sumar;
 import src.Poliretos.recursividad.gr5_Potencia;
 import src.Poliretos.recursividad.gr5_ContadorProgresivo;
 import src.Poliretos.serieCaracteres.serieCaracteres;
-public class Controller {
+public class Controller_Poliretos {
     public void Inicializar() throws InterruptedException{
         Scanner ingresoDatos = new Scanner(System.in);
     

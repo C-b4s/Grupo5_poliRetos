@@ -1,6 +1,3 @@
-package src;
-
-import src.Poliretos.Controler.Controller;
 public class App {
     public static void main(String[] args) throws InterruptedException {
         Scanner ingresoDatos = new Scanner(System.in);
