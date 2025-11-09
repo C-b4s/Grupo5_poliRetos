@@ -231,7 +231,7 @@ public class Controller_Poliretos {
                                     } while (seguirOperaciones != 2);
                                     operacionValida = true;
                                     break;
-                                case 4:
+                                case 4://cadenas
                                     int opcCadenas = 0;
                                     boolean validarOpcCadena, validarFrase, validarBucle, datoValido;
                                     String otroBucle = "", otraOperacion = "";
