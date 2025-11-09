@@ -4,6 +4,7 @@ import java.text.Normalizer;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import src.Poliretos.Figuras.G5_S10Figuras;
 import src.Poliretos.Figuras.G5_S11Figuras;
 import src.Poliretos.Figuras.G5_S12Figuras;
 import src.Poliretos.Figuras.G5_S13Figuras;
@@ -13,6 +14,15 @@ import src.Poliretos.Figuras.G5_S16Figuras;
 import src.Poliretos.Figuras.G5_S17Figuras;
 import src.Poliretos.Figuras.G5_S18Figuras;
 import src.Poliretos.Figuras.G5_S19Figuras;
+import src.Poliretos.Figuras.G5_S1Figuras;
+import src.Poliretos.Figuras.G5_S2Figuras;
+import src.Poliretos.Figuras.G5_S3Figuras;
+import src.Poliretos.Figuras.G5_S4Figuras;
+import src.Poliretos.Figuras.G5_S5Figuras;
+import src.Poliretos.Figuras.G5_S6Figuras;
+import src.Poliretos.Figuras.G5_S7Figuras;
+import src.Poliretos.Figuras.G5_S8Figuras;
+import src.Poliretos.Figuras.G5_S9Figuras;
 import src.Poliretos.cadenaCaracteres.G5_adivinarAnagramas;
 import src.Poliretos.cadenaCaracteres.G5_alternarMayusYMinus;
 import src.Poliretos.cadenaCaracteres.G5_contarConsonantes;
@@ -421,7 +431,8 @@ public class Controller_Poliretos {
                                             String textoSinVocal;
                                             boolean esVocal;
 
-                                            System.out.println("Usted ha seleccionado realizar la operación Cadenas 3)");
+                                            System.out
+                                                    .println("Usted ha seleccionado realizar la operación Cadenas 3)");
 
 
                                             do {
@@ -562,13 +573,19 @@ public class Controller_Poliretos {
                                                     System.out.println("Usted ha seleccionado usar el bucle for para la operación Cadenas 4)");
                                                     textoSinConsonante = cadenasCuatro.g5_eliminarConsonanteFor(fraseEliminarConsonante, consonanteEliminada);
                                                     imprimirResultadoFrase(textoSinConsonante);
+                                                    System.out.println(
+                                                            "Usted ha seleccionado usar el bucle for para la operación Cadenas 4)");
+                                                    textoSinConsonante = cadenasCuatro.g5_eliminarConsonanteFor(
+                                                            fraseEliminarConsonante, consonanteEliminada);
+                                                    System.out.println("La nueva frase es: " + textoSinConsonante);
                                                     break;
 
                                                 case 2:
                                                     System.out.println(
                                                             "Usted ha seleccionado usar el bucle while para la operación Cadenas 4)");
-                                                    textoSinConsonante = cadenasCuatro.g5_eliminarConsonanteWhile(fraseEliminarConsonante, consonanteEliminada);
-                                                    imprimirResultadoFrase(textoSinConsonante);
+                                                    textoSinConsonante = cadenasCuatro.g5_eliminarConsonanteWhile(
+                                                            fraseEliminarConsonante, consonanteEliminada);
+                                                    System.out.println("La nueva frase es: " + textoSinConsonante);
                                                     break;
 
                                                 case 3:
@@ -685,7 +702,8 @@ public class Controller_Poliretos {
                                             G5_invertirConConsonantesEnMayus cadenasSeis = new G5_invertirConConsonantesEnMayus();
                                             String textoCadSeis, invertidoConsonantesMayus;
 
-                                            System.out.println("Usted ha seleccionado realizar la operación Cadenas 6)");
+                                            System.out
+                                                    .println("Usted ha seleccionado realizar la operación Cadenas 6)");
 
                                             
                                             do {
@@ -766,7 +784,8 @@ public class Controller_Poliretos {
                                             G5_convertirAMayusSinJ cadenasSiete = new G5_convertirAMayusSinJ();
                                             String textoCadSiete, textoMayusSinJ;
 
-                                            System.out.println("Usted ha seleccionado realizar la opereación Cadenas 7)");
+                                            System.out
+                                                    .println("Usted ha seleccionado realizar la opereación Cadenas 7)");
 
                                             do {
                                                 validarFrase = false;
@@ -1109,7 +1128,6 @@ public class Controller_Poliretos {
                                             case 9:
                                                 System.out.println("Regresando al menú de operaciones...");
                                                 break;
-
                                         }
                                     } while (opcAutCompi != 9);
                                     break;
@@ -1197,6 +1215,16 @@ public class Controller_Poliretos {
     }
 
     public void ejecutarFigura(int numero, String tipoCiclo, int filas, int serieDeNumeros) {
+        G5_S1Figuras fg1 = new G5_S1Figuras();
+        G5_S2Figuras fg2 = new G5_S2Figuras();
+        G5_S3Figuras fg3 = new G5_S3Figuras();
+        G5_S4Figuras fg4 = new G5_S4Figuras();
+        G5_S5Figuras fg5 = new G5_S5Figuras();
+        G5_S6Figuras fg6 = new G5_S6Figuras();
+        G5_S7Figuras fg7 = new G5_S7Figuras();
+        G5_S8Figuras fg8 = new G5_S8Figuras();
+        G5_S9Figuras fg9 = new G5_S9Figuras();
+        G5_S10Figuras fg10 = new G5_S10Figuras();
         G5_S11Figuras fg11 = new G5_S11Figuras();
         G5_S12Figuras fg12 = new G5_S12Figuras();
         G5_S13Figuras fg13 = new G5_S13Figuras();
@@ -1208,6 +1236,136 @@ public class Controller_Poliretos {
         G5_S19Figuras fg19 = new G5_S19Figuras();
 
         switch (numero) {
+            case 1:
+                switch (tipoCiclo) {
+                    case "for":
+                        fg1.g5_figuraN1For(filas);
+                        break;
+                    case "while":
+                        fg1.g5_figuraN1While(filas);
+                        break;
+                    case "doWhile":
+                        fg1.g5_figuraN1DoWhile(filas);
+                        break;
+                }
+                break;
+            case 2:
+                switch (tipoCiclo) {
+                    case "for":
+                        fg2.g5_figuraN2For(filas);
+                        break;
+                    case "while":
+                        fg2.g5_figuraN2While(filas);
+                        break;
+                    case "doWhile":
+                        fg2.g5_figuraN2DoWhile(filas);
+                        break;
+                }
+                break;
+            case 3:
+                switch (tipoCiclo) {
+                    case "for":
+                        fg3.g5_figuraN3For(filas);
+                        break;
+                    case "while":
+                        fg3.g5_figuraN3While(filas);
+                        break;
+                    case "doWhile":
+                        fg3.g5_figuraN3DoWhile(filas);
+                        break;
+                }
+                break;
+            case 4:
+                switch (tipoCiclo) {
+                    case "for":
+                        fg4.g5_figuraN4For(filas);
+                        break;
+                    case "while":
+                        fg4.g5_figuraN4While(filas);
+                        break;
+                    case "doWhile":
+                        fg4.g5_figuraN4DoWhile(filas);
+                        break;
+                }
+                break;
+            case 5:
+                switch (tipoCiclo) {
+                    case "for":
+                        fg5.g5_figuraN5For(filas);
+                        break;
+                    case "while":
+                        fg5.g5_figuraN5While(filas);
+                        break;
+                    case "doWhile":
+                        fg5.g5_figuraN5DoWhile(filas);
+                        break;
+                }
+                break;
+            case 6:
+                switch (tipoCiclo) {
+                    case "for":
+                        fg6.g5_figuraN6For(filas);
+                        break;
+                    case "while":
+                        fg6.g5_figuraN6While(filas);
+                        break;
+                    case "doWhile":
+                        fg6.g5_figuraN6DoWhile(filas);
+                        break;
+                }
+                break;
+            case 7:
+                switch (tipoCiclo) {
+                    case "for":
+                        fg7.g5_figuraN7For(filas);
+                        break;
+                    case "while":
+                        fg7.g5_figuraN7While(filas);
+                        break;
+                    case "doWhile":
+                        fg7.g5_figuraN7DoWhile(filas);
+                        break;
+                }
+                break;
+            case 8:
+                switch (tipoCiclo) {
+                    case "for":
+                        fg8.g5_figuraN8For(filas);
+                        break;
+                    case "while":
+                        fg8.g5_figuraN8While(filas);
+                        break;
+                    case "doWhile":
+                        fg8.g5_figuraN8DoWhile(filas);
+                        break;
+                }
+                break;
+            case 9:
+                switch (tipoCiclo) {
+                    case "for":
+                        fg9.g5_figuraN9For(filas);
+                        break;
+                    case "while":
+                        fg9.g5_figuraN9While(filas);
+                        break;
+                    case "doWhile":
+                        fg9.g5_figuraN9DoWhile(filas);
+                        break;
+                }
+                break;
+            case 10:
+                switch (tipoCiclo) {
+                    case "for":
+                        fg10.g5_figuraN10For(filas);
+                        break;
+                    case "while":
+                        fg10.g5_figuraN10While(filas);
+                        break;
+                    case "doWhile":
+                        fg10.g5_figuraN10DoWhile(filas);
+                        break;
+                }
+                break;
             case 11:
                 switch (tipoCiclo) {
                     case "for":
@@ -1218,9 +1376,6 @@ public class Controller_Poliretos {
                         break;
                     case "doWhile":
                         fg11.g5_crearFigura11DoWhile(filas);
-                        break;
-                    default:
-                        imprimirErrorTipoCiclo();
                         break;
                 }
                 break;
@@ -1235,9 +1390,6 @@ public class Controller_Poliretos {
                     case "doWhile":
                         fg12.g5_crearFigura12DoWhile(serieDeNumeros);
                         break;
-                    default:
-                        imprimirErrorTipoCiclo();
-                        break;
                 }
                 break;
             case 13:
@@ -1250,9 +1402,6 @@ public class Controller_Poliretos {
                         break;
                     case "doWhile":
                         fg13.g5_Figuras13DoWhile(filas);
-                        break;
-                    default:
-                        imprimirErrorTipoCiclo();
                         break;
                 }
                 break;
@@ -1267,9 +1416,6 @@ public class Controller_Poliretos {
                     case "doWhile":
                         fg14.g5_S14FigurasDoWhile(filas);
                         break;
-                    default:
-                        imprimirErrorTipoCiclo();
-                        break;
                 }
                 break;
             case 15:
@@ -1282,9 +1428,6 @@ public class Controller_Poliretos {
                         break;
                     case "doWhile":
                         fg15.g5_Figuras15DoWhile(filas);
-                        break;
-                    default:
-                        imprimirErrorTipoCiclo();
                         break;
                 }
                 break;
@@ -1299,9 +1442,6 @@ public class Controller_Poliretos {
                     case "doWhile":
                         fg16.g5_Figuras16DoWhile(filas);
                         break;
-                    default:
-                        imprimirErrorTipoCiclo();
-                        break;
                 }
                 break;
             case 17:
@@ -1314,9 +1454,6 @@ public class Controller_Poliretos {
                         break;
                     case "doWhile":
                         fg17.g5_Figuras17DoWhile(filas);
-                        break;
-                    default:
-                        imprimirErrorTipoCiclo();
                         break;
                 }
                 break;
@@ -1331,9 +1468,6 @@ public class Controller_Poliretos {
                     case "doWhile":
                         fg18.g5_Figuras18DoWhile(filas);
                         break;
-                    default:
-                        imprimirErrorTipoCiclo();
-                        break;
                 }
                 break;
             case 19:
@@ -1346,9 +1480,6 @@ public class Controller_Poliretos {
                         break;
                     case "doWhile":
                         fg19.g5_Figuras19DoWhile(filas);
-                        break;
-                    default:
-                        imprimirErrorTipoCiclo();
                         break;
                 }
             default:

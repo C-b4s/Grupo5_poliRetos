@@ -1,7 +1,7 @@
 package src.Poliretos.automatas.automatas3;
 
 public class Aut3 {
-   // automata a+|b+|c+
+    // automata a+|b+|c+
 
     final int e = -10;
 
@@ -44,5 +44,5 @@ public class Aut3 {
         }
 
         return estadoActual == 1 || estadoActual == 2 || estadoActual == 3;
-    }  
+    }
 }
