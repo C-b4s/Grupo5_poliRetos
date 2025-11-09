@@ -1,6 +1,6 @@
 package src.Poliretos.recursividad;
 
-public class g5_ContadorRegresivo {
+public class G5_ContadorRegresivo {
 
     /**
      * Contar desde n hasta 0 usando bucle FOR.

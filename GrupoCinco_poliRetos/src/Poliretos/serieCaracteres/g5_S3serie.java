@@ -1,6 +1,6 @@
 package src.Poliretos.serieCaracteres;
 
-public class g5_S3serie {
+public class G5_S3serie {
     /**
  * Genera la serie S3: ++ ++++ ++++++ ... usando bucle FOR
  */
