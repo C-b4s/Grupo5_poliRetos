@@ -1,4 +1,4 @@
-package src.Poliretos;
+package Poliretos;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -102,8 +102,14 @@ public class Controller_Poliretos {
                                 System.out.println();
                                 System.out.println("Figura número 1\n ");
                                 System.out.println();
-                                System.out.println("Ingrese el tamaño de la figura:");
-                                int tamañoFigura1 = ingresoDatos.nextInt();
+                                int tamañoFigura1;
+                                do{
+                                    System.out.println("Ingrese el tamaño de la figura:");
+                                    tamañoFigura1 = ingresoDatos.nextInt();
+                                    if (tamañoFigura1 <= 0){
+                                        System.out.println("El tamaño de la figura debe ser un número positivo mayor a cero. Intente nuevamente." + RESET + "\n");
+                                    }
+                                }while (tamañoFigura1 <= 0);
                                 System.out.println();
                                 System.out.println("La figura generada con el bucle for es:\n ");
                                 tamFigura.g5_figuraN1For(tamañoFigura1); 
@@ -116,8 +122,14 @@ public class Controller_Poliretos {
                                 ingresoDatos.nextLine();
                                 System.out.println();
                                 System.out.println("Figura número 2\n ");
-                                System.out.println("Ingrese el tamaño de la figura:");
-                                int tamañoFigura2 = ingresoDatos.nextInt();
+                                int tamañoFigura2;
+                                do{
+                                    System.out.println("Ingrese el tamaño de la figura:");
+                                    tamañoFigura2 = ingresoDatos.nextInt();
+                                    if (tamañoFigura2 <= 0){
+                                        System.out.println("El tamaño de la figura debe ser un número positivo mayor a cero. Intente nuevamente." + RESET + "\n");
+                                    }
+                                }while (tamañoFigura2 <= 0);
                                 System.out.println();
                                 System.out.println("La figura generada con el bucle for es:\n ");
                                 tamFigura2.g5_figuraN2For(tamañoFigura2); 
@@ -130,8 +142,14 @@ public class Controller_Poliretos {
                                 ingresoDatos.nextLine();
                                 System.out.println();
                                 System.out.println("Figura número 3\n ");
-                                System.out.println("Ingrese el tamaño de la figura:");
-                                int tamañoFigura3 = ingresoDatos.nextInt();
+                                int tamañoFigura3;
+                                do{
+                                    System.out.println("Ingrese el tamaño de la figura:");
+                                    tamañoFigura3 = ingresoDatos.nextInt();
+                                    if (tamañoFigura3 <= 0){
+                                        System.out.println("El tamaño de la figura debe ser un número positivo mayor a cero. Intente nuevamente." + RESET + "\n");
+                                    }
+                                }while (tamañoFigura3 <= 0);
                                 System.out.println();
                                 System.out.println("La figura generada con el bucle for es:\n ");
                                 tamFigura3.g5_figuraN3For(tamañoFigura3); 
@@ -144,8 +162,14 @@ public class Controller_Poliretos {
                                 ingresoDatos.nextLine();
                                 System.out.println();
                                 System.out.println("Figura número 4\n ");
-                                System.out.println("Ingrese el tamaño de la figura:");
-                                int tamañoFigura4 = ingresoDatos.nextInt();
+                                int tamañoFigura4;
+                                do{
+                                    System.out.println("Ingrese el tamaño de la figura:");
+                                    tamañoFigura4 = ingresoDatos.nextInt();
+                                    if (tamañoFigura4 <= 0){
+                                        System.out.println("El tamaño de la figura debe ser un número positivo mayor a cero. Intente nuevamente." + RESET + "\n");
+                                    }
+                                }while (tamañoFigura4 <= 0);
                                 System.out.println();
                                 System.out.println("La figura generada con el bucle for es:\n ");
                                 tamFigura4.g5_figuraN4For(tamañoFigura4); 
@@ -158,8 +182,14 @@ public class Controller_Poliretos {
                                 ingresoDatos.nextLine();
                                 System.out.println();
                                 System.out.println("Figura número 5\n ");
-                                System.out.println("Ingrese el tamaño de la figura:");
-                                int tamañoFigura5 = ingresoDatos.nextInt();
+                                int tamañoFigura5;
+                                do{
+                                    System.out.println("Ingrese el tamaño de la figura:");
+                                    tamañoFigura5 = ingresoDatos.nextInt();
+                                    if (tamañoFigura5 <= 0){
+                                        System.out.println("El tamaño de la figura debe ser un número positivo mayor a cero. Intente nuevamente." + RESET + "\n");
+                                    }
+                                }while (tamañoFigura5 <= 0);
                                 System.out.println();
                                 System.out.println("La figura generada con el bucle for es:\n ");
                                 tamFigura5.g5_figuraN5For(tamañoFigura5); 
@@ -172,8 +202,14 @@ public class Controller_Poliretos {
                                 ingresoDatos.nextLine();
                                 System.out.println();
                                 System.out.println("Figura número 6\n ");
-                                System.out.println("Ingrese el tamaño de la figura:");
-                                int tamañoFigura6 = ingresoDatos.nextInt();
+                                int tamañoFigura6;
+                                do{
+                                    System.out.println("Ingrese el tamaño de la figura:");
+                                    tamañoFigura6 = ingresoDatos.nextInt();
+                                    if (tamañoFigura6 <= 0){
+                                        System.out.println("El tamaño de la figura debe ser un número positivo mayor a cero. Intente nuevamente." + RESET + "\n");
+                                    }
+                                }while (tamañoFigura6 <= 0);
                                 System.out.println();
                                 System.out.println("La figura generada con el bucle for es:\n ");
                                 tamFigura6.g5_figuraN6For(tamañoFigura6); 
@@ -186,8 +222,14 @@ public class Controller_Poliretos {
                                 ingresoDatos.nextLine();
                                 System.out.println();
                                 System.out.println("Figura número 7\n ");
-                                System.out.println("Ingrese el tamaño de la figura:");
-                                int tamañoFigura7 = ingresoDatos.nextInt();
+                                int tamañoFigura7;
+                                do{
+                                    System.out.println("Ingrese el tamaño de la figura:");
+                                    tamañoFigura7 = ingresoDatos.nextInt();
+                                    if (tamañoFigura7 <= 0){
+                                        System.out.println("El tamaño de la figura debe ser un número positivo mayor a cero. Intente nuevamente." + RESET + "\n");
+                                    }
+                                }while (tamañoFigura7 <= 0);
                                 System.out.println();
                                 System.out.println("La figura generada con el bucle for es:\n ");
                                 tamFigura7.g5_figuraN7For(tamañoFigura7); 
@@ -200,8 +242,14 @@ public class Controller_Poliretos {
                                 ingresoDatos.nextLine();
                                 System.out.println();
                                 System.out.println("Figura número 8\n ");
-                                System.out.println("Ingrese el tamaño de la figura:");
-                                int tamañoFigura8 = ingresoDatos.nextInt();
+                                int tamañoFigura8;
+                                do{ 
+                                    System.out.println("Ingrese el tamaño de la figura:");
+                                    tamañoFigura8 = ingresoDatos.nextInt();
+                                    if (tamañoFigura8 <= 0){
+                                        System.out.println("El tamaño de la figura debe ser un número positivo mayor a cero. Intente nuevamente." + RESET + "\n");
+                                    }
+                                }while (tamañoFigura8 <= 0);
                                 System.out.println();
                                 System.out.println("La figura generada con el bucle for es:\n ");
                                 tamFigura8.g5_figuraN8For(tamañoFigura8); 
@@ -214,8 +262,14 @@ public class Controller_Poliretos {
                                 ingresoDatos.nextLine();
                                 System.out.println();
                                 System.out.println("Figura número 9\n ");
-                                System.out.println("Ingrese el tamaño de la figura:");
-                                int tamañoFigura9 = ingresoDatos.nextInt();
+                                int tamañoFigura9;
+                                do{
+                                    System.out.println("Ingrese el tamaño de la figura:");
+                                    tamañoFigura9 = ingresoDatos.nextInt();
+                                    if (tamañoFigura9 <= 0){
+                                        System.out.println("El tamaño de la figura debe ser un número positivo mayor a cero. Intente nuevamente." + RESET + "\n");
+                                    }
+                                }while (tamañoFigura9 <= 0);
                                 System.out.println();
                                 System.out.println("La figura generada con el bucle for es:\n ");
                                 tamFigura9.g5_figuraN9For(tamañoFigura9); 
@@ -228,8 +282,14 @@ public class Controller_Poliretos {
                                 ingresoDatos.nextLine();
                                 System.out.println();
                                 System.out.println("Figura número 10\n ");
-                                System.out.println("Ingrese el tamaño de la figura:");
-                                int tamañoFigura10 = ingresoDatos.nextInt();
+                                int tamañoFigura10;
+                                do{
+                                    System.out.println("Ingrese el tamaño de la figura:");
+                                    tamañoFigura10 = ingresoDatos.nextInt();
+                                    if (tamañoFigura10 <= 0){
+                                        System.out.println("El tamaño de la figura debe ser un número positivo mayor a cero. Intente nuevamente." + RESET + "\n");
+                                    }
+                                }while (tamañoFigura10 <= 0);
                                 System.out.println();
                                 System.out.println("La figura generada con el bucle for es:\n ");
                                 tamFigura10.g5_figuraN10For(tamañoFigura10); 
