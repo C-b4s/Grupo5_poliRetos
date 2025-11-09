@@ -1,17 +1,17 @@
-package Poliretos;
+package src.Poliretos;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import Poliretos.Figuras.g5_S1Figuras;
-import Poliretos.Figuras.g5_S2Figuras;
-import Poliretos.Figuras.g5_S3Figuras;
-import Poliretos.Figuras.g5_S4Figuras;
-import Poliretos.Figuras.g5_S5Figuras;
-import Poliretos.Figuras.g5_S6Figuras;
-import Poliretos.Figuras.g5_S7Figuras;
-import Poliretos.Figuras.g5_S8Figuras;
-import Poliretos.Figuras.g5_S9Figuras;
-import Poliretos.Figuras.g5_S10Figuras;
+import src.Poliretos.Figuras.g5_S1Figuras;
+import src.Poliretos.Figuras.g5_S2Figuras;
+import src.Poliretos.Figuras.g5_S3Figuras;
+import src.Poliretos.Figuras.g5_S4Figuras;
+import src.Poliretos.Figuras.g5_S5Figuras;
+import src.Poliretos.Figuras.g5_S6Figuras;
+import src.Poliretos.Figuras.g5_S7Figuras;
+import src.Poliretos.Figuras.g5_S8Figuras;
+import src.Poliretos.Figuras.g5_S9Figuras;
+import src.Poliretos.Figuras.g5_S10Figuras;
 public class Controller_Poliretos {
     public final String ROJO = "\u001B[31m";
     public final String RESET = "\u001B[0m";
@@ -96,16 +96,16 @@ public class Controller_Poliretos {
 
                                 break;
                             case 5:
-                                g5_S1Figuras tamFigura= new g5_S1Figuras();
-                                g5_S2Figuras tamFigura2 = new  g5_S2Figuras();
-                                g5_S3Figuras tamFigura3 = new  g5_S3Figuras();
-                                g5_S4Figuras tamFigura4 = new  g5_S4Figuras();
-                                g5_S5Figuras tamFigura5 = new  g5_S5Figuras();
-                                g5_S6Figuras tamFigura6 = new  g5_S6Figuras();
-                                g5_S7Figuras tamFigura7 = new  g5_S7Figuras();
-                                g5_S8Figuras tamFigura8 = new  g5_S8Figuras();
-                                g5_S9Figuras tamFigura9 = new  g5_S9Figuras();    
-                                g5_S10Figuras tamFigura10 = new  g5_S10Figuras();
+                                g5_S1Figuras tamFigura      = new g5_S1Figuras();
+                                g5_S2Figuras tamFigura2     = new  g5_S2Figuras();
+                                g5_S3Figuras tamFigura3     = new  g5_S3Figuras();
+                                g5_S4Figuras tamFigura4     = new  g5_S4Figuras();
+                                g5_S5Figuras tamFigura5     = new  g5_S5Figuras();
+                                g5_S6Figuras tamFigura6     = new  g5_S6Figuras();
+                                g5_S7Figuras tamFigura7     = new  g5_S7Figuras();
+                                g5_S8Figuras tamFigura8     = new  g5_S8Figuras();
+                                g5_S9Figuras tamFigura9     = new  g5_S9Figuras();    
+                                g5_S10Figuras tamFigura10   = new  g5_S10Figuras();
                                 System.out.println("Bienvenido al apartado de FIGURAS");
                                 System.out.println();
                                 System.out.println("Figura número 1\n ");
