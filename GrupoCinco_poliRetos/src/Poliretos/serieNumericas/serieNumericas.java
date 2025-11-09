@@ -1,1 +1,0 @@
-package src.Poliretos.serieNumericas;
