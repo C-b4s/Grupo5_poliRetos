@@ -60,7 +60,7 @@ public class Controller_Poliretos {
                     "3. Salir" };
             String[] secciones = { "1. Series numericas", "2. Series de caracteres", "3. Figuras",
                     "4. Cadenas de caracteres", "5. Arrays", "6. Loading", "7. Recursion", "8. Grafos y automatas" };
-            String[] integrantes = { "1. Matias Quinchiuano", "2. Micaela Sagñay", "3. Michael Sotomayor",
+            String[] integrantes = { "1. Matias Quinchiguano", "2. Micaela Sagñay", "3. Michael Sotomayor",
                     "4. Robbinson Tandazo", "5. Victoria Torres", "6. Sebastián Zúñiga" };
             String[] opcMenuPoliretos = { "1.-Seleccionar Metodo a usar", "2.-Salir al menú de operaciones" };
             String[] bucles = { "1.-FOR", "2.-WHILE", "3.-DO WHILE" };
@@ -129,6 +129,7 @@ public class Controller_Poliretos {
                                     do {
                                         imprimirMenu(opcMenuPoliretos, "figuras");
                                         poliretosValida = false;
+                                        do {
                                         System.out.print("Opción ingresada: ");
                                         try {
                                             seleccionPolireto = ingresoDatos.nextInt();
@@ -141,10 +142,12 @@ public class Controller_Poliretos {
                                             imprimirErrorDatosInvalidos();
                                             ingresoDatos.nextLine();
                                         }
+                                        } while (!poliretosValida);
                                         switch (seleccionPolireto) {
                                             case 1:
                                                 do {
                                                     imprimirMenu(bucles, "metodos");
+                                                    do{ 
                                                     confirmacionValida = false;
                                                     System.out.print("Opción ingresada: ");
                                                     try {
@@ -158,7 +161,10 @@ public class Controller_Poliretos {
                                                         imprimirErrorDatosInvalidos();
                                                         ingresoDatos.nextLine();
                                                     }
+                                                }while(!confirmacionValida);
                                                     imprimirMenu(cantidadFig, "FIGURAS (1-19)");
+                                                    do{ 
+                                                    confirmacionValida=false;
                                                     System.out.print("Opción ingresada: ");
                                                     try {
                                                         numero = ingresoDatos.nextInt();
@@ -171,11 +177,13 @@ public class Controller_Poliretos {
                                                         imprimirErrorDatosInvalidos();
                                                         ingresoDatos.nextLine();
                                                     }
+                                                    }while(!confirmacionValida);
                                                     if (confirmacionValida) {
+                                                        int numeroFilas = 0;
                                                         System.out.println(
                                                                 "Digite el número de filas que desea para la figura:");
-                                                        int numeroFilas = 0;
                                                         do {
+                                                            confirmacionValida=false;
                                                             System.out.print("Número de filas: ");
                                                             try {
                                                                 numeroFilas = ingresoDatos.nextInt();
@@ -193,6 +201,7 @@ public class Controller_Poliretos {
                                                                 "Digite la serie de números que desea para ciertas figuras :");
                                                         int serieDeNumeros = 0;
                                                         do {
+                                                            confirmacionValida=false;
                                                             System.out.print("Serie de números: ");
                                                             try {
                                                                 serieDeNumeros = ingresoDatos.nextInt();
@@ -222,6 +231,7 @@ public class Controller_Poliretos {
                                                                 break;
                                                         }
                                                     }
+                                                    System.out.println();
                                                 } while (!confirmacionValida);
                                                 break;
                                             case 2:
