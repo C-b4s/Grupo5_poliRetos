@@ -1,5 +1,6 @@
 package src.Poliretos;
 
+import java.text.Normalizer;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -232,36 +233,67 @@ public class Controller_Poliretos {
                                     break;
                                 case 4:
                                     int opcCadenas = 0;
+                                    boolean validarOpcCadena, validarFrase, validarBucle, datoValido;
+                                    String otroBucle = "", otraOperacion = "";
                                     String[] cadenasCaracteres = { "Cadenas 1)", "Cadenas 2)", "Cadenas 3)",
                                             "Cadenas 4)", "Cadenas 5)", "Cadenas 6)", "Cadenas 7)", "Cadenas 8)",
                                             "Cadenas 9)" };
                                     System.out.println(
                                             "Usted ha seleccionado realizar operaciones con cadenas de caracteres.");
+                                    
+                                    do{
+                                                                            
                                     imprimirMenu(cadenasCaracteres, "cadenas de caracteres");
+                                    
+                                    do {
+                                        datoValido = false;
+                                        try {
+                                        System.out.print("Opción ingresada: ");
+                                        opcCadenas = ingresoDatos.nextInt();
+                                        ingresoDatos.nextLine();
 
-                                    System.out.print("Opción ingresada: ");
+                                        if (opcCadenas >= 1 && opcCadenas <= 9) datoValido = true;
+                                        else imprimirErrorOpcionIncorrecta();
 
-                                    opcCadenas = ingresoDatos.nextInt();
-                                    ingresoDatos.nextLine();
-
+                                        } catch (InputMismatchException e) {
+                                            imprimirErrorDatosInvalidos();
+                                        }     
+                                    } while (!datoValido);
+                                    
+                                    validarOpcCadena = false;
                                     switch (opcCadenas) {
                                         case 1:
                                             G5_contarVocales cadenasUno = new G5_contarVocales();
-                                            String fraseVocales;
+                                            String fraseVocales = "";
 
                                             System.out
                                                     .println("Usted ha seleccionado realizar la operación Cadenas 1)");
 
+                                            
                                             System.out.print("Ingrese una frase: ");
-                                            fraseVocales = ingresoDatos.nextLine();
+                                            fraseVocales = ingresoDatos.nextLine().toLowerCase();
+                                                    
+                                                                                 
+                                            do{
+                                                imprimirMenu(bucles, "bucles " + cadenasCaracteres[1]);
+                                            do {
+                                                datoValido = false;
 
-                                            imprimirMenu(bucles, "bucles " + cadenasCaracteres[0]);
-                                            System.out.print("Bucle seleccionado: ");
-
-                                            opcBucles = ingresoDatos.nextInt();
-                                            ingresoDatos.nextLine();
-
+                                                try {
+                                                    System.out.print("Bucle seleccionado (ingrese el número): ");
+                                                    opcBucles = ingresoDatos.nextInt();
+                                                    ingresoDatos.nextLine();
+                                                    datoValido = true;
+                                                    
+                                                } catch (InputMismatchException e) {
+                                                    imprimirErrorDatosInvalidos();
+                                                    datoValido = false;
+                                                }
+                                                
+                                            } while (!datoValido);
+                                            
                                             int cantVocales;
+                                            validarBucle = false;
                                             switch (opcBucles) {
                                                 case 1:
                                                     System.out.println(
@@ -290,7 +322,25 @@ public class Controller_Poliretos {
                                                 default:
                                                     imprimirErrorTipoCiclo();
                                                     break;
-                                            }
+                                                }
+                                                if (opcBucles >= 1 && opcBucles <= 3){
+                                                    validarBucle = true;
+                                                    System.out.println("Si desea probar otro bucle, escriba si. De lo contrario, escriba no");
+                                                    System.out.print("Respuesta: ");
+                                                    do{
+                                                        try {
+                                                            otroBucle = ingresoDatos.nextLine();
+                                                            otroBucle = Normalizer.normalize(otroBucle, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toLowerCase();
+                                                            if (!otroBucle.equals("si") && !otroBucle.equals("no")) imprimirErrorOpcionIncorrecta();
+                                                        } catch (InputMismatchException e) {
+                                                            imprimirErrorDatosInvalidos();
+                                                        }
+                                                        
+                                                    }while (otroBucle != "si" && otroBucle != "no");
+                                                }
+                                                
+
+                                            }while (!validarBucle || otroBucle.equals("si"));
                                             break;
                                         case 2:
                                             G5_contarConsonantes cadenasDos = new G5_contarConsonantes();
@@ -299,16 +349,31 @@ public class Controller_Poliretos {
                                             System.out
                                                     .println("Usted ha seleccionado realizar la operación Cadenas 2)");
 
+                                            
                                             System.out.print("Ingrese una frase: ");
-                                            fraseConsonantes = ingresoDatos.nextLine();
+                                            fraseConsonantes = ingresoDatos.nextLine().toLowerCase();
+                                                    
+                                            do{
+                                                imprimirMenu(bucles, "bucles " + cadenasCaracteres[1]);
+                                            do {
+                                                datoValido = false;
 
-                                            imprimirMenu(bucles, "bucles " + cadenasCaracteres[1]);
-                                            System.out.print("Bucle seleccionado: ");
-
-                                            opcBucles = ingresoDatos.nextInt();
-                                            ingresoDatos.nextLine();
+                                                try {
+                                                    System.out.print("Bucle seleccionado (ingrese el número): ");
+                                                    opcBucles = ingresoDatos.nextInt();
+                                                    ingresoDatos.nextLine();
+                                                    datoValido = true;
+                                                    
+                                                } catch (InputMismatchException e) {
+                                                    imprimirErrorDatosInvalidos();
+                                                    datoValido = false;
+                                                }
+                                                
+                                            } while (!datoValido);
 
                                             int cantConsonantes;
+                                            validarBucle = false;
+
                                             switch (opcBucles) {
                                                 case 1:
                                                     System.out.println(
@@ -340,7 +405,24 @@ public class Controller_Poliretos {
                                                 default:
                                                     imprimirErrorTipoCiclo();
                                                     break;
-                                            }
+                                                }
+                                                if (opcBucles >= 1 && opcBucles <= 3){
+                                                    validarBucle = true;
+                                                    System.out.println("Si desea probar otro bucle, escriba si. De lo contrario, escriba no");
+                                                    System.out.print("Respuesta: ");
+
+                                                    do{
+                                                        try {
+                                                            otroBucle = ingresoDatos.nextLine();
+                                                            otroBucle = Normalizer.normalize(otroBucle, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toLowerCase();
+                                                            if (!otroBucle.equals("si") && !otroBucle.equals("no")) imprimirErrorOpcionIncorrecta();
+                                                        } catch (InputMismatchException e) {
+                                                            imprimirErrorDatosInvalidos();
+                                                        }
+                                                        
+                                                    }while (otroBucle != "si" && otroBucle != "no");
+                                                }
+                                            }while (!validarBucle || otroBucle.equals("si"));
                                             break;
                                         case 3:
                                             G5_eliminarVocal cadenasTres = new G5_eliminarVocal();
@@ -352,33 +434,53 @@ public class Controller_Poliretos {
                                             System.out
                                                     .println("Usted ha seleccionado realizar la operación Cadenas 3)");
 
-                                            System.out.print("Ingrese una frase: ");
-                                            fraseEliminarVocal = ingresoDatos.nextLine();
+
+                                            do {
+                                                validarFrase = false;
+                                                    System.out.print("Ingrese una frase: ");
+                                                    fraseEliminarVocal = ingresoDatos.nextLine().toLowerCase();
+                                                    if (fraseEliminarVocal.matches("[aeiouáéíóú]")) validarFrase = true;
+                                                    else imprimirErrorFrase();
+                                            } while (!validarFrase);
 
                                             System.out.print("Ingrese una vocal para eliminarla: ");
 
                                             do {
-                                                vocal = ingresoDatos.nextLine();
+                                                vocal = ingresoDatos.nextLine().toLowerCase();
                                                 esVocal = "áéíóúaeiou".contains(vocal);
                                                 if (!esVocal) {
                                                     imprimirErrorTipoDato();
                                                 }
                                             } while (!esVocal);
+                                            
                                             char vocalEliminada = vocal.charAt(0);
+                                            validarBucle = false;
+                                            do{
+                                                imprimirMenu(bucles, "bucles " + cadenasCaracteres[2]);
+                                                do {
+                                                datoValido = false;
 
-                                            imprimirMenu(bucles, "bucles " + cadenasCaracteres[2]);
-                                            System.out.print("Bucle seleccionado: ");
+                                                try {
+                                                    System.out.print("Bucle seleccionado (ingrese el número): ");
+                                                    opcBucles = ingresoDatos.nextInt();
+                                                    ingresoDatos.nextLine();
+                                                    datoValido = true;
+                                                    
+                                                } catch (InputMismatchException e) {
+                                                    imprimirErrorDatosInvalidos();
+                                                    datoValido = false;
+                                                }
+                                                
+                                                } while (!datoValido);
 
-                                            opcBucles = ingresoDatos.nextInt();
-                                            ingresoDatos.nextLine();
-
+                                    
                                             switch (opcBucles) {
                                                 case 1:
                                                     System.out.println(
                                                             "Usted ha seleccionado usar el bucle for para la operación Cadenas 3)");
                                                     textoSinVocal = cadenasTres.g5_eliminarVocalFor(fraseEliminarVocal,
                                                             vocalEliminada);
-                                                    System.out.println("La nueva frase es: " + textoSinVocal);
+                                                    imprimirResultadoFrase(textoSinVocal);
                                                     break;
 
                                                 case 2:
@@ -386,7 +488,7 @@ public class Controller_Poliretos {
                                                             "Usted ha seleccionado usar el bucle while para la operación Cadenas 3)");
                                                     textoSinVocal = cadenasTres
                                                             .g5_eliminarVocalWhile(fraseEliminarVocal, vocalEliminada);
-                                                    System.out.println("La nueva frase es: " + textoSinVocal);
+                                                    imprimirResultadoFrase(textoSinVocal);
                                                     break;
 
                                                 case 3:
@@ -394,14 +496,32 @@ public class Controller_Poliretos {
                                                             "Usted ha seleccionado usar el bucle do-while para la operación Cadenas 3)");
                                                     textoSinVocal = cadenasTres.g5_eliminarVocalDoWhile(
                                                             fraseEliminarVocal, vocalEliminada);
-                                                    System.out.println("La nueva frase es: " + textoSinVocal);
+                                                    imprimirResultadoFrase(textoSinVocal);
                                                     break;
 
                                                 default:
                                                     imprimirErrorTipoCiclo();
                                                     break;
                                             }
+                                            if (opcBucles >= 1 && opcBucles <= 3){
+                                                    validarBucle = true;
+                                                    System.out.println("Si desea probar otro bucle, escriba si. De lo contrario, escriba no");
+                                                    System.out.print("Respuesta: ");
+
+                                                    do{
+                                                        try {
+                                                            otroBucle = ingresoDatos.nextLine();
+                                                            otroBucle = Normalizer.normalize(otroBucle, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toLowerCase();
+                                                            if (!otroBucle.equals("si") && !otroBucle.equals("no")) imprimirErrorOpcionIncorrecta();
+                                                        } catch (InputMismatchException e) {
+                                                            imprimirErrorDatosInvalidos();
+                                                        }
+                                                        
+                                                    }while (otroBucle != "si" && otroBucle != "no");
+                                                }
                                             break;
+                                            
+                                        }while (!validarBucle || otroBucle.equals("si"));
                                         case 4:
                                             G5_eliminarConsonante cadenasCuatro = new G5_eliminarConsonante();
                                             String fraseEliminarConsonante;
@@ -410,27 +530,49 @@ public class Controller_Poliretos {
 
                                             System.out.println("Usted ha seleccionado realizar la operación Cadena 4)");
 
+                                            
                                             System.out.print("Ingrese una frase: ");
-                                            fraseEliminarConsonante = ingresoDatos.nextLine();
+                                            do {
+                                                validarFrase = false;
+                                                    System.out.print("Ingrese una frase: ");
+                                                    fraseEliminarConsonante = ingresoDatos.nextLine().toLowerCase();
+                                                    if (fraseEliminarConsonante.matches("[a-zñáéíóú]")) validarFrase = true;
+                                                    else imprimirErrorFrase();
+                                            } while (!validarFrase);
 
                                             System.out.print("Ingrese una consonante para eliminarla: ");
                                             do {
-                                                consonante = ingresoDatos.nextLine();
-                                                esVocal = "áéíóúaeiou".contains(vocal);
+                                                consonante = ingresoDatos.nextLine().toLowerCase();
+                                                esVocal = "áéíóúaeiou".contains(consonante);
                                                 if (esVocal) {
                                                     imprimirErrorTipoDato();
                                                 }
                                             } while (esVocal);
                                             char consonanteEliminada = consonante.charAt(0);
+                                            validarBucle = false;
 
-                                            imprimirMenu(bucles, "bucles " + cadenasCaracteres[3]);
-                                            System.out.print("Bucle seleccionado: ");
+                                            do{
+                                                do {
+                                                datoValido = false;
 
-                                            opcBucles = ingresoDatos.nextInt();
-                                            ingresoDatos.nextLine();
+                                                try {
+                                                    System.out.print("Bucle seleccionado (ingrese el número): ");
+                                                    opcBucles = ingresoDatos.nextInt();
+                                                    ingresoDatos.nextLine();
+                                                    datoValido = true;
+                                                    
+                                                } catch (InputMismatchException e) {
+                                                    imprimirErrorDatosInvalidos();
+                                                    datoValido = false;
+                                                }
+                                                
+                                                } while (!datoValido);
 
                                             switch (opcBucles) {
                                                 case 1:
+                                                    System.out.println("Usted ha seleccionado usar el bucle for para la operación Cadenas 4)");
+                                                    textoSinConsonante = cadenasCuatro.g5_eliminarConsonanteFor(fraseEliminarConsonante, consonanteEliminada);
+                                                    imprimirResultadoFrase(textoSinConsonante);
                                                     System.out.println(
                                                             "Usted ha seleccionado usar el bucle for para la operación Cadenas 4)");
                                                     textoSinConsonante = cadenasCuatro.g5_eliminarConsonanteFor(
@@ -449,16 +591,32 @@ public class Controller_Poliretos {
                                                 case 3:
                                                     System.out.println(
                                                             "Usted ha seleccionado usar el bucle do-while para la operación Cadenas 4)");
-                                                    textoSinConsonante = cadenasCuatro.g5_eliminarConsonanteDoWhile(
-                                                            fraseEliminarConsonante, consonanteEliminada);
-                                                    System.out.println("La nueva frase es: " + textoSinConsonante);
+                                                    textoSinConsonante = cadenasCuatro.g5_eliminarConsonanteDoWhile(fraseEliminarConsonante, consonanteEliminada);
+                                                    imprimirResultadoFrase(textoSinConsonante);
                                                     break;
 
                                                 default:
                                                     imprimirErrorTipoCiclo();
                                                     break;
                                             }
-                                            break;
+                                            if (opcBucles >= 1 && opcBucles <= 3){
+                                                    validarBucle = true;
+                                                    System.out.println("Si desea probar otro bucle, escriba si. De lo contrario, escriba no");
+                                                    System.out.print("Respuesta: ");
+
+                                                    do{
+                                                        try {
+                                                            otroBucle = ingresoDatos.nextLine();
+                                                            otroBucle = Normalizer.normalize(otroBucle, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toLowerCase();
+                                                            if (!otroBucle.equals("si") && !otroBucle.equals("no")) imprimirErrorOpcionIncorrecta();
+                                                        } catch (InputMismatchException e) {
+                                                            imprimirErrorDatosInvalidos();
+                                                        }
+                                                        
+                                                    }while (otroBucle != "si" && otroBucle != "no");
+                                            }
+                                        }while (!validarBucle || otroBucle.equals("si"));
+                                        break;
                                         case 5:
 
                                             G5_invertirConVocalesEnMayus cadenasCinco = new G5_invertirConVocalesEnMayus();
@@ -467,44 +625,79 @@ public class Controller_Poliretos {
 
                                             System.out.println("Usted ha seleccionado realizar la operación Cadena 5)");
 
-                                            System.out.print("Ingrese una frase");
-                                            textoCadCinco = ingresoDatos.nextLine();
 
-                                            imprimirMenu(bucles, "bucles " + cadenasCaracteres[3]);
-                                            System.out.print("Bucle seleccionado: ");
-                                            opcBucles = ingresoDatos.nextInt();
-                                            ingresoDatos.nextLine();
+                                            do {
+                                                validarFrase = false;
+                                                    System.out.print("Ingrese una frase: ");
+                                                    textoCadCinco = ingresoDatos.nextLine().toLowerCase();
+                                                    if (textoCadCinco.matches("[aeiouáéíóú]")) validarFrase = true;
+                                                    else imprimirErrorFrase();
+                                            } while (!validarFrase);
 
+
+                                            do{
+                                                imprimirMenu(bucles, "bucles " + cadenasCaracteres[4]);
+                                              do {
+                                                datoValido = false;
+                                                try {
+                                                    System.out.print("Bucle seleccionado (ingrese el número): ");
+                                                    opcBucles = ingresoDatos.nextInt();
+                                                    ingresoDatos.nextLine();
+                                                    datoValido = true;
+                                                    
+                                                } catch (InputMismatchException e) {
+                                                    imprimirErrorDatosInvalidos();
+                                                    datoValido = false;
+                                                } 
+                                                } while (!datoValido);
+
+                                            validarBucle = false;
+                              
                                             switch (opcBucles) {
                                                 case 1:
-                                                    System.out.println(
-                                                            "Usted ha seleccionado usar el bucle for para la operación Cadenas 5)");
-                                                    invertidoVocalesMayus = cadenasCinco
-                                                            .g5_invertirConVocalesMayusFor(textoCadCinco);
-                                                    System.out.println("La nueva frase es: " + invertidoVocalesMayus);
+                                                    System.out.println("Usted ha seleccionado usar el bucle for para la operación Cadenas 5)");
+                                                    invertidoVocalesMayus = cadenasCinco.g5_invertirConVocalesMayusFor(textoCadCinco);
+                                                   imprimirResultadoFrase(invertidoVocalesMayus);
                                                     break;
 
                                                 case 2:
                                                     System.out.println(
                                                             "Usted ha seleccionado usar el bucle while para la operación Cadenas 5)");
-                                                    invertidoVocalesMayus = cadenasCinco
-                                                            .g5_invertirConVocalesMayusWhile(textoCadCinco);
-                                                    System.out.println("La nueva frase es: " + invertidoVocalesMayus);
+                                                    invertidoVocalesMayus = cadenasCinco.g5_invertirConVocalesMayusWhile(textoCadCinco);
+                                                   imprimirResultadoFrase(invertidoVocalesMayus);
                                                     break;
 
                                                 case 3:
                                                     System.out.println(
                                                             "Usted ha seleccionado usar el bucle do-while para la operación Cadenas 5)");
-                                                    invertidoVocalesMayus = cadenasCinco
-                                                            .g5_invertirConVocalesMayusDoWhile(textoCadCinco);
-                                                    System.out.println("La nueva frase es: " + invertidoVocalesMayus);
+                                                    invertidoVocalesMayus = cadenasCinco.g5_invertirConVocalesMayusDoWhile(textoCadCinco);
+                                                   imprimirResultadoFrase(invertidoVocalesMayus);
                                                     break;
 
                                                 default:
                                                     imprimirErrorTipoCiclo();
                                                     break;
                                             }
-                                            break;
+                                            
+                                            if (opcBucles >= 1 && opcBucles <= 3){
+                                                validarBucle = true;
+                                                System.out.println("Si desea probar otro bucle, escriba si. De lo contrario, escriba no");
+                                                System.out.print("Respuesta: ");
+
+                                                do{
+                                                    try {
+                                                         otroBucle = ingresoDatos.nextLine();
+                                                        otroBucle = Normalizer.normalize(otroBucle, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toLowerCase();
+                                                        if (!otroBucle.equals("si") && !otroBucle.equals("no")) imprimirErrorOpcionIncorrecta();
+                                                    } catch (InputMismatchException e) {
+                                                        imprimirErrorDatosInvalidos();
+                                                    }
+                                                        
+                                                }while (otroBucle != "si" && otroBucle != "no");
+                                            }
+
+                                        }while (!validarBucle || otroBucle.equals("si"));
+                                        break;
                                         case 6:
                                             G5_invertirConConsonantesEnMayus cadenasSeis = new G5_invertirConConsonantesEnMayus();
                                             String textoCadSeis, invertidoConsonantesMayus;
@@ -512,53 +705,81 @@ public class Controller_Poliretos {
                                             System.out
                                                     .println("Usted ha seleccionado realizar la operación Cadenas 6)");
 
-                                            System.out.print("Ingrese una frase");
-                                            textoCadSeis = ingresoDatos.nextLine();
+                                            
+                                            do {
+                                                validarFrase = false;
+                                                    System.out.print("Ingrese una frase: ");
+                                                    textoCadSeis = ingresoDatos.nextLine().toLowerCase();
+                                                    if (textoCadSeis.matches("[aeiouáéíóú]")) validarFrase = true;
+                                                    else imprimirErrorFrase();
+                                            } while (!validarFrase);
 
-                                            imprimirMenu(bucles, "bucles " + cadenasCaracteres[3]);
-                                            System.out.print("Bucle seleccionado: ");
+                                            do{
+                                                imprimirMenu(bucles, "bucles " + cadenasCaracteres[5]);
+                                                do {
+                                                datoValido = false;
 
-                                            opcBucles = ingresoDatos.nextInt();
-                                            ingresoDatos.nextLine();
+                                                try {
+                                                    System.out.print("Bucle seleccionado (ingrese el número): ");
+                                                    opcBucles = ingresoDatos.nextInt();
+                                                    ingresoDatos.nextLine();
+                                                    datoValido = true;
+                                                    
+                                                } catch (InputMismatchException e) {
+                                                    imprimirErrorDatosInvalidos();
+                                                    datoValido = false;
+                                                }
+                                                
+                                                } while (!datoValido);
 
+                                            validarBucle = false;
                                             switch (opcBucles) {
                                                 case 1:
 
-                                                    System.out.println(
-                                                            "Usted ha seleccionado usar el bucle for para la operación Cadenas 6)");
-                                                    invertidoConsonantesMayus = cadenasSeis
-                                                            .g5_invertirConConsonantesMayusFor(textoCadSeis);
-                                                    System.out
-                                                            .println("La nueva frase es: " + invertidoConsonantesMayus);
+                                                    System.out.println("Usted ha seleccionado usar el bucle for para la operación Cadenas 6)");
+                                                    invertidoConsonantesMayus = cadenasSeis.g5_invertirConConsonantesMayusFor(textoCadSeis);
+                                                    imprimirResultadoFrase(invertidoConsonantesMayus);
                                                     break;
 
                                                 case 2:
 
                                                     System.out.println(
                                                             "Usted ha seleccionado usar el bucle while para la operación Cadena 5)");
-                                                    invertidoConsonantesMayus = cadenasSeis
-                                                            .g5_invertirConConsonantesMayusWhile(
-                                                                    invertidoConsonantesMayus);
-                                                    System.out
-                                                            .println("La nueva frase es: " + invertidoConsonantesMayus);
+                                                    invertidoConsonantesMayus = cadenasSeis.g5_invertirConConsonantesMayusWhile(textoCadSeis);
+                                                    imprimirResultadoFrase(invertidoConsonantesMayus);
                                                     break;
 
                                                 case 3:
 
                                                     System.out.println(
                                                             "Usted ha seleccionado usar el bucle do-while para la operación Cadenas 4)");
-                                                    invertidoConsonantesMayus = cadenasSeis
-                                                            .g5_invertirConConsonantesMayusDoWhile(
-                                                                    invertidoConsonantesMayus);
-                                                    System.out
-                                                            .println("La nueva frase es: " + invertidoConsonantesMayus);
+                                                    invertidoConsonantesMayus = cadenasSeis.g5_invertirConConsonantesMayusDoWhile(textoCadSeis);
+                                                    imprimirResultadoFrase(invertidoConsonantesMayus);
                                                     break;
 
                                                 default:
                                                     imprimirErrorTipoCiclo();
                                                     break;
                                             }
-                                            break;
+                                                if (opcBucles >= 1 && opcBucles <= 3){
+                                                    validarBucle = true;
+                                                    System.out.println("Si desea probar otro bucle, escriba si. De lo contrario, escriba no");
+                                                    System.out.print("Respuesta: ");
+
+                                                    do{
+                                                        try {
+                                                            otroBucle = ingresoDatos.nextLine();
+                                                            otroBucle = Normalizer.normalize(otroBucle, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toLowerCase();
+                                                            if (!otroBucle.equals("si") && !otroBucle.equals("no")) imprimirErrorOpcionIncorrecta();
+                                                        } catch (InputMismatchException e) {
+                                                            imprimirErrorDatosInvalidos();
+                                                        }
+                                                        
+                                                    }while (otroBucle != "si" && otroBucle != "no");
+                                                }
+
+                                        }while (!validarBucle || otroBucle.equals("si"));
+                                        break;
                                         case 7:
                                             G5_convertirAMayusSinJ cadenasSiete = new G5_convertirAMayusSinJ();
                                             String textoCadSiete, textoMayusSinJ;
@@ -566,65 +787,250 @@ public class Controller_Poliretos {
                                             System.out
                                                     .println("Usted ha seleccionado realizar la opereación Cadenas 7)");
 
-                                            System.out.print("Ingrese una frase: ");
-                                            textoCadSiete = ingresoDatos.nextLine();
+                                            do {
+                                                validarFrase = false;
+                                                    System.out.print("Ingrese una frase: ");
+                                                    textoCadSiete = ingresoDatos.nextLine();
+                                                    if (textoCadSiete.matches("[aeiouáéíóú]")) validarFrase = true;
+                                                    else imprimirErrorFrase();
+                                            } while (!validarFrase);
+                                            
+                                            do{
+                                                imprimirMenu(bucles, "bucles " + cadenasCaracteres[6]);
+                                                do {
+                                                datoValido = false;
 
-                                            imprimirMenu(bucles, "bucles " + cadenasCaracteres[3]);
-                                            System.out.print("Bucle seleccionado: ");
-                                            opcBucles = ingresoDatos.nextInt();
-                                            ingresoDatos.nextLine();
+                                                try {
+                                                    System.out.print("Bucle seleccionado (ingrese el número): ");
+                                                    opcBucles = ingresoDatos.nextInt();
+                                                    ingresoDatos.nextLine();
+                                                    datoValido = true;
+                                                    
+                                                } catch (InputMismatchException e) {
+                                                    imprimirErrorDatosInvalidos();
+                                                    datoValido = false;
+                                                }
+                                                
+                                                } while (!datoValido);
 
+                                            validarBucle = false;
+                                            
                                             switch (opcBucles) {
                                                 case 1:
 
-                                                    System.out.println(
-                                                            "Usted ha seleccionado usar el bucle for para la operación Cadenas 7)");
-                                                    textoMayusSinJ = cadenasSiete
-                                                            .g5_convertirAMayusSinJFor(textoCadSiete);
-                                                    System.out.println("La nueva frase es: " + textoMayusSinJ);
+                                                    System.out.println("Usted ha seleccionado usar el bucle for para la operación Cadenas 7)");
+                                                    textoMayusSinJ = cadenasSiete.g5_convertirAMayusSinJFor(textoCadSiete);
+                                                    imprimirResultadoFrase(textoMayusSinJ);
                                                     break;
 
                                                 case 2:
 
                                                     System.out.println(
                                                             "Usted ha seleccionado usar el bucle while para la operación Cadena 5)");
-                                                    invertidoConsonantesMayus = cadenasSeis
-                                                            .g5_invertirConConsonantesMayusWhile(
-                                                                    invertidoConsonantesMayus);
-                                                    System.out
-                                                            .println("La nueva frase es: " + invertidoConsonantesMayus);
+                                                    textoMayusSinJ = cadenasSiete.g5_convertirAMayusSinJWhile(textoCadSiete);
+                                                    imprimirResultadoFrase(textoMayusSinJ);
                                                     break;
 
                                                 case 3:
 
                                                     System.out.println(
                                                             "Usted ha seleccionado usar el bucle do-while para la operación Cadenas 4)");
-                                                    invertidoConsonantesMayus = cadenasSeis
-                                                            .g5_invertirConConsonantesMayusDoWhile(
-                                                                    invertidoConsonantesMayus);
-                                                    System.out
-                                                            .println("La nueva frase es: " + invertidoConsonantesMayus);
+                                                    textoMayusSinJ = cadenasSiete.g5_convertirAMayusSinJDoWhile(textoCadSiete);
+                                                    imprimirResultadoFrase(textoMayusSinJ);
                                                     break;
 
                                                 default:
                                                     imprimirErrorTipoCiclo();
                                                     break;
                                             }
-                                            break;
+                                            if (opcBucles >= 1 && opcBucles <= 3){
+                                                    validarBucle = true;
+                                                    System.out.println("Si desea probar otro bucle, escriba si. De lo contrario, escriba no");
+                                                    System.out.print("Respuesta: ");
+
+                                                    do{
+                                                        try {
+                                                            otroBucle = ingresoDatos.nextLine();
+                                                            otroBucle = Normalizer.normalize(otroBucle, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toLowerCase();
+                                                            if (!otroBucle.equals("si") && !otroBucle.equals("no")) imprimirErrorOpcionIncorrecta();
+                                                        } catch (InputMismatchException e) {
+                                                            imprimirErrorDatosInvalidos();
+                                                        }
+                                                        
+                                                    }while (otroBucle != "si" && otroBucle != "no");
+                                            }
+
+                                        }while (!validarBucle || otroBucle.equals("si"));
+                                        break;
 
                                         case 8:
+                                            G5_adivinarAnagramas cadenasOcho = new G5_adivinarAnagramas();
+                                            Scanner adivinaAnagrama = new Scanner (System.in);
 
-                                            break;
+                                            System.out.println("Usted ha seleccionado realizar la operación Cadenas 8)");
+                                            imprimirMenu(bucles, "bucles " + cadenasCaracteres[7]);
+                                            
+                                            do{
+                                                do {
+                                                datoValido = false;
+
+                                                try {
+                                                    System.out.print("Bucle seleccionado (ingrese el número): ");
+                                                    opcBucles = ingresoDatos.nextInt();
+                                                    ingresoDatos.nextLine();
+                                                    datoValido = true;
+                                                    
+                                                } catch (InputMismatchException e) {
+                                                    imprimirErrorDatosInvalidos();
+                                                    datoValido = false;
+                                                }
+                                                
+                                                } while (!datoValido);
+
+                                                validarBucle = false;
+
+                                            switch (opcBucles) {
+                                                case 1:
+                                                    System.out.println("Usted ha seleccionado usar el bucle for para la operación Cadenas 8)");
+                                                    cadenasOcho.g5_adivinarAnagramasFor(adivinaAnagrama);
+                                                    break;
+
+                                                case 2:
+
+                                                    System.out.println(
+                                                            "Usted ha seleccionado usar el bucle while para la operación Cadena 8)");
+                                                    cadenasOcho.g5_adivinarAnagramasWhile(adivinaAnagrama);
+                                                    break;
+
+                                                case 3:
+
+                                                    System.out.println(
+                                                            "Usted ha seleccionado usar el bucle do-while para la operación Cadenas 8)");
+                                                    cadenasOcho.g5_adivinarAnagramasDoWhile(adivinaAnagrama);
+                                                    break;
+
+                                                default:
+                                                    imprimirErrorTipoCiclo();
+                                                    break;
+                                            }
+                                            if (opcBucles >= 1 && opcBucles <= 3){
+                                                    validarBucle = true;
+                                                    System.out.println("Si desea probar otro bucle, escriba si. De lo contrario, escriba no");
+                                                    System.out.print("Respuesta: ");
+
+                                                    do{
+                                                        try {
+                                                            otroBucle = ingresoDatos.nextLine();
+                                                            otroBucle = Normalizer.normalize(otroBucle, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toLowerCase();
+                                                            if (!otroBucle.equals("si") && !otroBucle.equals("no")) imprimirErrorOpcionIncorrecta();
+                                                        } catch (InputMismatchException e) {
+                                                            imprimirErrorDatosInvalidos();
+                                                        }
+                                                        
+                                                    }while (otroBucle != "si" && otroBucle != "no");
+                                            }
+
+                                        }while(!validarBucle || otroBucle.equals("si"));
+                                        break;
+
                                         case 9:
+                                            G5_alternarMayusYMinus cadenasNueve = new G5_alternarMayusYMinus();
+                                            String textoCadNueve, textoAlternado;
 
-                                            break;
+                                            System.out.println("Usted ha seleccionado realizar la operación Cadenas 9)");
+                                            do {
+                                                validarFrase = false;
+                                                    System.out.print("Ingrese una frase: ");
+                                                    textoCadNueve = ingresoDatos.nextLine();
+                                                    if (textoCadNueve.matches("[aeiouáéíóú]")) validarFrase = true;
+                                                    else imprimirErrorFrase();
+                                            } while (!validarFrase);
+
+                                            do{
+                                                do {
+                                                datoValido = false;
+
+                                                try {
+                                                    System.out.print("Bucle seleccionado (ingrese el número): ");
+                                                    opcBucles = ingresoDatos.nextInt();
+                                                    ingresoDatos.nextLine();
+                                                    datoValido = true;
+                                                    
+                                                } catch (InputMismatchException e) {
+                                                    imprimirErrorDatosInvalidos();
+                                                    datoValido = false;
+                                                }
+                                                
+                                                } while (!datoValido);
+
+                                            validarBucle = false;
+                                            switch (opcBucles) {
+                                                case 1:
+
+                                                    System.out.println("Usted ha seleccionado usar el bucle for para la operación Cadenas 9)");
+                                                    textoAlternado = cadenasNueve.g5_alternarMayusYMinusFor(textoCadNueve);
+                                                    imprimirResultadoFrase(textoAlternado);                                                
+                                                    break;
+
+                                                case 2:
+
+                                                    System.out.println(
+                                                            "Usted ha seleccionado usar el bucle while para la operación Cadena 9)");
+                                                    textoAlternado = cadenasNueve.g5_alternarMayusYMinusWhile(textoCadNueve);
+                                                    imprimirResultadoFrase(textoAlternado);
+                                                    break;
+
+                                                case 3:
+
+                                                    System.out.println(
+                                                            "Usted ha seleccionado usar el bucle do-while para la operación Cadenas 9)");
+                                                    textoAlternado = cadenasNueve.g5_alternarMayusYMinusDoWhile(textoCadNueve);
+                                                    imprimirResultadoFrase(textoAlternado);
+                                                    break;
+
+                                                default:
+                                                    imprimirErrorTipoCiclo();
+                                                    break;
+                                            }
+                                                if (opcBucles >= 1 && opcBucles <= 3){
+                                                    validarBucle = true;
+                                                    System.out.println("Si desea probar otro bucle, escriba si. De lo contrario, escriba no");
+                                                    System.out.print("Respuesta: ");
+                                                    
+                                                    do{
+                                                        try {
+                                                            otroBucle = ingresoDatos.nextLine();
+                                                            otroBucle = Normalizer.normalize(otroBucle, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toLowerCase();
+                                                            if (!otroBucle.equals("si") && !otroBucle.equals("no")) imprimirErrorOpcionIncorrecta();
+                                                        } catch (InputMismatchException e) {
+                                                            imprimirErrorDatosInvalidos();
+                                                        }
+                                                        
+                                                    }while (otroBucle != "si" && otroBucle != "no");
+                                                }
+                                        }while (!validarBucle || otroBucle.equals("si"));
+                                        break;
                                         default:
-
+                                            imprimirErrorOpcionIncorrecta();
                                             break;
 
                                     }
-
-                                    break;
+                                    if (opcCadenas >= 1 && opcCadenas <= 8){
+                                        validarOpcCadena = true;
+                                        System.out.println("Si desea realizar otra operación con cadenas, escriba si. De lo contrario, escriba no");
+                                        do{
+                                        try {
+                                            otraOperacion = Normalizer.normalize(otraOperacion, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toLowerCase();
+                                            if (!otroBucle.equals("si") && !otroBucle.equals("no")) imprimirErrorOpcionIncorrecta();
+                                        } catch (InputMismatchException e) {
+                                            imprimirErrorDatosInvalidos();
+                                        }
+              
+                                        }while (otraOperacion != "si" && otraOperacion != "no");
+                                    }
+                                }while (!validarOpcCadena || otraOperacion.equals("si"));
+                                break;
+                                
                                 case 5:
                                     // Arrays
                                     break;
@@ -793,9 +1199,19 @@ public class Controller_Poliretos {
         }
     }
 
+    private void imprimirErrorFrase() {
+        System.err.println(ROJO + "\n============= ERROR =============");
+        System.err.println("La frase no contiene los caracteres necesarios para realizar la operación.");
+    }
+
+    private void imprimirResultadoFrase(String resultado) {
+        System.out.println("\n========== RESULTADO ==========");
+        System.out.println("La nueva frase es " + resultado);
+    }
+
     private void imprimirErrorTipoDato() {
-        System.out.println(ROJO + "\n============= ERROR =============");
-        System.out.println("El dato ingresado no coincide con el tipo de dato solicitado");
+        System.err.println(ROJO + "\n============= ERROR =============");
+        System.err.println("El dato ingresado no coincide con el tipo de dato solicitado");
     }
 
     public void ejecutarFigura(int numero, String tipoCiclo, int filas, int serieDeNumeros) {
@@ -1073,23 +1489,23 @@ public class Controller_Poliretos {
     }
 
     public void imprimirErrorTipoCiclo() {
-        System.out.println(ROJO + "\n============= ERROR =============");
-        System.out.println("Tipo de ciclo no válido");
+        System.err.println(ROJO + "\n============= ERROR =============");
+        System.err.println("Tipo de ciclo no válido");
     }
 
     public void imprimirErrorRegresarMenu() {
-        System.out.println(ROJO + "\n============= ERROR =============");
-        System.out.println("Digite 1 para regresar al menu general." + RESET + "\n");
+        System.err.println(ROJO + "\n============= ERROR =============");
+        System.err.println("Digite 1 para regresar al menu general." + RESET + "\n");
     }
 
     public void imprimirErrorOpcionIncorrecta() {
-        System.out.println(ROJO + "\n============= ERROR =============");
-        System.out.println("La opción ingresada no es correcta. Intente nuevamente." + RESET + "\n");
+        System.err.println(ROJO + "\n============= ERROR =============");
+        System.err.println("La opción ingresada no es correcta. Intente nuevamente." + RESET + "\n");
     }
 
     public void imprimirErrorDatosInvalidos() {
-        System.out.println(ROJO + "\n============= ERROR =============");
-        System.out.println("El valor ingresado no es válido. Intente nuevamente." + RESET + "\n");
+        System.err.println(ROJO + "\n============= ERROR =============");
+        System.err.println("El valor ingresado no es válido. Intente nuevamente." + RESET + "\n");
     }
 
     public void imprimirTitulo() {
