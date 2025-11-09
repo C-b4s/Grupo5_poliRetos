@@ -2,6 +2,8 @@ package src.Poliretos.cadenaCaracteres;
 
 public class G5_convertirAMayusSinJ {
     public String g5_convertirAMayusSinJFor (String textoIngresado){
+        textoIngresado = textoIngresado.toLowerCase();
+        
         StringBuilder textoEnMayus = new StringBuilder();
         if (textoIngresado == null || textoIngresado.length() == 0) {
             return textoEnMayus.toString();
@@ -20,6 +22,8 @@ public class G5_convertirAMayusSinJ {
     }
 
     public String g5_convertirAMayusSinJWhile(String textoIngresado){
+        textoIngresado = textoIngresado.toLowerCase();
+
         StringBuilder textoEnMayus = new StringBuilder();
         int i = 0;
 
@@ -40,6 +44,8 @@ public class G5_convertirAMayusSinJ {
     }
 
     public String g5_convertirAMayusSinJDoWhile(String textoIngresado){
+        textoIngresado = textoIngresado.toLowerCase();  
+
         StringBuilder textoEnMayus = new StringBuilder();
         int i = 0;
 
