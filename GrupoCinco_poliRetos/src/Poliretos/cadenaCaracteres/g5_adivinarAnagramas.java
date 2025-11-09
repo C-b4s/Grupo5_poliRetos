@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class G5_adivinarAnagramas {
-public void g5_adivinarAnagramasFor (Scanner ingresoDatos){
+public void g5_adivinarAnagramasFor (Scanner sc){
         
         Map<String, String> anagramas = new HashMap<>();
         anagramas.put("calor", "colar");
@@ -28,7 +28,7 @@ public void g5_adivinarAnagramasFor (Scanner ingresoDatos){
 
         for (int i = 0; i < 3; i++){
             System.out.println("\n--- INTENTO NO. " + (i+1) + " ---");
-            String respuestaUsuario = ingresoDatos.nextLine();
+            String respuestaUsuario = sc.nextLine();
             if (respuestaUsuario.equalsIgnoreCase(solucionAnagrama)){
                 System.out.println("¡Felicidades! Has adivinado el anagrama correctamente.");
                 break;
@@ -46,7 +46,7 @@ public void g5_adivinarAnagramasFor (Scanner ingresoDatos){
         
     }
 
-    public void g5_adivinarAnagramasWhile (Scanner ingresoDatos){
+    public void g5_adivinarAnagramasWhile (Scanner sc){
         // Implementación similar a la del método for, pero usando while
         Map <String, String> anagramas = new HashMap <>();
         anagramas.put("calor", "colar");
@@ -68,7 +68,7 @@ public void g5_adivinarAnagramasFor (Scanner ingresoDatos){
 
         while (i < 3){
             System.out.println("\n--- INTENTO NO. " + (i+1) + " ---");
-            String respuestaUsuario = ingresoDatos.nextLine();
+            String respuestaUsuario = sc.nextLine();
             if (respuestaUsuario.equalsIgnoreCase(solucionAnagrama)){
                 System.out.println("¡Felicidades! Has adivinado el anagrama correctamente.");
                 break;
@@ -86,7 +86,7 @@ public void g5_adivinarAnagramasFor (Scanner ingresoDatos){
         }
     }
 
-    public void g5_adivinarAnagramasDoWhile (Scanner ingresoDatos){
+    public void g5_adivinarAnagramasDoWhile (Scanner sc){
         // Implementación similar a la del método for, pero usando do while
         
         Map <String, String> anagramas = new HashMap <>();
@@ -108,7 +108,7 @@ public void g5_adivinarAnagramasFor (Scanner ingresoDatos){
 
         do{
             System.out.println("\n--- INTENTO NO. " + (i + 1) + " ---");
-            String respuestaUsuario = ingresoDatos.nextLine();
+            String respuestaUsuario = sc.nextLine();
             if(respuestaUsuario.equalsIgnoreCase(solucionAnagrama)){
                 System.out.println("¡Felicidades! Has adivinado el anagrama correctamente.");
                 break;
