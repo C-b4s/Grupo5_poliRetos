@@ -23,6 +23,11 @@ import src.Poliretos.Figuras.G5_S6Figuras;
 import src.Poliretos.Figuras.G5_S7Figuras;
 import src.Poliretos.Figuras.G5_S8Figuras;
 import src.Poliretos.Figuras.G5_S9Figuras;
+import src.Poliretos.array.G5_colocarLetrasNombreAleatorio;
+import src.Poliretos.array.G5_crearMatrizIniciales;
+import src.Poliretos.array.G5_graficarNombre2x;
+import src.Poliretos.array.G5_imprimirXConNombre;
+import src.Poliretos.array.G5_mostrarNombresConPorcentajes;
 import src.Poliretos.cadenaCaracteres.G5_adivinarAnagramas;
 import src.Poliretos.cadenaCaracteres.G5_alternarMayusYMinus;
 import src.Poliretos.cadenaCaracteres.G5_contarConsonantes;
@@ -1069,8 +1074,402 @@ public class Controller_Poliretos {
                                 break;
                                 
                                 case 5:
-                                    // Arrays
-                                    break;
+                                    String [] nombreCompleto = {"Sebastián", "Josué", "Zúñiga", "Mendoza"};
+                                    String [] operacionesArrays = {"Arrays 1)", "Arrays 2)", "Arrays 3)", "Arrays 4)", "Arrays 5)"};
+                                    int opcArrays;
+                                    boolean validarOpcArrays;
+                                    
+                                    System.out.println(
+                                            "Usted ha seleccionado realizar operaciones con arrays.");
+                                    do{
+                                        imprimirMenu(operacionesArrays, "arrays");
+
+                                        do{
+                                            datoValido = false;
+                                            try {
+                                               System.out.println("Operación seleccionada: ");
+                                                opcArrays = ingresoDatos.nextInt();
+                                                ingresoDatos.nextLine();
+                                                datoValido = true; 
+                                            } catch (InputMismatchException e) {
+                                                imprimirErrorDatosInvalidos();
+                                                ingresoDatos.nextLine();
+                                                datoValido = false;
+                                            }  
+                                        }while (!datoValido);
+
+                                        switch (opcArrays) {
+                                            case 1:
+                                                G5_mostrarNombresConPorcentajes arraysUno = new G5_mostrarNombresConPorcentajes();
+                                                String [] porcentajes;
+                                                Double [] porcentajesNombre = new Double [nombreCompleto.length];
+                                                boolean validarPorcentaje;
+
+                                                System.out.println("Usted ha seleccionado realizar la operación" + operacionesArrays[0]);
+                                                System.out.println("Mi nombre es: Sebastián Josué Zúñiga Mendoza");
+                                                do {
+                                                    validarPorcentaje = true;
+                                                    System.out.print("Ingrese los porcentajes de carga separados por espacios: ");
+                                                    porcentajes = ingresoDatos.nextLine().trim().split(" ");
+                                                    
+                                                    if (porcentajes.length != nombreCompleto.length){
+                                                        imprimirErrorDatosInvalidos();
+                                                        validarPorcentaje = false;
+                                                    }
+
+                                                    for (int i = 0; i < nombreCompleto.length; i++){
+                                                        try {
+                                                            porcentajesNombre[i] = Double.parseDouble(porcentajes[i]);
+                                                        } catch (Exception e) {
+                                                            imprimirErrorDatosInvalidos();
+                                                            validarPorcentaje = false;
+                                                            break;
+                                                        }
+                                                    }       
+                                                }while (!validarPorcentaje);
+                                                
+                                               do{
+                                                imprimirMenu(bucles, "bucles " + operacionesArrays[0]);
+
+                                                do {
+                                                datoValido = false;
+
+                                                try {
+                                                    System.out.print("Bucle seleccionado (ingrese el número): ");
+                                                    opcBucles = ingresoDatos.nextInt();
+                                                    ingresoDatos.nextLine();
+                                                    datoValido = true;
+                                                    
+                                                } catch (InputMismatchException e) {
+                                                    imprimirErrorDatosInvalidos();
+                                                    datoValido = false;
+                                                }
+                                                
+                                                } while (!datoValido);
+
+                                                validarBucle = false;
+                                                switch(opcBucles){
+                                                    case 1:
+                                                    System.out.println("Usted ha seleccionado emplear el bucle for para realizar la operación " + operacionesArrays[0]);
+                                                    arraysUno.g5_mostrarNombresConPorcentajesFor(nombreCompleto, porcentajesNombre);
+                                                    break;
+
+                                                    case 2:
+                                                    System.out.println("Usted has seleccionado emplear el bucle while para realizar la operación " + operacionesArrays[0]);
+                                                    arraysUno.g5_mostrarNombresConPorcentajesWhile(nombreCompleto, porcentajesNombre);
+                                                    break;
+
+                                                    case 3:
+                                                    System.out.println("Usted ha seleccionado emplear el bucle do-while para realizar la operación " + operacionesArrays[1]);
+                                                    arraysUno.g5_mostrarNombresConPorcentajesDoWhile(nombreCompleto, porcentajesNombre);
+                                                    break;
+
+                                                    default:
+                                                    imprimirErrorTipoCiclo();
+                                                    break;
+
+                                                }
+                                                if (opcBucles >= 1 && opcBucles <= 3){
+                                                    validarBucle = true;
+                                                    System.out.println("Si desea probar otro bucle, escriba si. De lo contrario, escriba no");
+                                                    
+                                                    do{
+                                                        try {
+                                                            otroBucle = ingresoDatos.nextLine();
+                                                            otroBucle = Normalizer.normalize(otroBucle, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toLowerCase();
+                                                            if (!otroBucle.equals("si") && !otroBucle.equals("no")) imprimirErrorOpcionIncorrecta();
+                                                        } catch (InputMismatchException e) {
+                                                            imprimirErrorDatosInvalidos();
+                                                        }
+                                                        
+                                                    }while (otroBucle != "si" && otroBucle != "no");
+                                                }
+                                            }while (!validarBucle || otroBucle.equals("si"));
+
+                                            case 2:
+                                            G5_crearMatrizIniciales arraysDos = new G5_crearMatrizIniciales();
+                                            int tamIniciales;
+                                            char simboloUsuario;
+                                            boolean validarTamanio, validarSimbolo;
+
+                                            System.out.println("Usted ha seleccionado realizar la operación " + operacionesArrays[1]);
+                                            do{
+                                                validarTamanio = false;
+                                                try {
+                                                    System.out.print("Ingrese el tamaño para las iniciales: ");
+                                                    tamIniciales = ingresoDatos.nextInt();
+                                                    ingresoDatos.nextLine();
+                                                    validarTamanio = true;
+                                                } catch (InputMismatchException e) {
+                                                    imprimirErrorDatosInvalidos();
+                                                    ingresoDatos.nextLine();
+                                                    validarTamanio = false;
+                                                }
+                                            }while (!validarTamanio);
+
+                                            do{
+                                                validarSimbolo = false;
+                                                System.out.print("Digite el símbolo a utilizar: ");
+                                                simboloUsuario = ingresoDatos.nextLine().charAt(0);
+
+                                                if (Character.isWhitespace(simboloUsuario)) imprimirErrorDatosInvalidos();
+                                                else validarSimbolo = true;
+                                            }while (!validarSimbolo);
+
+                                            char [] [] iniciales = new char [tamIniciales] [tamIniciales];
+                                            
+                                            validarBucle = false;
+                                            do{
+                                                imprimirMenu(bucles, "bucles " + operacionesArrays[1]);
+
+                                                do {
+                                                datoValido = false;
+
+                                                try {
+                                                    System.out.print("Bucle seleccionado (ingrese el número): ");
+                                                    opcBucles = ingresoDatos.nextInt();
+                                                    ingresoDatos.nextLine();
+                                                    datoValido = true;
+                                                    
+                                                } catch (InputMismatchException e) {
+                                                    imprimirErrorDatosInvalidos();
+                                                    datoValido = false;
+                                                }
+                                                
+                                                } while (!datoValido);
+                                                switch (opcBucles) {
+                                                    case 1:
+                                                        System.out.println("Usted ha seleccionado emplear el bucle for para la operación " + operacionesArrays[1]);
+                                                        iniciales = arraysDos.g5_crearMatrizInicialesFor(tamIniciales, simboloUsuario);
+                                                        imprimirMatrizChar(iniciales);
+                                                        break;
+                                                    case 2:
+                                                        System.out.println("Usted ha seleccionado emplear el bucle while para la operación " + operacionesArrays[1]);
+                                                        iniciales = arraysDos.g5_crearMatrizInicialesWhile(tamIniciales, simboloUsuario);
+                                                        break;
+                                                    case 3:
+                                                        System.out.println("Usted ha seleccionado emplear el bucle do-while para la operación " + operacionesArrays[1]);
+                                                        iniciales = arraysDos.g5_crearMatrizInicialesDoWhile(tamIniciales, simboloUsuario);
+                                                        break;
+                                                    default:
+                                                        imprimirErrorTipoCiclo();
+                                                        break;
+                                                }
+                                                if (opcBucles >= 1 && opcBucles <= 3){
+                                                    validarBucle = true;
+                                                    System.out.println("Si desea probar otro bucle, escriba si. De lo contrario, escriba no");
+                                                    
+                                                    do{
+                                                        try {
+                                                            otroBucle = ingresoDatos.nextLine();
+                                                            otroBucle = Normalizer.normalize(otroBucle, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toLowerCase();
+                                                            if (!otroBucle.equals("si") && !otroBucle.equals("no")) imprimirErrorOpcionIncorrecta();
+                                                        } catch (InputMismatchException e) {
+                                                            imprimirErrorDatosInvalidos();
+                                                        }
+                                                        
+                                                    }while (otroBucle != "si" && otroBucle != "no");
+                                                }
+                                            }while (!validarBucle || otroBucle.equals("si"));
+                                            break;
+
+                                            case 3:
+                                            G5_graficarNombre2x arraysTres = new G5_graficarNombre2x();
+                                            System.out.println("Usted ha seleccionado realizar la operación Arrays 3)");
+                                            System.out.println("Mi nombre es Sebastián");
+                                            do{
+                                                imprimirMenu(bucles, "bucles " + operacionesArrays[1]);
+
+                                                do {
+                                                datoValido = false;
+
+                                                try {
+                                                    System.out.print("Bucle seleccionado (ingrese el número): ");
+                                                    opcBucles = ingresoDatos.nextInt();
+                                                    ingresoDatos.nextLine();
+                                                    datoValido = true;
+                                                    
+                                                } catch (InputMismatchException e) {
+                                                    imprimirErrorDatosInvalidos();
+                                                    datoValido = false;
+                                                }
+                                                
+                                                } while (!datoValido);
+
+                                                switch (opcBucles){
+                                                    case 1:
+                                                    System.out.println("Usted ha seleccionado emplear el bucle for para realizar la operación Arrays 3)");
+                                                    arraysTres.g5_graficarNombre2xFor(nombreCompleto[0]);
+                                                    break;
+
+                                                    case 2:
+                                                    System.out.println("Usted ha seleccionado emplear el bucle while para realizar la operación Arrays 3)");
+                                                    arraysTres.g5_graficarNombre2xWhile(nombreCompleto[0]);
+                                                    break;
+
+                                                    case 3:
+                                                    System.out.println("Usted ha seleccionado el bucle do-while paraa realizar la operación Arrays 3)");
+                                                    arraysTres.g5_graficarNombre2xDoWhile(nombreCompleto[0]);
+                                                    break;
+
+                                                    default:
+                                                    imprimirErrorTipoCiclo();
+                                                    break;
+                                                }
+                                                if (opcBucles >= 1 && opcBucles <= 3){
+                                                    validarBucle = true;
+                                                    System.out.println("Si desea probar otro bucle, escriba si. De lo contrario, escriba no");
+                                                    
+                                                    do{
+                                                        try {
+                                                            otroBucle = ingresoDatos.nextLine();
+                                                            otroBucle = Normalizer.normalize(otroBucle, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toLowerCase();
+                                                            if (!otroBucle.equals("si") && !otroBucle.equals("no")) imprimirErrorOpcionIncorrecta();
+                                                        } catch (InputMismatchException e) {
+                                                            imprimirErrorDatosInvalidos();
+                                                        }
+                                                        
+                                                    }while (otroBucle != "si" && otroBucle != "no");
+                                                }
+                                            }while (!validarBucle || otroBucle.equals("si"));
+                                            break;
+                                            
+                                            case 4:
+                                            G5_imprimirXConNombre arraysCuatro = new G5_imprimirXConNombre();
+                                            String nombreYApellido = nombreCompleto[0] + " " + nombreCompleto[1];
+
+                                            System.out.println("Usted ha seleccionado realizar la operación " + operacionesArrays[3]);
+
+                                            do {
+                                                datoValido = false;
+
+                                                try {
+                                                    System.out.print("Bucle seleccionado (ingrese el número): ");
+                                                    opcBucles = ingresoDatos.nextInt();
+                                                    ingresoDatos.nextLine();
+                                                    datoValido = true;
+                                                    
+                                                } catch (InputMismatchException e) {
+                                                    imprimirErrorDatosInvalidos();
+                                                    datoValido = false;
+                                                }
+                                                
+                                            } while (!datoValido);
+
+                                            switch (opcBucles){
+                                                case 1:
+                                                    System.out.println("Usted ha seleccionado emplear el bucle for para realizar la operación " + operacionesArrays[3]);
+                                                    arraysCuatro.g5_imprimirXConNombreFor(nombreYApellido);
+                                                    break;
+                                                case 2:
+                                                    System.out.println("Usted ha seleccionado emplear el bucle while para realizar la operación " + operacionesArrays[3]);
+                                                    arraysCuatro.g5_imprimirXConNombreWhile(nombreYApellido);
+                                                    break;
+                                                case 3:
+                                                    System.out.println("Usted ha seleccionado emplear el bucle do-while para la operación " + operacionesArrays[3]);
+                                                    arraysCuatro.g5_imprimirXConNombreDoWhile(nombreYApellido);
+                                                    break;
+                                                default:
+                                                    imprimirErrorTipoCiclo();
+                                                    break;
+                                            }
+                                            if (opcBucles >= 1 && opcBucles <= 3){
+                                                    validarBucle = true;
+                                                    System.out.println("Si desea probar otro bucle, escriba si. De lo contrario, escriba no");
+                                                    
+                                                    do{
+                                                        try {
+                                                            otroBucle = ingresoDatos.nextLine();
+                                                            otroBucle = Normalizer.normalize(otroBucle, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toLowerCase();
+                                                            if (!otroBucle.equals("si") && !otroBucle.equals("no")) imprimirErrorOpcionIncorrecta();
+                                                        } catch (InputMismatchException e) {
+                                                            imprimirErrorDatosInvalidos();
+                                                        }
+                                                        
+                                                    }while (otroBucle != "si" && otroBucle != "no");
+                                                }
+                                            }while (!validarBucle || otroBucle.equals("si"));
+                                            break;
+
+                                            case 5:
+                                            String miNombreCompleto = nombreCompleto[0] + nombreCompleto[1] + nombreCompleto[2] + nombreCompleto[3];
+                                            G5_colocarLetrasNombreAleatorio arraysCinco = new G5_colocarLetrasNombreAleatorio();
+                                            System.out.println("Usted ha seleccionado realizar la operación " + operacionesArrays[4]);
+                                            do {
+                                                datoValido = false;
+
+                                                try {
+                                                    System.out.print("Bucle seleccionado (ingrese el número): ");
+                                                    opcBucles = ingresoDatos.nextInt();
+                                                    ingresoDatos.nextLine();
+                                                    datoValido = true;
+                                                    
+                                                } catch (InputMismatchException e) {
+                                                    imprimirErrorDatosInvalidos();
+                                                    datoValido = false;
+                                                }
+                                                
+                                            } while (!datoValido);
+                                            switch (opcBucles){
+                                                case 1: 
+                                                    System.out.println("Usted ha seleccionado el bucle for para realizar la operación " + operacionesArrays[4]);
+                                                    arraysCinco.g5_colocarLetrasNombreAleatorioFor(miNombreCompleto, 200);
+                                                    break;
+                                                case 2:
+                                                    System.out.println("Usted ha seleccionado el bucle while para realizar la operación " + operacionesArrays[4]);
+                                                    arraysCinco.g5_colocarLetrasNombreAleatorioWhile(miNombreCompleto, 200);
+                                                    break;
+                                                case 3:
+                                                    System.out.println("Usted ha seleccionado el bucle do-while para realizar la operación " + operacionesArrays[4]);
+                                                    arraysCinco.g5_colocarLetrasNombreAleatorioDoWhile(miNombreCompleto, 200);
+                                                    break;
+                                                default:
+                                                    imprimirErrorTipoCiclo();
+                                                    break;
+                                            }
+
+                                           verificarBucleCorrecto(opcBucles, validarBucle, otroBucle, ingresoDatos);
+                                            
+                                            if (opcBucles >= 1 && opcBucles <= 3){
+                                                    validarBucle = true;
+                                                    System.out.println("Si desea probar otro bucle, escriba si. De lo contrario, escriba no");
+                                                    
+                                                    do{
+                                                        try {
+                                                            System.out.print("Respuesta: ");
+                                                            otroBucle = ingresoDatos.nextLine();
+                                                            otroBucle = Normalizer.normalize(otroBucle, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toLowerCase();
+                                                            if (!otroBucle.equals("si") && !otroBucle.equals("no")) imprimirErrorOpcionIncorrecta();
+                                                        } catch (InputMismatchException e) {
+                                                            imprimirErrorDatosInvalidos();
+                                                        }
+                                                        
+                                                    }while (otroBucle != "si" && otroBucle != "no");
+                                            }
+
+
+
+                                            default:
+                                                imprimirErrorOpcionIncorrecta();
+                                                break;
+                                        if (opcArrays>= 1 && opcArrays<= 5){
+                                        validarOpcArrays = true;
+                                        System.out.println("\nSi desea realizar otra operación con cadenas, escriba si. De lo contrario, escriba no");
+                                        System.out.print("Respuesta: ");
+                                        
+                                        do{
+                                        try {
+                                            otraOperacion = ingresoDatos.nextLine();
+                                            otraOperacion = Normalizer.normalize(otraOperacion, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toLowerCase();
+                                            if (!otraOperacion.equals("si") && !otraOperacion.equals("no")) imprimirErrorOpcionIncorrecta();
+                                        } catch (InputMismatchException e) {
+                                            imprimirErrorDatosInvalidos();
+                                        }
+              
+                                        }while (!otraOperacion.equals("si") && !otraOperacion.equals("no"));
+                                    }
+                                }while (!validarOpcArrays || otraOperacion.equals("si"));
+                                break;
                                 case 6:
                                     // Loading
                                     break;
@@ -1208,7 +1607,6 @@ public class Controller_Poliretos {
                         imprimirErrorOpcionIncorrecta();
                         break;
                 }
-
                 if (opcionGeneral != 3 && opcionGeneral != 2) {
                     do {
                         entradaValida = false;
@@ -1227,12 +1625,26 @@ public class Controller_Poliretos {
                         }
                     } while (continuar != 1);
                 }
-
-            } while (!entradaValida || opcionGeneral != 3);
-        } finally {
+            } finally {
             if (ingresoDatos != null) {
                 ingresoDatos.close();
             }
+    } 
+                {
+                    }       
+
+                
+
+         
+            } while (!entradaValida || opcionGeneral != 3);
+         
+    
+        
+    
+
+    private void imprimirMatrizChar(char[][] iniciales) {
+        for (char[] fila : iniciales) {
+            System.out.println(new String(fila));
         }
     }
 

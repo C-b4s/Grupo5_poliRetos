@@ -8,12 +8,12 @@ public class G5_mostrarNombresConPorcentajes {
      * @param porcentajes: double[]
      */
 
-    public void g5_mostrarNombresConPorcentajesFor (String [] palabrasNombre, double porcentajes []){        
+    public void g5_mostrarNombresConPorcentajesFor (String [] palabrasNombre, Double[] porcentajesNombre){        
         for (int i = 0; i < palabrasNombre.length; i++){
-            String barraPalabra = g5_generarBarraFor(porcentajes[i]);
-            int numLetras = (int) Math.ceil((porcentajes[i]/100) * palabrasNombre[i].length());
+            String barraPalabra = g5_generarBarraFor(porcentajesNombre[i]);
+            int numLetras = (int) Math.ceil((porcentajesNombre[i]/100) * palabrasNombre[i].length());
             String letrasPalabra = palabrasNombre[i].substring(0,numLetras);
-            System.out.printf("%-20s %.0f%% %-20s\n", barraPalabra, porcentajes[i], letrasPalabra);
+            System.out.printf("%-20s %.0f%% %-20s\n", barraPalabra, porcentajesNombre[i], letrasPalabra);
         }
     }
 
@@ -49,13 +49,13 @@ public class G5_mostrarNombresConPorcentajes {
         return barra.append("] ").toString();
     }
 
-    public void g5_mostrarNombresConPorcentajesWhile(String [] palabrasNombre, double [] porcentajes){
+    public void g5_mostrarNombresConPorcentajesWhile(String [] palabrasNombre, Double[] porcentajesNombre){
         int i = 0;
         while (i < palabrasNombre.length){
-            String barraPalabra = g5_generarBarraWhile(porcentajes[i]);
-            int numLetras = (int) Math.ceil((porcentajes[i]/100) * palabrasNombre[i].length());
+            String barraPalabra = g5_generarBarraWhile(porcentajesNombre[i]);
+            int numLetras = (int) Math.ceil((porcentajesNombre[i]/100) * palabrasNombre[i].length());
             String letrasPalabra = palabrasNombre[i].substring(0, numLetras);
-            System.out.printf("%-20s %.0f%% %-20s\n", barraPalabra, porcentajes[i], letrasPalabra);
+            System.out.printf("%-20s %.0f%% %-20s\n", barraPalabra, porcentajesNombre[i], letrasPalabra);
             i++;
         }
     }
@@ -88,13 +88,13 @@ public class G5_mostrarNombresConPorcentajes {
         return barra.append("] ").toString();
     }
 
-    public void g5_mostrarNombresConPorcentajesDoWhile (String [] palabrasNombre, double [] porcentajes){
+    public void g5_mostrarNombresConPorcentajesDoWhile (String [] palabrasNombre, Double[] porcentajesNombre){
         int i = 0;
         do{
-            String barraPalabra = g5_generarBarraDoWhile(porcentajes[i]);
-            int numLetras = (int) Math.ceil(porcentajes[i]/100 * palabrasNombre[i].length());
+            String barraPalabra = g5_generarBarraDoWhile(porcentajesNombre[i]);
+            int numLetras = (int) Math.ceil(porcentajesNombre[i]/100 * palabrasNombre[i].length());
             String letrasPalabra = palabrasNombre[i].substring(0, numLetras);
-            System.out.printf("%-20s %.0f%% %-20s\n", barraPalabra, porcentajes[i], letrasPalabra);
+            System.out.printf("%-20s %.0f%% %-20s\n", barraPalabra, porcentajesNombre[i], letrasPalabra);
             i++;
         }while (i < palabrasNombre.length);
     }
@@ -125,5 +125,8 @@ public class G5_mostrarNombresConPorcentajes {
         }
         return barra.append("] ").toString();
     }
+
+
+    
 
 }
