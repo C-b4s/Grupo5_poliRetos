@@ -11,7 +11,7 @@ import src.Poliretos.recursividad.gr5_Sumar;
 import src.Poliretos.recursividad.gr5_Potencia;
 import src.Poliretos.recursividad.gr5_ContadorProgresivo;
 import src.Poliretos.serieCaracteres.serieCaracteres;
-public class Controller_Poliretos {
+public class DRAFTController_Poliretos {
     public void Inicializar() throws InterruptedException{
         Scanner ingresoDatos = new Scanner(System.in);
     

@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 
-public class g5_adivinarAnagramas {
+public class G5_adivinarAnagramas {
 public void g5_adivinarAnagramasFor (Scanner ingresoDatos){
         
         Map<String, String> anagramas = new HashMap<>();

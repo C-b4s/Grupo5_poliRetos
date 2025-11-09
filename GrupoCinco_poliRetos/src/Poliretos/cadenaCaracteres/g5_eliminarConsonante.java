@@ -1,6 +1,6 @@
 package src.Poliretos.cadenaCaracteres;
 
-public class g5_eliminarConsonante {
+public class G5_eliminarConsonante {
 public String g5_eliminarConsonanteFor(String textoIngresado, char consonanteAEliminar){
         String textoSinConsonante = "";
         if (textoIngresado == null || textoIngresado.length() == 0) {

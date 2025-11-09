@@ -1,53 +1,46 @@
 package src.Poliretos.cadenaCaracteres;
 
-public class g5_eliminarVocal {
+public class G5_eliminarVocal {
     public String g5_eliminarVocalFor(String textoIngresado, char vocalAEliminar){
-        String textoSinVocal = "";
-        if (textoIngresado == null || textoIngresado.length() == 0) {
-            return textoSinVocal;
+        
+        if (textoIngresado == null || textoIngresado.isEmpty()) {
+            return "";
         }
-        for (char i : textoIngresado.toCharArray()) {
-            if (textoIngresado.charAt(i) == vocalAEliminar) {
-                textoSinVocal += " ";
-            }
-            else {
-                textoSinVocal += textoIngresado.charAt(i);
-            }
+
+        StringBuilder textoSinVocal = new StringBuilder();
+        for (char caracter : textoIngresado.toCharArray()) {
+            textoSinVocal.append(caracter == vocalAEliminar? ' ' : caracter);
         }
-        return textoSinVocal;
+        return textoSinVocal.toString();
     }
 
     public String g5_eliminarVocalWhile(String textoIngresado, char vocalAEliminar){
-        String textoSinVocal = "";
-        int i = 0;
-        if (textoIngresado == null || textoIngresado.length() == 0) {
-            return textoSinVocal;
+
+        if (textoIngresado == null || textoIngresado.isEmpty()) {
+            return "";
         }
+        StringBuilder textoSinVocal = new StringBuilder();
+
+        int i = 0;
         while (i < textoIngresado.length()) {
-            if (textoIngresado.charAt(i) == vocalAEliminar) {
-                textoSinVocal += " ";
-            }else {
-                textoSinVocal += textoIngresado.charAt(i);
-            }
+            textoSinVocal.append(textoIngresado.charAt(i) == vocalAEliminar? ' ' : textoIngresado.charAt(i));
             i++;
         }
-        return textoSinVocal;
+        return textoSinVocal.toString();
     }
 
     public String g5_eliminarVocalDoWhile(String textoIngresado, char vocalAEliminar){
-        String textoSinVocal = "";
-        int i = 0;
-        if (textoIngresado == null || textoIngresado.length() == 0) {
-            return textoSinVocal;
+        if (textoIngresado == null || textoIngresado.isEmpty()) {
+            return "";
         }
-        do {
-            if (textoIngresado.charAt(i) == vocalAEliminar) {
-                textoSinVocal += " ";
-            }else{
-                textoSinVocal += textoIngresado.charAt(i);
-            }
+        StringBuilder textoSinVocal = new StringBuilder();
+
+        int i = 0;
+        do{
+            textoSinVocal.append(textoIngresado.charAt(i) == vocalAEliminar? ' ' : textoIngresado.charAt(i));
             i++;
-        } while (i < textoIngresado.length());
-        return textoSinVocal;
+        }while (i < textoIngresado.length());
+        
+        return textoSinVocal.toString();
     }
 }
