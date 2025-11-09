@@ -2,7 +2,7 @@ package src.Poliretos.array;
 
 import java.util.Random;
 
-public class g5_colocarLetrasNombreAleatorio {
+public class G5_colocarLetrasNombreAleatorio {
     public void g5_colocarLetrasNombreAleatorioFor (String nombreCompleto, int delayMs) throws InterruptedException {
         // 1. Separar nombre y apellidos
         String[] partes = nombreCompleto.split(" ");
