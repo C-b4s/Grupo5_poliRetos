@@ -3,6 +3,7 @@ package src.Poliretos;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import src.Poliretos.Figuras.G5_S10Figuras;
 import src.Poliretos.Figuras.G5_S11Figuras;
 import src.Poliretos.Figuras.G5_S12Figuras;
 import src.Poliretos.Figuras.G5_S13Figuras;
@@ -12,6 +13,15 @@ import src.Poliretos.Figuras.G5_S16Figuras;
 import src.Poliretos.Figuras.G5_S17Figuras;
 import src.Poliretos.Figuras.G5_S18Figuras;
 import src.Poliretos.Figuras.G5_S19Figuras;
+import src.Poliretos.Figuras.G5_S1Figuras;
+import src.Poliretos.Figuras.G5_S2Figuras;
+import src.Poliretos.Figuras.G5_S3Figuras;
+import src.Poliretos.Figuras.G5_S4Figuras;
+import src.Poliretos.Figuras.G5_S5Figuras;
+import src.Poliretos.Figuras.G5_S6Figuras;
+import src.Poliretos.Figuras.G5_S7Figuras;
+import src.Poliretos.Figuras.G5_S8Figuras;
+import src.Poliretos.Figuras.G5_S9Figuras;
 import src.Poliretos.cadenaCaracteres.G5_adivinarAnagramas;
 import src.Poliretos.cadenaCaracteres.G5_alternarMayusYMinus;
 import src.Poliretos.cadenaCaracteres.G5_contarConsonantes;
@@ -685,7 +695,6 @@ public class Controller_Poliretos {
                                             case 9:
                                                 System.out.println("Regresando al menú de operaciones...");
                                                 break;
-
                                         }
                                     } while (opcAutCompi != 9);
                                     break;
@@ -763,6 +772,16 @@ public class Controller_Poliretos {
     }
 
     public void ejecutarFigura(int numero, String tipoCiclo, int filas, int serieDeNumeros) {
+        G5_S1Figuras fg1 =new G5_S1Figuras();
+        G5_S2Figuras fg2 =new G5_S2Figuras();
+        G5_S3Figuras fg3 =new G5_S3Figuras();
+        G5_S4Figuras fg4 = new G5_S4Figuras();
+        G5_S5Figuras fg5 = new G5_S5Figuras();
+        G5_S6Figuras fg6 = new G5_S6Figuras();
+        G5_S7Figuras fg7 =new G5_S7Figuras();
+        G5_S8Figuras fg8 = new G5_S8Figuras();
+        G5_S9Figuras fg9 = new G5_S9Figuras();
+        G5_S10Figuras fg10 = new G5_S10Figuras();
         G5_S11Figuras fg11 = new G5_S11Figuras();
         G5_S12Figuras fg12 = new G5_S12Figuras();
         G5_S13Figuras fg13 = new G5_S13Figuras();
