@@ -820,6 +820,136 @@ public class Controller_Poliretos {
         G5_S19Figuras fg19 = new G5_S19Figuras();
 
         switch (numero) {
+            case 1:
+                switch (tipoCiclo) {
+                    case "for":
+                        fg1.g5_figuraN1For(filas);
+                        break;
+                    case "while":
+                        fg1.g5_figuraN1While(filas);
+                        break;
+                    case "doWhile":
+                        fg1.g5_figuraN1DoWhile(filas);
+                        break;
+                }
+                break;
+            case 2:
+                switch (tipoCiclo) {
+                    case "for":
+                        fg2.g5_figuraN2For(filas);
+                        break;
+                    case "while":
+                        fg2.g5_figuraN2While(filas);
+                        break;
+                    case "doWhile":
+                        fg2.g5_figuraN2DoWhile(filas);
+                        break;
+                }
+                break;
+            case 3:
+                switch (tipoCiclo) {
+                    case "for":
+                        fg3.g5_figuraN3For(filas);
+                        break;
+                    case "while":
+                        fg3.g5_figuraN3While(filas);
+                        break;
+                    case "doWhile":
+                        fg3.g5_figuraN3DoWhile(filas);
+                        break;
+                }
+                break;
+            case 4:
+                switch (tipoCiclo) {
+                    case "for":
+                        fg4.g5_figuraN4For(filas);
+                        break;
+                    case "while":
+                        fg4.g5_figuraN4While(filas);
+                        break;
+                    case "doWhile":
+                        fg4.g5_figuraN4DoWhile(filas);
+                        break;
+                }
+                break;
+            case 5:
+                switch (tipoCiclo) {
+                    case "for":
+                        fg5.g5_figuraN5For(filas);
+                        break;
+                    case "while":
+                        fg5.g5_figuraN5While(filas);
+                        break;
+                    case "doWhile":
+                        fg5.g5_figuraN5DoWhile(filas);
+                        break;
+                }
+                break;
+            case 6:
+                switch (tipoCiclo) {
+                    case "for":
+                        fg6.g5_figuraN6For(filas);
+                        break;
+                    case "while":
+                        fg6.g5_figuraN6While(filas);
+                        break;
+                    case "doWhile":
+                        fg6.g5_figuraN6DoWhile(filas);
+                        break;
+                }
+                break;
+            case 7:
+                switch (tipoCiclo) {
+                    case "for":
+                        fg7.g5_figuraN7For(filas);
+                        break;
+                    case "while":
+                        fg7.g5_figuraN7While(filas);
+                        break;
+                    case "doWhile":
+                        fg7.g5_figuraN7DoWhile(filas);
+                        break;
+                }
+                break;
+            case 8:
+                switch (tipoCiclo) {
+                    case "for":
+                        fg8.g5_figuraN8For(filas);
+                        break;
+                    case "while":
+                        fg8.g5_figuraN8While(filas);
+                        break;
+                    case "doWhile":
+                        fg8.g5_figuraN8DoWhile(filas);
+                        break;
+                }
+                break;
+            case 9:
+                switch (tipoCiclo) {
+                    case "for":
+                        fg9.g5_figuraN9For(filas);
+                        break;
+                    case "while":
+                        fg9.g5_figuraN9While(filas);
+                        break;
+                    case "doWhile":
+                        fg9.g5_figuraN9DoWhile(filas);
+                        break;
+                }
+                break;
+            case 10:
+                switch (tipoCiclo) {
+                    case "for":
+                        fg10.g5_figuraN10For(filas);
+                        break;
+                    case "while":
+                        fg10.g5_figuraN10While(filas);
+                        break;
+                    case "doWhile":
+                        fg10.g5_figuraN10DoWhile(filas);
+                        break;
+                }
+                break;
             case 11:
                 switch (tipoCiclo) {
                     case "for":
@@ -830,9 +960,6 @@ public class Controller_Poliretos {
                         break;
                     case "doWhile":
                         fg11.g5_crearFigura11DoWhile(filas);
-                        break;
-                    default:
-                        imprimirErrorTipoCiclo();
                         break;
                 }
                 break;
@@ -847,9 +974,6 @@ public class Controller_Poliretos {
                     case "doWhile":
                         fg12.g5_crearFigura12DoWhile(serieDeNumeros);
                         break;
-                    default:
-                        imprimirErrorTipoCiclo();
-                        break;
                 }
                 break;
             case 13:
@@ -862,9 +986,6 @@ public class Controller_Poliretos {
                         break;
                     case "doWhile":
                         fg13.g5_Figuras13DoWhile(filas);
-                        break;
-                    default:
-                        imprimirErrorTipoCiclo();
                         break;
                 }
                 break;
@@ -879,9 +1000,6 @@ public class Controller_Poliretos {
                     case "doWhile":
                         fg14.g5_S14FigurasDoWhile(filas);
                         break;
-                    default:
-                        imprimirErrorTipoCiclo();
-                        break;
                 }
                 break;
             case 15:
@@ -894,9 +1012,6 @@ public class Controller_Poliretos {
                         break;
                     case "doWhile":
                         fg15.g5_Figuras15DoWhile(filas);
-                        break;
-                    default:
-                        imprimirErrorTipoCiclo();
                         break;
                 }
                 break;
@@ -911,9 +1026,6 @@ public class Controller_Poliretos {
                     case "doWhile":
                         fg16.g5_Figuras16DoWhile(filas);
                         break;
-                    default:
-                        imprimirErrorTipoCiclo();
-                        break;
                 }
                 break;
             case 17:
@@ -926,9 +1038,6 @@ public class Controller_Poliretos {
                         break;
                     case "doWhile":
                         fg17.g5_Figuras17DoWhile(filas);
-                        break;
-                    default:
-                        imprimirErrorTipoCiclo();
                         break;
                 }
                 break;
@@ -943,9 +1052,6 @@ public class Controller_Poliretos {
                     case "doWhile":
                         fg18.g5_Figuras18DoWhile(filas);
                         break;
-                    default:
-                        imprimirErrorTipoCiclo();
-                        break;
                 }
                 break;
             case 19:
@@ -958,9 +1064,6 @@ public class Controller_Poliretos {
                         break;
                     case "doWhile":
                         fg19.g5_Figuras19DoWhile(filas);
-                        break;
-                    default:
-                        imprimirErrorTipoCiclo();
                         break;
                 }
             default:
