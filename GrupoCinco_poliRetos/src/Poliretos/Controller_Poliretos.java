@@ -364,7 +364,218 @@ public class Controller_Poliretos {
 
                                 break;
                             case 5:
-                                // Arrays
+                                g5_S1Figuras tamFigura      = new g5_S1Figuras();
+                                g5_S2Figuras tamFigura2     = new  g5_S2Figuras();
+                                g5_S3Figuras tamFigura3     = new  g5_S3Figuras();
+                                g5_S4Figuras tamFigura4     = new  g5_S4Figuras();
+                                g5_S5Figuras tamFigura5     = new  g5_S5Figuras();
+                                g5_S6Figuras tamFigura6     = new  g5_S6Figuras();
+                                g5_S7Figuras tamFigura7     = new  g5_S7Figuras();
+                                g5_S8Figuras tamFigura8     = new  g5_S8Figuras();
+                                g5_S9Figuras tamFigura9     = new  g5_S9Figuras();    
+                                g5_S10Figuras tamFigura10   = new  g5_S10Figuras();
+                                System.out.println("Bienvenido al apartado de FIGURAS");
+                                System.out.println();
+                                System.out.println("Figura número 1\n ");
+                                System.out.println();
+                                int tamañoFigura1;
+                                do{
+                                    System.out.println("Ingrese el tamaño de la figura:");
+                                    tamañoFigura1 = ingresoDatos.nextInt();
+                                    if (tamañoFigura1 <= 0){
+                                        System.out.println("El tamaño de la figura debe ser un número positivo mayor a cero. Intente nuevamente." + RESET + "\n");
+                                    }
+                                }while (tamañoFigura1 <= 0);
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle for es:\n ");
+                                tamFigura.g5_figuraN1For(tamañoFigura1); 
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle while es:\n ");
+                                tamFigura.g5_figuraN1While(tamañoFigura1); 
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle do-while es:\n ");
+                                tamFigura.g5_figuraN1DoWhile(tamañoFigura1);
+                                ingresoDatos.nextLine();
+                                System.out.println();
+                                System.out.println("Figura número 2\n ");
+                                int tamañoFigura2;
+                                do{
+                                    System.out.println("Ingrese el tamaño de la figura:");
+                                    tamañoFigura2 = ingresoDatos.nextInt();
+                                    if (tamañoFigura2 <= 0){
+                                        System.out.println("El tamaño de la figura debe ser un número positivo mayor a cero. Intente nuevamente." + RESET + "\n");
+                                    }
+                                }while (tamañoFigura2 <= 0);
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle for es:\n ");
+                                tamFigura2.g5_figuraN2For(tamañoFigura2); 
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle while es:\n ");
+                                tamFigura2.g5_figuraN2While(tamañoFigura2); 
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle do-while es:\n ");
+                                tamFigura2.g5_figuraN2DoWhile(tamañoFigura2);
+                                ingresoDatos.nextLine();
+                                System.out.println();
+                                System.out.println("Figura número 3\n ");
+                                int tamañoFigura3;
+                                do{
+                                    System.out.println("Ingrese el tamaño de la figura:");
+                                    tamañoFigura3 = ingresoDatos.nextInt();
+                                    if (tamañoFigura3 <= 0){
+                                        System.out.println("El tamaño de la figura debe ser un número positivo mayor a cero. Intente nuevamente." + RESET + "\n");
+                                    }
+                                }while (tamañoFigura3 <= 0);
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle for es:\n ");
+                                tamFigura3.g5_figuraN3For(tamañoFigura3); 
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle while es:\n ");
+                                tamFigura3.g5_figuraN3While(tamañoFigura3); 
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle do-while es:\n ");
+                                tamFigura3.g5_figuraN3DoWhile(tamañoFigura3);
+                                ingresoDatos.nextLine();
+                                System.out.println();
+                                System.out.println("Figura número 4\n ");
+                                int tamañoFigura4;
+                                do{
+                                    System.out.println("Ingrese el tamaño de la figura:");
+                                    tamañoFigura4 = ingresoDatos.nextInt();
+                                    if (tamañoFigura4 <= 0){
+                                        System.out.println("El tamaño de la figura debe ser un número positivo mayor a cero. Intente nuevamente." + RESET + "\n");
+                                    }
+                                }while (tamañoFigura4 <= 0);
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle for es:\n ");
+                                tamFigura4.g5_figuraN4For(tamañoFigura4); 
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle while es:\n ");
+                                tamFigura4.g5_figuraN4While(tamañoFigura4); 
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle do-while es:\n ");
+                                tamFigura4.g5_figuraN4DoWhile(tamañoFigura4);
+                                ingresoDatos.nextLine();
+                                System.out.println();
+                                System.out.println("Figura número 5\n ");
+                                int tamañoFigura5;
+                                do{
+                                    System.out.println("Ingrese el tamaño de la figura:");
+                                    tamañoFigura5 = ingresoDatos.nextInt();
+                                    if (tamañoFigura5 <= 0){
+                                        System.out.println("El tamaño de la figura debe ser un número positivo mayor a cero. Intente nuevamente." + RESET + "\n");
+                                    }
+                                }while (tamañoFigura5 <= 0);
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle for es:\n ");
+                                tamFigura5.g5_figuraN5For(tamañoFigura5); 
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle while es:\n ");
+                                tamFigura5.g5_figuraN5While(tamañoFigura5); 
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle do-while es:\n ");
+                                tamFigura5.g5_figuraN5DoWhile(tamañoFigura5);
+                                ingresoDatos.nextLine();
+                                System.out.println();
+                                System.out.println("Figura número 6\n ");
+                                int tamañoFigura6;
+                                do{
+                                    System.out.println("Ingrese el tamaño de la figura:");
+                                    tamañoFigura6 = ingresoDatos.nextInt();
+                                    if (tamañoFigura6 <= 0){
+                                        System.out.println("El tamaño de la figura debe ser un número positivo mayor a cero. Intente nuevamente." + RESET + "\n");
+                                    }
+                                }while (tamañoFigura6 <= 0);
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle for es:\n ");
+                                tamFigura6.g5_figuraN6For(tamañoFigura6); 
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle while es:\n ");
+                                tamFigura6.g5_figuraN6While(tamañoFigura6); 
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle do-while es:\n ");
+                                tamFigura6.g5_figuraN6DoWhile(tamañoFigura6);
+                                ingresoDatos.nextLine();
+                                System.out.println();
+                                System.out.println("Figura número 7\n ");
+                                int tamañoFigura7;
+                                do{
+                                    System.out.println("Ingrese el tamaño de la figura:");
+                                    tamañoFigura7 = ingresoDatos.nextInt();
+                                    if (tamañoFigura7 <= 0){
+                                        System.out.println("El tamaño de la figura debe ser un número positivo mayor a cero. Intente nuevamente." + RESET + "\n");
+                                    }
+                                }while (tamañoFigura7 <= 0);
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle for es:\n ");
+                                tamFigura7.g5_figuraN7For(tamañoFigura7); 
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle while es:\n ");
+                                tamFigura7.g5_figuraN7While(tamañoFigura7); 
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle do-while es:\n ");
+                                tamFigura7.g5_figuraN7DoWhile(tamañoFigura7);
+                                ingresoDatos.nextLine();
+                                System.out.println();
+                                System.out.println("Figura número 8\n ");
+                                int tamañoFigura8;
+                                do{ 
+                                    System.out.println("Ingrese el tamaño de la figura:");
+                                    tamañoFigura8 = ingresoDatos.nextInt();
+                                    if (tamañoFigura8 <= 0){
+                                        System.out.println("El tamaño de la figura debe ser un número positivo mayor a cero. Intente nuevamente." + RESET + "\n");
+                                    }
+                                }while (tamañoFigura8 <= 0);
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle for es:\n ");
+                                tamFigura8.g5_figuraN8For(tamañoFigura8); 
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle while es:\n ");
+                                tamFigura8.g5_figuraN8While(tamañoFigura8); 
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle do-while es:\n ");
+                                tamFigura8.g5_figuraN8DoWhile(tamañoFigura8);
+                                ingresoDatos.nextLine();
+                                System.out.println();
+                                System.out.println("Figura número 9\n ");
+                                int tamañoFigura9;
+                                do{
+                                    System.out.println("Ingrese el tamaño de la figura:");
+                                    tamañoFigura9 = ingresoDatos.nextInt();
+                                    if (tamañoFigura9 <= 0){
+                                        System.out.println("El tamaño de la figura debe ser un número positivo mayor a cero. Intente nuevamente." + RESET + "\n");
+                                    }
+                                }while (tamañoFigura9 <= 0);
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle for es:\n ");
+                                tamFigura9.g5_figuraN9For(tamañoFigura9); 
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle while es:\n ");
+                                tamFigura9.g5_figuraN9While(tamañoFigura9); 
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle do-while es:\n ");
+                                tamFigura9.g5_figuraN9DoWhile(tamañoFigura9);
+                                ingresoDatos.nextLine();
+                                System.out.println();
+                                System.out.println("Figura número 10\n ");
+                                int tamañoFigura10;
+                                do{
+                                    System.out.println("Ingrese el tamaño de la figura:");
+                                    tamañoFigura10 = ingresoDatos.nextInt();
+                                    if (tamañoFigura10 <= 0){
+                                        System.out.println("El tamaño de la figura debe ser un número positivo mayor a cero. Intente nuevamente." + RESET + "\n");
+                                    }
+                                }while (tamañoFigura10 <= 0);
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle for es:\n ");
+                                tamFigura10.g5_figuraN10For(tamañoFigura10); 
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle while es:\n ");
+                                tamFigura10.g5_figuraN10While(tamañoFigura10); 
+                                System.out.println();
+                                System.out.println("La figura generada con el bucle do-while es:\n ");
+                                tamFigura10.g5_figuraN10DoWhile(tamañoFigura10);
+                                ingresoDatos.nextLine();
                                 break;
                             case 6:
                                 // Loading
