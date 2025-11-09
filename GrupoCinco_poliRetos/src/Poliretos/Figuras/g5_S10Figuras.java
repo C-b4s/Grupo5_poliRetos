@@ -1,6 +1,6 @@
 package src.Poliretos.Figuras;
 
-public class g5_S10Figuras {
+public class G5_S10Figuras {
 
     public void g5_figuraN10For(int tamano) {
         for (int fila = 1; fila <= tamano; fila++) {

@@ -364,16 +364,16 @@ public class Controller_Poliretos {
 
                                 break;
                             case 5:
-                                g5_S1Figuras tamFigura      = new g5_S1Figuras();
-                                g5_S2Figuras tamFigura2     = new  g5_S2Figuras();
+                                G5_S1Figuras tamFigura      = new G5_S1Figuras();
+                                G5_S2Figuras tamFigura2     = new  G5_S2Figuras();
                                 g5_S3Figuras tamFigura3     = new  g5_S3Figuras();
                                 g5_S4Figuras tamFigura4     = new  g5_S4Figuras();
-                                g5_S5Figuras tamFigura5     = new  g5_S5Figuras();
-                                g5_S6Figuras tamFigura6     = new  g5_S6Figuras();
-                                g5_S7Figuras tamFigura7     = new  g5_S7Figuras();
-                                g5_S8Figuras tamFigura8     = new  g5_S8Figuras();
-                                g5_S9Figuras tamFigura9     = new  g5_S9Figuras();    
-                                g5_S10Figuras tamFigura10   = new  g5_S10Figuras();
+                                G5_S5Figuras tamFigura5     = new  G5_S5Figuras();
+                                G5_S6Figuras tamFigura6     = new  G5_S6Figuras();
+                                G5_S7Figuras tamFigura7     = new  G5_S7Figuras();
+                                G5_S8Figuras tamFigura8     = new  G5_S8Figuras();
+                                G5_S9Figuras tamFigura9     = new  G5_S9Figuras();    
+                                G5_S10Figuras tamFigura10   = new  G5_S10Figuras();
                                 System.out.println("Bienvenido al apartado de FIGURAS");
                                 System.out.println();
                                 System.out.println("Figura número 1\n ");
