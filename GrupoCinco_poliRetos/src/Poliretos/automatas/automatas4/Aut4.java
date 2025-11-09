@@ -1,7 +1,7 @@
 package src.Poliretos.automatas.automatas4;
 
 public class Aut4 {
-      // automata a+|b+|c+
+    // automata a+|b+|c+
 
     final int e = -10;
 
