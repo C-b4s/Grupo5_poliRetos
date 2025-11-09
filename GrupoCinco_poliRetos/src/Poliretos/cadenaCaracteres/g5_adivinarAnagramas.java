@@ -7,6 +7,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class G5_adivinarAnagramas {
+    public static final String AMARILLO = "\u001B[33m";
+    public static final String RESET = "\u001B[0m";
 public void g5_adivinarAnagramasFor (Scanner sc){
         
         Map<String, String> anagramas = new HashMap<>();
@@ -30,7 +32,7 @@ public void g5_adivinarAnagramasFor (Scanner sc){
             System.out.println("\n--- INTENTO NO. " + (i+1) + " ---");
             String respuestaUsuario = sc.nextLine();
             if (respuestaUsuario.equalsIgnoreCase(solucionAnagrama)){
-                System.out.println("¡Felicidades! Has adivinado el anagrama correctamente.");
+                System.out.println(AMARILLO + "¡Felicidades! Has adivinado el anagrama correctamente." + RESET);
                 break;
             }else{
                 intentos++;
@@ -70,7 +72,7 @@ public void g5_adivinarAnagramasFor (Scanner sc){
             System.out.println("\n--- INTENTO NO. " + (i+1) + " ---");
             String respuestaUsuario = sc.nextLine();
             if (respuestaUsuario.equalsIgnoreCase(solucionAnagrama)){
-                System.out.println("¡Felicidades! Has adivinado el anagrama correctamente.");
+                System.out.println(AMARILLO + "¡Felicidades! Has adivinado el anagrama correctamente." + RESET);
                 break;
             }else{
                 intentos++;
@@ -110,7 +112,7 @@ public void g5_adivinarAnagramasFor (Scanner sc){
             System.out.println("\n--- INTENTO NO. " + (i + 1) + " ---");
             String respuestaUsuario = sc.nextLine();
             if(respuestaUsuario.equalsIgnoreCase(solucionAnagrama)){
-                System.out.println("¡Felicidades! Has adivinado el anagrama correctamente.");
+                System.out.println(AMARILLO + "¡Felicidades! Has adivinado el anagrama correctamente." + RESET);
                 break;
             }else{
                 intentos++;

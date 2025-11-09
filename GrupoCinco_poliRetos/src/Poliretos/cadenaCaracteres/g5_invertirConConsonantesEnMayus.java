@@ -50,7 +50,7 @@ public String g5_invertirConConsonantesMayusFor(String textoIngresado){
             if(Character.isLetter(caracterActual) && "áéíóúaeiou".indexOf(caracterActual) == -1){
                 textoInvertido += Character.toUpperCase(caracterActual);
             }else{
-                textoInvertido += Character.toUpperCase(caracterActual);
+                textoInvertido += caracterActual;
             }
             i--;
         } while (i >= 0);
