@@ -1,4 +1,4 @@
-package poliRetos.figuras;
+package Poliretos.Figuras;
 
 public class figurasService1_10 {
 
