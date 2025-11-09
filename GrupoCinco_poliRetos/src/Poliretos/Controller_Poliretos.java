@@ -2,6 +2,16 @@ package src.Poliretos;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import src.Poliretos.Figuras.g5_S11Figuras;
+import src.Poliretos.Figuras.g5_S12Figuras;
+import src.Poliretos.Figuras.g5_S13Figuras;
+import src.Poliretos.Figuras.g5_S14Figuras;
+import src.Poliretos.Figuras.g5_S15Figuras;
+import src.Poliretos.Figuras.g5_S16Figuras;
+import src.Poliretos.Figuras.g5_S17Figuras;
+import src.Poliretos.Figuras.g5_S18Figuras;
+import src.Poliretos.Figuras.g5_S19Figuras;
+
 public class Controller_Poliretos {
     public final String ROJO = "\u001B[31m";
     public final String RESET = "\u001B[0m";
@@ -12,13 +22,16 @@ public class Controller_Poliretos {
             Scanner ingresoDatos = null;
             try {
                 ingresoDatos = new Scanner(System.in);
-            int opcionGeneral = 0, continuar = 0, operacionARealizar = 0, seguirOperaciones = 0;
+            int opcionGeneral = 0, continuar = 0, operacionARealizar = 0, seguirOperaciones = 0,operacionSelPolireto=0, numero=0;
             
             String [] opcMenuPrincipal = {"1. Ver integrantes del grupo", "2. Ingresar al menú de operaciones", "3. Salir"};
             String [] secciones = {"1. Series numericas", "2. Series de caracteres", "3. Figuras", "4. Cadenas de caracteres", "5. Arrays", "6. Loading", "7. Recursion", "8. Grafos y automatas"};
-            String [] integrantes = {"1. Matias Quinchiguano", "2. Micaela Sajal", "3. Michael Sotomayor", "4. Robbinson Tandazo", "5. Victoria Torres", "6. Sebastián Zúñiga"};
-            
-            boolean entradaValida, operacionValida, confirmacionValida;
+            String [] integrantes = {"1. Matias Quinchiguango", "2. Micaela Sajal", "3. Michael Sotomayor", "4. Robbinson Tandazo", "5. Victoria Torres", "6. Sebastián Zúñiga"};
+            String [] opcMenuPoliretos={"1.-Seleccionar Metodo a usar","2.-Salir al menú de operaciones"};
+            String [] opcMetodos={"1.-FOR","2.-WHILE","3.-DO WHILE"};
+            String [] cantidadFig={"1","2","3",".",".",".","18","19"};
+
+            boolean entradaValida, operacionValida, confirmacionValida , poliretosValida;
 
             imprimirTitulo();
                  
@@ -58,9 +71,9 @@ public class Controller_Poliretos {
                         imprimirMenu(secciones, "operaciones");
                         System.out.print("Operación seleccionada: ");
                         try {
-                            operacionARealizar = ingresoDatos.nextInt();
+                            operacionSelPolireto = ingresoDatos.nextInt();
                             ingresoDatos.nextLine();
-                            if (operacionARealizar >= 1 && operacionARealizar <= 8) operacionValida = true;
+                            if (operacionSelPolireto >= 1 && operacionSelPolireto <= 8) operacionValida = true;
                             else imprimirErrorOpcionIncorrecta();
 
                         } catch (InputMismatchException e) {
@@ -76,6 +89,96 @@ public class Controller_Poliretos {
                                 break;
                             case 3:
                                 // Figuras
+                                do {
+                                    imprimirMenu(opcMenuPoliretos, "FIGURAS");
+                                    poliretosValida = false;
+                                    System.out.print("Opción ingresada: ");
+                                    try {
+                                        operacionSelPolireto = ingresoDatos.nextInt();
+                                        ingresoDatos.nextLine();
+                                        if (operacionSelPolireto >= 1 && operacionSelPolireto <= 2) poliretosValida = true;
+                                        else imprimirErrorOpcionIncorrecta();
+                                    } catch (InputMismatchException e) {
+                                        imprimirErrorDatosInvalidos();
+                                        ingresoDatos.nextLine();
+                                    }
+                                    switch (operacionSelPolireto) {
+                                    case 1:
+                                        do {
+                                            imprimirMenu(opcMetodos, "METODOS");
+                                            confirmacionValida = false;
+                                            System.out.print("Opción ingresada: ");
+                                            try {
+                                                operaciones = ingresoDatos.nextInt();
+                                                ingresoDatos.nextLine();
+                                                if (operaciones >= 1 && operaciones <= 3) confirmacionValida = true;
+                                                else imprimirErrorOpcionIncorrecta();
+                                            } catch (InputMismatchException e) {
+                                        imprimirErrorDatosInvalidos();
+                                        ingresoDatos.nextLine();
+                                    }
+                                    imprimirMenu(cantidadFig, "SELECCIONE QUE FIGURA DESEA REALIZAR (1-19)");
+                                    System.out.print("Opción ingresada: ");
+                                    try {
+                                        numero = ingresoDatos.nextInt();
+                                        ingresoDatos.nextLine();
+                                        if (numero >= 1 && numero <= 19) confirmacionValida = true;
+                                        else imprimirErrorOpcionIncorrecta();
+                                    } catch (InputMismatchException e) {
+                                        imprimirErrorDatosInvalidos();
+                                        ingresoDatos.nextLine();
+                                    }
+                                    if (confirmacionValida) {
+                                        System.out.println("Digite el número de filas que desea para la figura:");
+                                        int numeroFilas = 0;
+                                        do {
+                                            System.out.print("Número de filas: ");
+                                            try {
+                                                numeroFilas = ingresoDatos.nextInt();
+                                                ingresoDatos.nextLine();
+                                                if (numeroFilas > 0) confirmacionValida = true;
+                                                else imprimirErrorOpcionIncorrecta();
+                                            } catch (InputMismatchException e) {
+                                                imprimirErrorDatosInvalidos();
+                                                ingresoDatos.nextLine();
+                                            }
+                                        } while (!confirmacionValida);
+                                        System.out.println("Digite la serie de números que desea para ciertas figuras :");
+                                        int serieDeNumeros = 0;
+                                        do {
+                                            System.out.print("Serie de números: ");
+                                            try {
+                                                serieDeNumeros = ingresoDatos.nextInt();
+                                                ingresoDatos.nextLine();
+                                                if (serieDeNumeros > 0) confirmacionValida = true;
+                                                else imprimirErrorOpcionIncorrecta();
+                                            } catch (InputMismatchException e) {
+                                                imprimirErrorDatosInvalidos();
+                                                ingresoDatos.nextLine();
+                                            }
+                                        } while (!confirmacionValida);
+                                        System.out.println("Generando figura...\n");
+                                        switch (operaciones) {
+                                        case 1: // FOR
+                                            ejecutarFigura(numero, "for",numeroFilas,serieDeNumeros);
+                                            break;
+                                        case 2: // WHILE
+                                            ejecutarFigura(numero, "while",numeroFilas,serieDeNumeros);
+                                            break;
+                                        case 3: // DO WHILE
+                                            ejecutarFigura(numero, "doWhile",numeroFilas,serieDeNumeros);
+                                            break;
+                                    }
+                                }
+                                } while (!confirmacionValida);
+                                        break;
+                                    case 2:
+                                        System.out.println("Regresando al menú de operaciones...");
+                                        seguirOperaciones = 2;
+                                    break;
+                                }
+                                } while (seguirOperaciones != 2);
+                                operacionValida = true;
                                 break;
                             case 4:
                                 System.out.println("Usted ha seleccionado realizar operaciones con cadenas de caracteres.");
@@ -158,8 +261,137 @@ public class Controller_Poliretos {
                 }
             }
     }
-    
-
+        public void ejecutarFigura(int numero,String tipoCiclo,int filas,int serieDeNumeros){
+            g5_S11Figuras fg11 = new g5_S11Figuras();
+            g5_S12Figuras fg12 = new g5_S12Figuras();
+            g5_S13Figuras fg13 = new g5_S13Figuras();
+            g5_S14Figuras fg14 = new g5_S14Figuras();
+            g5_S15Figuras fg15 = new g5_S15Figuras();
+            g5_S16Figuras fg16 = new g5_S16Figuras();
+            g5_S17Figuras fg17 = new g5_S17Figuras();
+            g5_S18Figuras fg18 = new g5_S18Figuras();
+            g5_S19Figuras fg19 = new g5_S19Figuras();
+            switch (numero) {
+                case 11:
+                    switch (tipoCiclo) {
+                        case "for":
+                            fg11.g5_crearFigura11For(filas);
+                            break;
+                        case "while":
+                            fg11.g5_crearFigura11While(filas);
+                            break;
+                        case "doWhile":
+                            fg11.g5_crearFigura11DoWhile(filas);
+                            break;
+                    }
+                break;
+                case 12:
+                    switch (tipoCiclo) {
+                        case "for":
+                            fg12.g5_crearFigura12For(serieDeNumeros);
+                            break;
+                        case "while":
+                            fg12.g5_crearFigura12While(serieDeNumeros);
+                            break;
+                        case "doWhile":
+                            fg12.g5_crearFigura12DoWhile(serieDeNumeros);
+                            break;
+                    }
+                break;
+                case 13:
+                    switch (tipoCiclo) {
+                        case "for":
+                            fg13.g5_Figuras13For(filas);
+                            break;
+                        case "while":
+                            fg13.g5_Figuras13While(filas);
+                            break;
+                        case "doWhile":
+                            fg13.g5_Figuras13DoWhile(filas);
+                            break;
+                    }
+                break;
+                case 14:
+                    switch (tipoCiclo) {
+                        case "for":
+                            fg14.g5_S14FigurasFor(filas);
+                            break;
+                        case "while":
+                            fg14.g5_S14FigurasWhile(filas);
+                            break;
+                        case "doWhile":
+                            fg14.g5_S14FigurasDoWhile(filas);
+                            break;
+                    }
+                break;
+                case 15:
+                    switch (tipoCiclo) {
+                        case "for":
+                            fg15.g5_Figuras15For(filas);
+                            break;
+                        case "while":
+                            fg15.g5_Figuras15While(filas);
+                            break;
+                        case "doWhile":
+                            fg15.g5_Figuras15DoWhile(filas);
+                            break;
+                    }
+                break;
+                case 16:
+                    switch (tipoCiclo) {
+                        case "for":
+                            fg16.g5_Figuras16For(filas);
+                            break;
+                        case "while":
+                            fg16.g5_Figuras16While(filas);
+                            break;
+                        case "doWhile":
+                            fg16.g5_Figuras16DoWhile(filas);
+                            break;
+                    }
+                break;
+                case 17:
+                    switch (tipoCiclo) {
+                        case "for":
+                            fg17.g5_Figuras17For(filas);
+                            break;
+                        case "while":
+                            fg17.g5_Figuras17While(filas);
+                            break;
+                        case "doWhile":
+                            fg17.g5_Figuras17DoWhile(filas);
+                            break;
+                    }
+                break;
+                case 18:
+                    switch (tipoCiclo) {
+                        case "for":
+                            fg18.g5_Figuras18For(filas);
+                            break;
+                        case "while":
+                            fg18.g5_Figuras18While(filas);
+                            break;
+                        case "doWhile":
+                            fg18.g5_Figuras18DoWhile(filas);
+                            break;
+                    }
+                break;
+                case 19:
+                    switch (tipoCiclo) {
+                        case "for":
+                            fg19.g5_Figuras19For(filas);
+                            break;
+                        case "while":
+                            fg19.g5_Figuras19While(filas);
+                            break;
+                        case "doWhile":
+                            fg19.g5_Figuras19DoWhile(filas);
+                            break;
+                    }
+                break;                   
+            }
+        }
+        
         public void imprimirErrorRegresarMenu(){
             System.out.println(ROJO + "\n============= ERROR =============");
             System.out.println("Digite 1 para regresar al menu general." + RESET + "\n");
@@ -173,8 +405,6 @@ public class Controller_Poliretos {
             System.out.println(ROJO + "\n============= ERROR =============");
             System.out.println("El valor ingresado no es válido. Intente nuevamente." + RESET + "\n");
         }
-
-    
 
         public void imprimirTitulo( ){
             
