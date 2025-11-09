@@ -181,7 +181,11 @@ public class Controller_Poliretos {
                                 operacionValida = true;
                                 break;
                             case 4:
-                                // Cadenas de caracteres
+                                System.out.println("Usted ha seleccionado realizar operaciones con cadenas de caracteres.");
+                                String [] cadenasCaracteres = {"Cadenas 1)", "Cadenas 2)", "Cadenas 3)", "Cadenas 4)", "Cadenas 5)", "Cadenas 6)", "Cadenas 7)", "Cadenas 8)", "Cadenas 9)"};
+
+                                imprimirMenu(cadenasCaracteres, "CADENAS DE CARACTERES");
+
                                 break;
                             case 5:
                                 // Arrays
