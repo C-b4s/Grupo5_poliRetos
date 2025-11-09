@@ -478,7 +478,7 @@ public class Controller_Poliretos {
                                                 break;
                                             case 2:
                                                 Aut2 aut2 = new Aut2();
-                                                aut2.validarCadena2(cadenaEntrada);
+                                                aut2.validarCadena(cadenaEntrada);
                                                 System.out.println("La cadena \"" + cadenaEntrada + "\" es "
                                                         + (aut2.validarCadena(cadenaEntrada) ? "válida" : "inválida"));
                                                 break;
