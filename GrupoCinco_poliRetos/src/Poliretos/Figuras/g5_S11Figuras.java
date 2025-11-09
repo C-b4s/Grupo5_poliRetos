@@ -1,4 +1,4 @@
-package Poliretos.Figuras;
+package src.Poliretos.Figuras;
 
 public class g5_S11Figuras  {
     /*
