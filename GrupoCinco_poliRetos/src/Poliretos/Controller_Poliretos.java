@@ -2,7 +2,7 @@ package src.Poliretos;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import src.Poliretos.cadenaCaracteres.g5_contarVocales;
+import src.Poliretos.cadenaCaracteres.G5_contarVocales;
 
 public class Controller_Poliretos {
     public final String ROJO = "\u001B[31m";
@@ -96,7 +96,7 @@ public class Controller_Poliretos {
                                         opcBucles = ingresoDatos.nextInt();
                                         ingresoDatos.nextLine();
 
-                                        G5
+                                        G5_contarVocales cadenasUno = new G5_contarVocales();
                                         
                                         switch (opcBucles) {
                                             case 1:
