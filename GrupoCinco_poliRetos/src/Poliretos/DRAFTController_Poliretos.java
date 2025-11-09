@@ -4,12 +4,12 @@ import src.Poliretos.array.ArrayService;
 import src.Poliretos.automatas.automatas;
 import src.Poliretos.cadenaCaracteres.CadenaService;
 import src.Poliretos.recursividad.OperacionesDatos;
-import src.Poliretos.recursividad.g5_ContadorRegresivo;
-import src.Poliretos.recursividad.gr5_Factorial;
-import src.Poliretos.recursividad.gr5_Multiplicacion;
-import src.Poliretos.recursividad.gr5_Sumar;
-import src.Poliretos.recursividad.gr5_Potencia;
-import src.Poliretos.recursividad.gr5_ContadorProgresivo;
+import src.Poliretos.recursividad.G5_ContadorRegresivo;
+import src.Poliretos.recursividad.G5_Factorial;
+import src.Poliretos.recursividad.G5_Multiplicacion;
+import src.Poliretos.recursividad.G5_Sumar;
+import src.Poliretos.recursividad.G5_Potencia;
+import src.Poliretos.recursividad.G5_ContadorProgresivo;
 import src.Poliretos.serieCaracteres.serieCaracteres;
 public class DRAFTController_Poliretos {
     public void Inicializar() throws InterruptedException{

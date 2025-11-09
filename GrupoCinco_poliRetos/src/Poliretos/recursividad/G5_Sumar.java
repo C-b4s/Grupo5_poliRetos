@@ -1,6 +1,6 @@
 package src.Poliretos.recursividad;
 
-public class gr5_Sumar {
+public class G5_Sumar {
 
     /**
      * Suma recursiva usando FOR.

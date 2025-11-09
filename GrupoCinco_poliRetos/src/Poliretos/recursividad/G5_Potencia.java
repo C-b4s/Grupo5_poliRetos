@@ -1,6 +1,6 @@
 package src.Poliretos.recursividad;
 
-public class gr5_Potencia {
+public class G5_Potencia {
 
     /**
      * Potencia usando bucle FOR.

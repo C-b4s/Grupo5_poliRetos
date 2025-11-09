@@ -1,6 +1,6 @@
 package src.Poliretos.recursividad;
 
-public class gr5_Factorial {
+public class G5_Factorial {
 
     /**
      * S1: Método recursivo con bucle FOR para calcular el factorial.

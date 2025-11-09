@@ -1,6 +1,6 @@
 package src.Poliretos.serieCaracteres;
 
-public class g5_S8serie {
+public class G5_S8serie {
     
  
 /**
