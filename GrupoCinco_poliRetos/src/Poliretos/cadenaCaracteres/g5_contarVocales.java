@@ -1,10 +1,10 @@
 package src.Poliretos.cadenaCaracteres;
 
-public class g5_contarVocales {
+public class G5_contarVocales {
     public int g5_contarVocalesFor(String textoIngresado) {
         int contVocales = 0;
         String cadenaVocales = "áéíóúaeiou";
-        cadenaVocales.toLowerCase();
+        textoIngresado = textoIngresado.toLowerCase();
         if (textoIngresado == null || textoIngresado.length() == 0) {
             return contVocales;
         }
@@ -19,7 +19,7 @@ public class g5_contarVocales {
     public int g5_contarVocalesWhile(String textoIngresado) {
         int contVocales = 0;
         String cadenaVocales = "áéíóúaeiou";
-        cadenaVocales.toLowerCase();
+        textoIngresado = textoIngresado.toLowerCase();
         int i = 0;
         if (textoIngresado == null || textoIngresado.length() == 0) {
             return contVocales;
@@ -36,7 +36,7 @@ public class g5_contarVocales {
     public int g5_contarVocalesDoWhile(String textoIngresado) {
         int contVocales = 0;
         String cadenaVocales = "áéíóúaeiou";
-        cadenaVocales.toLowerCase();
+        textoIngresado = textoIngresado.toLowerCase();
         int i = 0;
         if (textoIngresado == null || textoIngresado.length() == 0) {
             return contVocales;

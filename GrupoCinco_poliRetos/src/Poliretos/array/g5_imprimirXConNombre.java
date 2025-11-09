@@ -1,6 +1,6 @@
 package src.Poliretos.array;
 
-public class g5_imprimirXConNombre {
+public class G5_imprimirXConNombre {
     public void g5_imprimirXConNombreFor(String nombreCompleto) {
 
         // Eliminar espacios para usar solo los caracteres
