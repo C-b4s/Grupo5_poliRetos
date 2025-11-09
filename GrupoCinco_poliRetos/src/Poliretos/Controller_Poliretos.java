@@ -60,7 +60,7 @@ public class Controller_Poliretos {
                     "3. Salir" };
             String[] secciones = { "1. Series numericas", "2. Series de caracteres", "3. Figuras",
                     "4. Cadenas de caracteres", "5. Arrays", "6. Loading", "7. Recursion", "8. Grafos y automatas" };
-            String[] integrantes = { "1. Matias Quinchiguango", "2. Micaela Sajal", "3. Michael Sotomayor",
+            String[] integrantes = { "1. Matias Quinchiuano", "2. Micaela Sagñay", "3. Michael Sotomayor",
                     "4. Robbinson Tandazo", "5. Victoria Torres", "6. Sebastián Zúñiga" };
             String[] opcMenuPoliretos = { "1.-Seleccionar Metodo a usar", "2.-Salir al menú de operaciones" };
             String[] bucles = { "1.-FOR", "2.-WHILE", "3.-DO WHILE" };
@@ -118,6 +118,7 @@ public class Controller_Poliretos {
                             }
                             switch (seleccionPolireto) {
                                 case 1:
+                                imprimirMenu(opcMenuPoliretos,"Series Numericas");
                                     // Series numericas
                                     break;
                                 case 2:
