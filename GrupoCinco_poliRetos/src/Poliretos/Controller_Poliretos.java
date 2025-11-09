@@ -227,7 +227,7 @@ public class Controller_Poliretos {
                                             "Cadenas 9)" };
                                     System.out.println(
                                             "Usted ha seleccionado realizar operaciones con cadenas de caracteres.");
-                                    imprimirMenu(cadenasCaracteres, "CADENAS DE CARACTERES");
+                                    imprimirMenu(cadenasCaracteres, "cadenas de caracteres");
 
                                     System.out.print("Opción ingresada: ");
 
@@ -242,7 +242,7 @@ public class Controller_Poliretos {
                                             System.out
                                                     .println("Usted ha seleccionado realizar la operación Cadenas 1)");
 
-                                            System.out.print("Ingrese una fraseVocales: ");
+                                            System.out.print("Ingrese una frase: ");
                                             fraseVocales = ingresoDatos.nextLine();
 
                                             imprimirMenu(bucles, "bucles " + cadenasCaracteres[0]);
@@ -263,7 +263,7 @@ public class Controller_Poliretos {
 
                                                 case 2:
                                                     System.out.println(
-                                                            "Usted ha seleccionado usar el bucle while para la operación Cadena 1)");
+                                                            "Usted ha seleccionado usar el bucle while para la operación Cadenas 1)");
                                                     cantVocales = cadenasUno.g5_contarVocalesWhile(fraseVocales);
                                                     System.out.println(
                                                             fraseVocales + " tiene " + cantVocales + " vocales");
@@ -311,7 +311,7 @@ public class Controller_Poliretos {
 
                                                 case 2:
                                                     System.out.println(
-                                                            "Usted ha seleccionado usar el bucle while para la operación Cadena 2)");
+                                                            "Usted ha seleccionado usar el bucle while para la operación Cadenas 2)");
                                                     cantConsonantes = cadenasDos
                                                             .g5_contarConstantesWhile(fraseConsonantes);
                                                     System.out.println(fraseConsonantes + " tiene " + cantConsonantes
@@ -339,12 +339,12 @@ public class Controller_Poliretos {
                                             String textoSinVocal;
                                             boolean esVocal;
 
-                                            System.out.println("Usted ha seleccionado realizar la operación Cadena 3)");
+                                            System.out.println("Usted ha seleccionado realizar la operación Cadenas 3)");
 
                                             System.out.print("Ingrese una frase: ");
                                             fraseEliminarVocal = ingresoDatos.nextLine();
 
-                                            System.out.println("Ingrese una vocal para eliminarla");
+                                            System.out.print("Ingrese una vocal para eliminarla: ");
 
                                             do {
                                                 vocal = ingresoDatos.nextLine();
@@ -372,7 +372,7 @@ public class Controller_Poliretos {
 
                                                 case 2:
                                                     System.out.println(
-                                                            "Usted ha seleccionado usar el bucle while para la operación Cadena 1)");
+                                                            "Usted ha seleccionado usar el bucle while para la operación Cadenas 3)");
                                                     textoSinVocal = cadenasTres
                                                             .g5_eliminarVocalWhile(fraseEliminarVocal, vocalEliminada);
                                                     System.out.println("La nueva frase es: " + textoSinVocal);
@@ -380,7 +380,7 @@ public class Controller_Poliretos {
 
                                                 case 3:
                                                     System.out.println(
-                                                            "Usted ha seleccionado usar el bucle do-while para la operación Cadenas 1)");
+                                                            "Usted ha seleccionado usar el bucle do-while para la operación Cadenas 3)");
                                                     textoSinVocal = cadenasTres.g5_eliminarVocalDoWhile(
                                                             fraseEliminarVocal, vocalEliminada);
                                                     System.out.println("La nueva frase es: " + textoSinVocal);
@@ -392,17 +392,189 @@ public class Controller_Poliretos {
                                             }
                                             break;
                                         case 4:
+                                            G5_eliminarConsonante cadenasCuatro = new G5_eliminarConsonante();
+                                            String fraseEliminarConsonante;
+                                            String consonante;
+                                            String textoSinConsonante;
 
+                                            System.out.println("Usted ha seleccionado realizar la operación Cadena 4)");
+
+                                            System.out.print("Ingrese una frase: ");
+                                            fraseEliminarConsonante = ingresoDatos.nextLine();
+
+                                            System.out.print("Ingrese una consonante para eliminarla: ");
+                                            do {
+                                                consonante = ingresoDatos.nextLine();
+                                                esVocal = "áéíóúaeiou".contains(vocal);
+                                                if (esVocal) {
+                                                    imprimirErrorTipoDato();
+                                                }
+                                            } while (esVocal);
+                                            char consonanteEliminada = consonante.charAt(0);
+
+                                            imprimirMenu(bucles, "bucles " + cadenasCaracteres[3]);
+                                            System.out.print("Bucle seleccionado: ");
+
+                                            opcBucles = ingresoDatos.nextInt();
+                                            ingresoDatos.nextLine();
+
+                                            switch (opcBucles) {
+                                                case 1:
+                                                    System.out.println("Usted ha seleccionado usar el bucle for para la operación Cadenas 4)");
+                                                    textoSinConsonante = cadenasCuatro.g5_eliminarConsonanteFor(fraseEliminarConsonante, consonanteEliminada);
+                                                    System.out.println("La nueva frase es: " + textoSinConsonante);
+                                                    break;
+
+                                                case 2:
+                                                    System.out.println(
+                                                            "Usted ha seleccionado usar el bucle while para la operación Cadenas 4)");
+                                                    textoSinConsonante = cadenasCuatro.g5_eliminarConsonanteWhile(fraseEliminarConsonante, consonanteEliminada);
+                                                    System.out.println("La nueva frase es: " + textoSinConsonante);
+                                                    break;
+
+                                                case 3:
+                                                    System.out.println(
+                                                            "Usted ha seleccionado usar el bucle do-while para la operación Cadenas 4)");
+                                                    textoSinConsonante = cadenasCuatro.g5_eliminarConsonanteDoWhile(fraseEliminarConsonante, consonanteEliminada);
+                                                    System.out.println("La nueva frase es: " + textoSinConsonante);
+                                                    break;
+
+                                                default:
+                                                    imprimirErrorTipoCiclo();
+                                                    break;
+                                            }
                                             break;
                                         case 5:
 
+                                            G5_invertirConVocalesEnMayus cadenasCinco = new G5_invertirConVocalesEnMayus();
+                                            String textoCadCinco;
+                                            String invertidoVocalesMayus;
+
+                                            System.out.println("Usted ha seleccionado realizar la operación Cadena 5)");
+
+                                            System.out.print("Ingrese una frase");
+                                            textoCadCinco = ingresoDatos.nextLine();
+
+
+                                            imprimirMenu(bucles, "bucles " + cadenasCaracteres[3]);
+                                            System.out.print("Bucle seleccionado: ");
+                                            opcBucles = ingresoDatos.nextInt();
+                                            ingresoDatos.nextLine();
+
+                                            switch (opcBucles) {
+                                                case 1:
+                                                    System.out.println("Usted ha seleccionado usar el bucle for para la operación Cadenas 5)");
+                                                    invertidoVocalesMayus = cadenasCinco.g5_invertirConVocalesMayusFor(textoCadCinco);
+                                                    System.out.println("La nueva frase es: " + invertidoVocalesMayus);
+                                                    break;
+
+                                                case 2:
+                                                    System.out.println(
+                                                            "Usted ha seleccionado usar el bucle while para la operación Cadenas 5)");
+                                                    invertidoVocalesMayus = cadenasCinco.g5_invertirConVocalesMayusWhile(textoCadCinco);
+                                                    System.out.println("La nueva frase es: " + invertidoVocalesMayus);
+                                                    break;
+
+                                                case 3:
+                                                    System.out.println(
+                                                            "Usted ha seleccionado usar el bucle do-while para la operación Cadenas 5)");
+                                                    invertidoVocalesMayus = cadenasCinco.g5_invertirConVocalesMayusDoWhile(textoCadCinco);
+                                                    System.out.println("La nueva frase es: " + invertidoVocalesMayus);
+                                                    break;
+
+                                                default:
+                                                    imprimirErrorTipoCiclo();
+                                                    break;
+                                            }
                                             break;
                                         case 6:
+                                            G5_invertirConConsonantesEnMayus cadenasSeis = new G5_invertirConConsonantesEnMayus();
+                                            String textoCadSeis, invertidoConsonantesMayus;
 
+                                            System.out.println("Usted ha seleccionado realizar la operación Cadenas 6)");
+
+                                            System.out.print("Ingrese una frase");
+                                            textoCadSeis = ingresoDatos.nextLine();
+
+                                            imprimirMenu(bucles, "bucles " + cadenasCaracteres[3]);
+                                            System.out.print("Bucle seleccionado: ");
+                                            
+                                            opcBucles = ingresoDatos.nextInt();
+                                            ingresoDatos.nextLine();
+
+                                            switch (opcBucles) {
+                                                case 1:
+
+                                                    System.out.println("Usted ha seleccionado usar el bucle for para la operación Cadenas 6)");
+                                                    invertidoConsonantesMayus = cadenasSeis.g5_invertirConConsonantesMayusFor(textoCadSeis);
+                                                    System.out.println("La nueva frase es: " + invertidoConsonantesMayus);
+                                                    break;
+
+                                                case 2:
+
+                                                    System.out.println(
+                                                            "Usted ha seleccionado usar el bucle while para la operación Cadena 5)");
+                                                    invertidoConsonantesMayus = cadenasSeis.g5_invertirConConsonantesMayusWhile(invertidoConsonantesMayus);
+                                                    System.out.println("La nueva frase es: " + invertidoConsonantesMayus);
+                                                    break;
+
+                                                case 3:
+
+                                                    System.out.println(
+                                                            "Usted ha seleccionado usar el bucle do-while para la operación Cadenas 4)");
+                                                    invertidoConsonantesMayus = cadenasSeis.g5_invertirConConsonantesMayusDoWhile(invertidoConsonantesMayus);
+                                                    System.out.println("La nueva frase es: " + invertidoConsonantesMayus);
+                                                    break;
+
+                                                default:
+                                                    imprimirErrorTipoCiclo();
+                                                    break;
+                                            }
                                             break;
                                         case 7:
+                                            G5_convertirAMayusSinJ cadenasSiete = new G5_convertirAMayusSinJ();
+                                            String textoCadSiete, textoMayusSinJ;
 
+                                            System.out.println("Usted ha seleccionado realizar la opereación Cadenas 7)");
+
+                                            System.out.print("Ingrese una frase: ");
+                                            textoCadSiete = ingresoDatos.nextLine();
+
+                                            imprimirMenu(bucles, "bucles " + cadenasCaracteres[3]);
+                                            System.out.print("Bucle seleccionado: ");
+                                            opcBucles = ingresoDatos.nextInt();
+                                            ingresoDatos.nextLine();
+
+                                            switch (opcBucles) {
+                                                case 1:
+
+                                                    System.out.println("Usted ha seleccionado usar el bucle for para la operación Cadenas 7)");
+                                                    textoMayusSinJ = cadenasSiete.g5_convertirAMayusSinJFor(textoCadSiete);
+                                                    System.out.println("La nueva frase es: " + textoMayusSinJ);
+                                                    break;
+
+                                                case 2:
+
+                                                    System.out.println(
+                                                            "Usted ha seleccionado usar el bucle while para la operación Cadena 5)");
+                                                    invertidoConsonantesMayus = cadenasSeis.g5_invertirConConsonantesMayusWhile(invertidoConsonantesMayus);
+                                                    System.out.println("La nueva frase es: " + invertidoConsonantesMayus);
+                                                    break;
+
+                                                case 3:
+
+                                                    System.out.println(
+                                                            "Usted ha seleccionado usar el bucle do-while para la operación Cadenas 4)");
+                                                    invertidoConsonantesMayus = cadenasSeis.g5_invertirConConsonantesMayusDoWhile(invertidoConsonantesMayus);
+                                                    System.out.println("La nueva frase es: " + invertidoConsonantesMayus);
+                                                    break;
+
+                                                default:
+                                                    imprimirErrorTipoCiclo();
+                                                    break;
+                                            }
                                             break;
+
                                         case 8:
 
                                             break;
