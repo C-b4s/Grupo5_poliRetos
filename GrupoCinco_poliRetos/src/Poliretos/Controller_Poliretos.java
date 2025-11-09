@@ -2,6 +2,7 @@ package src.Poliretos;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import src.Poliretos.cadenaCaracteres.g5_contarVocales;
 import src.Poliretos.Figuras.g5_S11Figuras;
 import src.Poliretos.Figuras.g5_S12Figuras;
 import src.Poliretos.Figuras.g5_S13Figuras;
@@ -22,7 +23,7 @@ public class Controller_Poliretos {
             Scanner ingresoDatos = null;
             try {
                 ingresoDatos = new Scanner(System.in);
-            int opcionGeneral = 0, continuar = 0, operacionARealizar = 0, seguirOperaciones = 0,operacionSelPolireto=0, numero=0;
+            int opcionGeneral = 0, continuar = 0, operacionARealizar = 0, seguirOperaciones = 0, opcBucles = 0;
             
             String [] opcMenuPrincipal = {"1. Ver integrantes del grupo", "2. Ingresar al menú de operaciones", "3. Salir"};
             String [] secciones = {"1. Series numericas", "2. Series de caracteres", "3. Figuras", "4. Cadenas de caracteres", "5. Arrays", "6. Loading", "7. Recursion", "8. Grafos y automatas"};
@@ -69,7 +70,6 @@ public class Controller_Poliretos {
                     do {
                         operacionValida = false;
                         imprimirMenu(secciones, "operaciones");
-                        System.out.print("Operación seleccionada: ");
                         try {
                             operacionSelPolireto = ingresoDatos.nextInt();
                             ingresoDatos.nextLine();
@@ -181,10 +181,67 @@ public class Controller_Poliretos {
                                 operacionValida = true;
                                 break;
                             case 4:
-                                System.out.println("Usted ha seleccionado realizar operaciones con cadenas de caracteres.");
+                                int opcCadenas = 0;
                                 String [] cadenasCaracteres = {"Cadenas 1)", "Cadenas 2)", "Cadenas 3)", "Cadenas 4)", "Cadenas 5)", "Cadenas 6)", "Cadenas 7)", "Cadenas 8)", "Cadenas 9)"};
-
+                                String [] bucles = {"for", "do-while", "while"};
+                                System.out.println("Usted ha seleccionado realizar operaciones con cadenas de caracteres.");
                                 imprimirMenu(cadenasCaracteres, "CADENAS DE CARACTERES");
+                                opcCadenas = ingresoDatos.nextInt();
+                                ingresoDatos.nextLine();
+                                
+                                switch (opcCadenas){
+                                    case 1:
+                                        System.out.println("Usted ha seleccionado realizar la operación C01");
+                                        System.out.println("Seleccione el tipo de método que desea utilizar: ");
+                                        imprimirMenu(bucles, "bucles" + cadenasCaracteres[0]);
+
+                                        opcBucles = ingresoDatos.nextInt();
+                                        ingresoDatos.nextLine();
+
+                                        G5
+                                        
+                                        switch (opcBucles) {
+                                            case 1:
+                                                System.out.println("Usted ha seleccionado usar el bucle for para la operación Cadenas 1)");
+
+                                                break;
+                                        
+                                            default:
+                                                break;
+                                        }
+
+                                        break;
+                                    case 2:
+
+                                        break;
+                                    case 3:
+
+                                        break;
+                                    case 4:
+
+                                        break;
+                                    case 5:
+
+                                        break;
+                                    case 6:
+
+                                        break;
+                                    case 7:
+
+                                        break;
+                                    case 8:
+
+                                        break;
+                                    case 9:
+
+                                        break;
+                                    default:
+
+                                        break;
+
+                                }
+
+                                
 
                                 break;
                             case 5:
@@ -418,7 +475,7 @@ public class Controller_Poliretos {
 
         public void imprimirMenu (String [] datos, String nombreMenu){
             
-            String subtitulo = "============== " + nombreMenu.toUpperCase() + " =============";
+            String subtitulo = "================= " + nombreMenu.toUpperCase() + " ================";
             int offset = 60 - subtitulo.length();
             System.out.println(VERDE + " ".repeat(offset) + subtitulo + RESET);
 
@@ -434,6 +491,7 @@ public class Controller_Poliretos {
             }
             
             System.out.println(" ".repeat(offset) + "_".repeat(subtitulo.length()) + "\n");
+            System.out.print("Operación seleccionada: ");
         }
 
 }
