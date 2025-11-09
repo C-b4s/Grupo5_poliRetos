@@ -1,6 +1,9 @@
 package src.Poliretos.Figuras;
 
-public class g5_S19Figuras {
+public class G5_S19Figuras {
+    /*
+     * 
+     */
     public void g5_Figuras19For(int filas){
         int [] prev = {2};
         for (int r = 1; r <= filas; r++) {

@@ -1,6 +1,6 @@
 package src.Poliretos.Figuras;
 
-public class g5_S18Figuras {
+public class G5_S18Figuras {
     /*
      * 
      */

@@ -2,20 +2,17 @@ package src.Poliretos;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import src.Poliretos.cadenaCaracteres.g5_contarVocales;
-import src.Poliretos.Figuras.g5_S11Figuras;
-import src.Poliretos.Figuras.g5_S12Figuras;
-import src.Poliretos.Figuras.g5_S13Figuras;
-import src.Poliretos.Figuras.g5_S14Figuras;
-import src.Poliretos.Figuras.g5_S15Figuras;
-import src.Poliretos.Figuras.g5_S16Figuras;
-import src.Poliretos.Figuras.g5_S17Figuras;
-import src.Poliretos.Figuras.g5_S18Figuras;
-import src.Poliretos.Figuras.g5_S19Figuras;
-<<<<<<< HEAD
+import src.Poliretos.Figuras.G5_S11Figuras;
+import src.Poliretos.Figuras.G5_S12Figuras;
+import src.Poliretos.Figuras.G5_S13Figuras;
+import src.Poliretos.Figuras.G5_S14Figuras;
+import src.Poliretos.Figuras.G5_S15Figuras;
+import src.Poliretos.Figuras.G5_S16Figuras;
+import src.Poliretos.Figuras.G5_S17Figuras;
+import src.Poliretos.Figuras.G5_S18Figuras;
+import src.Poliretos.Figuras.G5_S19Figuras;
 import src.Poliretos.cadenaCaracteres.G5_contarVocales;
-=======
->>>>>>> f12714d61f2b1f12603940c9c2837dae7d979b3f
+
 
 public class Controller_Poliretos {
     public final String ROJO = "\u001B[31m";
@@ -323,15 +320,15 @@ public class Controller_Poliretos {
             }
     }
         public void ejecutarFigura(int numero,String tipoCiclo,int filas,int serieDeNumeros){
-            g5_S11Figuras fg11 = new g5_S11Figuras();
-            g5_S12Figuras fg12 = new g5_S12Figuras();
-            g5_S13Figuras fg13 = new g5_S13Figuras();
-            g5_S14Figuras fg14 = new g5_S14Figuras();
-            g5_S15Figuras fg15 = new g5_S15Figuras();
-            g5_S16Figuras fg16 = new g5_S16Figuras();
-            g5_S17Figuras fg17 = new g5_S17Figuras();
-            g5_S18Figuras fg18 = new g5_S18Figuras();
-            g5_S19Figuras fg19 = new g5_S19Figuras();
+            G5_S11Figuras fg11 = new G5_S11Figuras();
+            G5_S12Figuras fg12 = new G5_S12Figuras();
+            G5_S13Figuras fg13 = new G5_S13Figuras();
+            G5_S14Figuras fg14 = new G5_S14Figuras();
+            G5_S15Figuras fg15 = new G5_S15Figuras();
+            G5_S16Figuras fg16 = new G5_S16Figuras();
+            G5_S17Figuras fg17 = new G5_S17Figuras();
+            G5_S18Figuras fg18 = new G5_S18Figuras();
+            G5_S19Figuras fg19 = new G5_S19Figuras();
             switch (numero) {
                 case 11:
                     switch (tipoCiclo) {
@@ -452,7 +449,7 @@ public class Controller_Poliretos {
                 break;                   
             }
         }
-        
+
         public void imprimirErrorRegresarMenu(){
             System.out.println(ROJO + "\n============= ERROR =============");
             System.out.println("Digite 1 para regresar al menu general." + RESET + "\n");
