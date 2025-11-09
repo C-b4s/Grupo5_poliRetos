@@ -1,6 +1,6 @@
 package src.Poliretos.Figuras;
 
-public class g5_S5Figuras {
+public class G5_S5Figuras {
 
     public void g5_figuraN5For(int filas){
         int tamano = filas;

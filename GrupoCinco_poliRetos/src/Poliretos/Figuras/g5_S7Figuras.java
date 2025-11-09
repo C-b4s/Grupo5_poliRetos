@@ -1,6 +1,6 @@
 package src.Poliretos.Figuras;
 
-public class g5_S7Figuras {
+public class G5_S7Figuras {
 
     public void g5_figuraN7For(int tamaño) {
         if (tamaño <= 0) return;
