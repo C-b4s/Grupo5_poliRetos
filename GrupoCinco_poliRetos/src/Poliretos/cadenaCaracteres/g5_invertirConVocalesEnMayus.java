@@ -1,6 +1,6 @@
 package src.Poliretos.cadenaCaracteres;
 
-public class g5_invertirConVocalesEnMayus {
+public class G5_invertirConVocalesEnMayus {
 public String g5_invertirConVocalesMayusFor(String textoIngresado){
         String textoInvertido = "";
         if (textoIngresado == null || textoIngresado.length() == 0) {

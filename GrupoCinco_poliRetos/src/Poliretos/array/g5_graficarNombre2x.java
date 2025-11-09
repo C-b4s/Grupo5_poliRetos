@@ -1,6 +1,6 @@
 package src.Poliretos.array;
 
-public class g5_graficarNombre2x {
+public class G5_graficarNombre2x {
     public void g5_graficarNombre2xFor(String nombre) {
 
         int n = nombre.length();

@@ -1,6 +1,6 @@
 package src.Poliretos.array;
 
-public class g5_mostrarNombresConPorcentajes {
+public class G5_mostrarNombresConPorcentajes {
     /**
      * Este método muestra los porcentajes asociados a cada palabra del nombre
      * utilizando un bucle for.

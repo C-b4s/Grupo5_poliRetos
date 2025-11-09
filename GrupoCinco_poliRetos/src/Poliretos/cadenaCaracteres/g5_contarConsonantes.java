@@ -1,6 +1,6 @@
 package src.Poliretos.cadenaCaracteres;
 
-public class g5_contarConsonantes {
+public class G5_contarConsonantes {
 public int g5_contarConstantesFor(String textoIngresado){
         int contConstantes = 0;
         String cadenaVocales = "áéíóúaeiou";

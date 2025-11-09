@@ -1,6 +1,6 @@
 package src.Poliretos.cadenaCaracteres;
 
-public class g5_convertirAMayusSinJ {
+public class G5_convertirAMayusSinJ {
     public String g5_convertirAMayusSinJFor (String textoIngresado){
         StringBuilder textoEnMayus = new StringBuilder();
         if (textoIngresado == null || textoIngresado.length() == 0) {

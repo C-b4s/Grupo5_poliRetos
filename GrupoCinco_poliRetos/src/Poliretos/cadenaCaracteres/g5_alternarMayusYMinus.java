@@ -1,6 +1,6 @@
 package src.Poliretos.cadenaCaracteres;
 
-public class g5_alternarMayusYMinus {
+public class G5_alternarMayusYMinus {
     public String g5_alternarMayusYMinusFor(String textoIngresado){
         StringBuilder textoAlternado = new StringBuilder();
     

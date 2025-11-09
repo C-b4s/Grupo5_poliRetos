@@ -11,8 +11,16 @@ import src.Poliretos.Figuras.G5_S16Figuras;
 import src.Poliretos.Figuras.G5_S17Figuras;
 import src.Poliretos.Figuras.G5_S18Figuras;
 import src.Poliretos.Figuras.G5_S19Figuras;
+import src.Poliretos.cadenaCaracteres.G5_adivinarAnagramas;
+import src.Poliretos.cadenaCaracteres.G5_alternarMayusYMinus;
+import src.Poliretos.cadenaCaracteres.G5_contarConsonantes;
 import src.Poliretos.cadenaCaracteres.G5_contarVocales;
-
+import src.Poliretos.cadenaCaracteres.G5_convertirAMayusSinJ;
+import src.Poliretos.cadenaCaracteres.G5_eliminarConsonante;
+import src.Poliretos.cadenaCaracteres.G5_eliminarVocal;
+import src.Poliretos.cadenaCaracteres.G5_invertirConConsonantesEnMayus;
+import src.Poliretos.cadenaCaracteres.G5_invertirConVocalesEnMayus;
+import src.Poliretos.cadenaCaracteres.G5_contarVocales;
 
 public class Controller_Poliretos {
     public final String ROJO = "\u001B[31m";
@@ -20,18 +28,18 @@ public class Controller_Poliretos {
     public final String VERDE = "\u001B[32m";
     
     Integer operaciones;
-        public void iniciar(){ 
+        public void inicializar(){ 
             Scanner ingresoDatos = null;
             try {
                 ingresoDatos = new Scanner(System.in);
-            int opcionGeneral = 0, continuar = 0, operacionARealizar = 0, seguirOperaciones = 0, opcBucles = 0;
+            int opcionGeneral = 0, continuar = 0, operacionARealizar = 0, seguirOperaciones = 0, opcBucles = 0, seleccionPolireto = 0, numero = 0;
             
             String [] opcMenuPrincipal = {"1. Ver integrantes del grupo", "2. Ingresar al menú de operaciones", "3. Salir"};
             String [] secciones = {"1. Series numericas", "2. Series de caracteres", "3. Figuras", "4. Cadenas de caracteres", "5. Arrays", "6. Loading", "7. Recursion", "8. Grafos y automatas"};
             String [] integrantes = {"1. Matias Quinchiguango", "2. Micaela Sajal", "3. Michael Sotomayor", "4. Robbinson Tandazo", "5. Victoria Torres", "6. Sebastián Zúñiga"};
             String [] opcMenuPoliretos={"1.-Seleccionar Metodo a usar","2.-Salir al menú de operaciones"};
-            String [] opcMetodos={"1.-FOR","2.-WHILE","3.-DO WHILE"};
-            String [] cantidadFig={"1","2","3",".",".",".","18","19"};
+            String [] bucles={"1.-FOR","2.-WHILE","3.-DO WHILE"};
+            String [] cantidadFig={"Seleccionar: ", "1","2","3",".",".",".","18","19"};
 
             boolean entradaValida, operacionValida, confirmacionValida , poliretosValida;
 
@@ -40,11 +48,10 @@ public class Controller_Poliretos {
 
         do{   
             imprimirMenu(opcMenuPrincipal, "menu general");
-           entradaValida = false;
             do{
-                
-            try {
                 System.out.print("Opción ingresada: ");
+                entradaValida = false; 
+            try {
                 opcionGeneral = ingresoDatos.nextInt();
                 ingresoDatos.nextLine();
 
@@ -71,17 +78,18 @@ public class Controller_Poliretos {
                     do {
                         operacionValida = false;
                         imprimirMenu(secciones, "operaciones");
+                        System.out.print("Operación seleccionada: ");
                         try {
-                            operacionSelPolireto = ingresoDatos.nextInt();
+                            seleccionPolireto = ingresoDatos.nextInt();
                             ingresoDatos.nextLine();
-                            if (operacionSelPolireto >= 1 && operacionSelPolireto <= 8) operacionValida = true;
+                            if (seleccionPolireto >= 1 && seleccionPolireto <= 8) operacionValida = true;
                             else imprimirErrorOpcionIncorrecta();
 
                         } catch (InputMismatchException e) {
                             imprimirErrorDatosInvalidos();
                             ingresoDatos.nextLine();
                         }
-                        switch(operacionARealizar) {
+                        switch(seleccionPolireto) {
                             case 1:
                                 // Series numericas
                                 break;
@@ -91,22 +99,22 @@ public class Controller_Poliretos {
                             case 3:
                                 // Figuras
                                 do {
-                                    imprimirMenu(opcMenuPoliretos, "FIGURAS");
+                                    imprimirMenu(opcMenuPoliretos, "figuras");
                                     poliretosValida = false;
                                     System.out.print("Opción ingresada: ");
                                     try {
-                                        operacionSelPolireto = ingresoDatos.nextInt();
+                                        seleccionPolireto = ingresoDatos.nextInt();
                                         ingresoDatos.nextLine();
-                                        if (operacionSelPolireto >= 1 && operacionSelPolireto <= 2) poliretosValida = true;
+                                        if (seleccionPolireto >= 1 && seleccionPolireto <= 2) poliretosValida = true;
                                         else imprimirErrorOpcionIncorrecta();
                                     } catch (InputMismatchException e) {
                                         imprimirErrorDatosInvalidos();
                                         ingresoDatos.nextLine();
                                     }
-                                    switch (operacionSelPolireto) {
+                                    switch (seleccionPolireto) {
                                     case 1:
                                         do {
-                                            imprimirMenu(opcMetodos, "METODOS");
+                                            imprimirMenu(bucles, "metodos");
                                             confirmacionValida = false;
                                             System.out.print("Opción ingresada: ");
                                             try {
@@ -118,7 +126,7 @@ public class Controller_Poliretos {
                                         imprimirErrorDatosInvalidos();
                                         ingresoDatos.nextLine();
                                     }
-                                    imprimirMenu(cantidadFig, "SELECCIONE QUE FIGURA DESEA REALIZAR (1-19)");
+                                    imprimirMenu(cantidadFig, "FIGURAS (1-19)");
                                     System.out.print("Opción ingresada: ");
                                     try {
                                         numero = ingresoDatos.nextInt();
@@ -184,39 +192,149 @@ public class Controller_Poliretos {
                             case 4:
                                 int opcCadenas = 0;
                                 String [] cadenasCaracteres = {"Cadenas 1)", "Cadenas 2)", "Cadenas 3)", "Cadenas 4)", "Cadenas 5)", "Cadenas 6)", "Cadenas 7)", "Cadenas 8)", "Cadenas 9)"};
-                                String [] bucles = {"for", "do-while", "while"};
                                 System.out.println("Usted ha seleccionado realizar operaciones con cadenas de caracteres.");
                                 imprimirMenu(cadenasCaracteres, "CADENAS DE CARACTERES");
+                                
+                                System.out.print("Opción ingresada: ");
+                                
                                 opcCadenas = ingresoDatos.nextInt();
                                 ingresoDatos.nextLine();
                                 
                                 switch (opcCadenas){
                                     case 1:
-                                        System.out.println("Usted ha seleccionado realizar la operación C01");
-                                        System.out.println("Seleccione el tipo de método que desea utilizar: ");
-                                        imprimirMenu(bucles, "bucles" + cadenasCaracteres[0]);
+                                        G5_contarVocales cadenasUno = new G5_contarVocales();
+                                        String fraseVocales;
+
+                                        System.out.println("Usted ha seleccionado realizar la operación Cadenas 1)");
+                                        
+                                        System.out.print("Ingrese una fraseVocales: ");
+                                        fraseVocales = ingresoDatos.nextLine();
+                                        
+                                        imprimirMenu(bucles, "bucles " + cadenasCaracteres[0]);
+                                        System.out.print("Bucle seleccionado: ");
 
                                         opcBucles = ingresoDatos.nextInt();
                                         ingresoDatos.nextLine();
 
-                                        G5_contarVocales cadenasUno = new G5_contarVocales();
-                                        
+                                        int cantVocales;                           
                                         switch (opcBucles) {
                                             case 1:
                                                 System.out.println("Usted ha seleccionado usar el bucle for para la operación Cadenas 1)");
-
+                                                cantVocales = cadenasUno.g5_contarVocalesFor(fraseVocales);
+                                                System.out.println(fraseVocales + " tiene " + cantVocales + " vocales");                    
+                                                break;
+                
+                                            case 2:
+                                                System.out.println("Usted ha seleccionado usar el bucle while para la operación Cadena 1)");
+                                                cantVocales = cadenasUno.g5_contarVocalesWhile(fraseVocales);
+                                                System.out.println(fraseVocales + " tiene " + cantVocales + " vocales");
+                                                break;
+                                            
+                                            case 3:
+                                                System.out.println("Usted ha seleccionado usar el bucle do-while para la operación Cadenas 1)");
+                                                cantVocales = cadenasUno.g5_contarVocalesDoWhile(fraseVocales);
+                                                System.out.println(fraseVocales + "tiene " + cantVocales + " vocales");
                                                 break;
                                         
                                             default:
+                                                imprimirErrorTipoCiclo();
                                                 break;
                                         }
-
                                         break;
                                     case 2:
+                                        G5_contarConsonantes cadenasDos = new G5_contarConsonantes();
+                                        String fraseConsonantes;
 
+                                        System.out.println("Usted ha seleccionado realizar la operación Cadenas 2)");
+                                        
+                                        System.out.print("Ingrese una frase: ");
+                                        fraseConsonantes = ingresoDatos.nextLine();
+                                        
+                                        imprimirMenu(bucles, "bucles " + cadenasCaracteres[1]);
+                                        System.out.print("Bucle seleccionado: ");
+
+                                        opcBucles = ingresoDatos.nextInt();
+                                        ingresoDatos.nextLine();
+
+                                        int cantConsonantes;                           
+                                        switch (opcBucles) {
+                                            case 1:
+                                                System.out.println("Usted ha seleccionado usar el bucle for para la operación Cadenas 2)");
+                                                cantConsonantes = cadenasDos.g5_contarConstantesFor(fraseConsonantes);
+                                                System.out.println(fraseConsonantes + " tiene " + cantConsonantes + " consonantes");                    
+                                                break;
+                
+                                            case 2:
+                                                System.out.println("Usted ha seleccionado usar el bucle while para la operación Cadena 2)");
+                                                cantConsonantes = cadenasDos.g5_contarConstantesWhile(fraseConsonantes);
+                                                System.out.println(fraseConsonantes + " tiene " + cantConsonantes + " consonantes");
+                                                break;
+                                            
+                                            case 3:
+                                                System.out.println("Usted ha seleccionado usar el bucle do-while para la operación Cadenas 2)");
+                                                cantConsonantes = cadenasDos.g5_contarConstantesDoWhile(fraseConsonantes);
+                                                System.out.println(fraseConsonantes + "tiene " + cantConsonantes + " consonantes");
+                                                break;
+                                        
+                                            default:
+                                                imprimirErrorTipoCiclo();
+                                                break;
+                                        }
                                         break;
                                     case 3:
+                                        G5_eliminarVocal cadenasTres = new G5_eliminarVocal();
+                                        String fraseEliminarVocal;
+                                        String vocal;
+                                        String textoSinVocal;
+                                        boolean esVocal;
 
+                                        System.out.println("Usted ha seleccionado realizar la operación Cadena 3)");
+                                        
+                                        System.out.print("Ingrese una frase: ");
+                                        fraseEliminarVocal = ingresoDatos.nextLine();
+
+                                        System.out.println("Ingrese una vocal para eliminarla");
+
+                                        
+                                        do{
+                                            vocal = ingresoDatos.nextLine();
+                                            esVocal = "áéíóúaeiou".contains(vocal);
+                                            if(!esVocal){
+                                               imprimirErrorTipoDato();
+                                            }
+                                        }while(!esVocal);
+                                        char vocalEliminada = vocal.charAt(0);
+                                        
+                                        imprimirMenu(bucles, "bucles " + cadenasCaracteres[2]);
+                                        System.out.print("Bucle seleccionado: ");
+
+                                        opcBucles = ingresoDatos.nextInt();
+                                        ingresoDatos.nextLine();
+                                        
+                                        
+                                        switch (opcBucles) {
+                                            case 1:
+                                                System.out.println("Usted ha seleccionado usar el bucle for para la operación Cadenas 3)");
+                                                textoSinVocal = cadenasTres.g5_eliminarVocalFor(fraseEliminarVocal, vocalEliminada);
+                                                System.out.println("La nueva frase es: " + textoSinVocal);                   
+                                                break;
+                
+                                            case 2:
+                                                System.out.println("Usted ha seleccionado usar el bucle while para la operación Cadena 1)");
+                                                textoSinVocal = cadenasTres.g5_eliminarVocalWhile(fraseEliminarVocal, vocalEliminada);
+                                                System.out.println("La nueva frase es: " + textoSinVocal);    
+                                                break;
+                                            
+                                            case 3:
+                                                System.out.println("Usted ha seleccionado usar el bucle do-while para la operación Cadenas 1)");
+                                                textoSinVocal = cadenasTres.g5_eliminarVocalDoWhile(fraseEliminarVocal, vocalEliminada);
+                                                System.out.println("La nueva frase es: " + textoSinVocal);    
+                                                break;
+                                        
+                                            default:
+                                                imprimirErrorTipoCiclo();
+                                                break;
+                                        }
                                         break;
                                     case 4:
 
@@ -319,6 +437,14 @@ public class Controller_Poliretos {
                 }
             }
     }
+
+        private void imprimirErrorTipoDato() {
+            System.out.println(ROJO + "\n============= ERROR =============");
+            System.out.println("El dato ingresado no coincide con el tipo de dato solicitado");
+        }
+
+        
+        
         public void ejecutarFigura(int numero,String tipoCiclo,int filas,int serieDeNumeros){
             G5_S11Figuras fg11 = new G5_S11Figuras();
             G5_S12Figuras fg12 = new G5_S12Figuras();
@@ -329,6 +455,7 @@ public class Controller_Poliretos {
             G5_S17Figuras fg17 = new G5_S17Figuras();
             G5_S18Figuras fg18 = new G5_S18Figuras();
             G5_S19Figuras fg19 = new G5_S19Figuras();
+
             switch (numero) {
                 case 11:
                     switch (tipoCiclo) {
@@ -341,8 +468,11 @@ public class Controller_Poliretos {
                         case "doWhile":
                             fg11.g5_crearFigura11DoWhile(filas);
                             break;
+                        default:
+                            imprimirErrorTipoCiclo();
+                            break;
                     }
-                break;
+                    break;
                 case 12:
                     switch (tipoCiclo) {
                         case "for":
@@ -354,8 +484,11 @@ public class Controller_Poliretos {
                         case "doWhile":
                             fg12.g5_crearFigura12DoWhile(serieDeNumeros);
                             break;
+                        default:
+                            imprimirErrorTipoCiclo();
+                            break;
                     }
-                break;
+                    break;
                 case 13:
                     switch (tipoCiclo) {
                         case "for":
@@ -367,8 +500,11 @@ public class Controller_Poliretos {
                         case "doWhile":
                             fg13.g5_Figuras13DoWhile(filas);
                             break;
+                        default:
+                            imprimirErrorTipoCiclo();
+                            break;
                     }
-                break;
+                    break;
                 case 14:
                     switch (tipoCiclo) {
                         case "for":
@@ -380,8 +516,11 @@ public class Controller_Poliretos {
                         case "doWhile":
                             fg14.g5_S14FigurasDoWhile(filas);
                             break;
+                        default:
+                            imprimirErrorTipoCiclo();
+                            break;
                     }
-                break;
+                    break;
                 case 15:
                     switch (tipoCiclo) {
                         case "for":
@@ -393,8 +532,11 @@ public class Controller_Poliretos {
                         case "doWhile":
                             fg15.g5_Figuras15DoWhile(filas);
                             break;
+                        default:
+                            imprimirErrorTipoCiclo();
+                            break;
                     }
-                break;
+                    break;
                 case 16:
                     switch (tipoCiclo) {
                         case "for":
@@ -406,8 +548,11 @@ public class Controller_Poliretos {
                         case "doWhile":
                             fg16.g5_Figuras16DoWhile(filas);
                             break;
+                        default:
+                            imprimirErrorTipoCiclo();
+                            break;
                     }
-                break;
+                    break;
                 case 17:
                     switch (tipoCiclo) {
                         case "for":
@@ -419,8 +564,11 @@ public class Controller_Poliretos {
                         case "doWhile":
                             fg17.g5_Figuras17DoWhile(filas);
                             break;
+                        default:
+                            imprimirErrorTipoCiclo();
+                            break;
                     }
-                break;
+                    break;
                 case 18:
                     switch (tipoCiclo) {
                         case "for":
@@ -432,8 +580,11 @@ public class Controller_Poliretos {
                         case "doWhile":
                             fg18.g5_Figuras18DoWhile(filas);
                             break;
+                        default:
+                            imprimirErrorTipoCiclo();
+                            break;
                     }
-                break;
+                    break;
                 case 19:
                     switch (tipoCiclo) {
                         case "for":
@@ -445,11 +596,21 @@ public class Controller_Poliretos {
                         case "doWhile":
                             fg19.g5_Figuras19DoWhile(filas);
                             break;
+                        default:
+                            imprimirErrorTipoCiclo();
+                            break;
                     }
-                break;                   
+                default:
+                    System.out.println("Número de figura no válido");
+                break;
             }
         }
-
+        
+        
+        public void imprimirErrorTipoCiclo(){
+            System.out.println(ROJO + "\n============= ERROR =============");
+            System.out.println("Tipo de ciclo no válido");
+        }
         public void imprimirErrorRegresarMenu(){
             System.out.println(ROJO + "\n============= ERROR =============");
             System.out.println("Digite 1 para regresar al menu general." + RESET + "\n");
@@ -492,7 +653,6 @@ public class Controller_Poliretos {
             }
             
             System.out.println(" ".repeat(offset) + "_".repeat(subtitulo.length()) + "\n");
-            System.out.print("Operación seleccionada: ");
         }
 
 }
