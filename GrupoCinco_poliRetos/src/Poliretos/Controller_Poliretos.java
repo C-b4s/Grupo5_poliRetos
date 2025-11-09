@@ -12,7 +12,10 @@ import src.Poliretos.Figuras.g5_S16Figuras;
 import src.Poliretos.Figuras.g5_S17Figuras;
 import src.Poliretos.Figuras.g5_S18Figuras;
 import src.Poliretos.Figuras.g5_S19Figuras;
+<<<<<<< HEAD
 import src.Poliretos.cadenaCaracteres.G5_contarVocales;
+=======
+>>>>>>> f12714d61f2b1f12603940c9c2837dae7d979b3f
 
 public class Controller_Poliretos {
     public final String ROJO = "\u001B[31m";
