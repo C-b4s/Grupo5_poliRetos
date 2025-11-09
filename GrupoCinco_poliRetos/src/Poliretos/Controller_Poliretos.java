@@ -456,7 +456,7 @@ public class Controller_Poliretos {
                                                 validarFrase = false;
                                                     System.out.print("Ingrese una frase: ");
                                                     fraseEliminarVocal = ingresoDatos.nextLine().toLowerCase();
-                                                    if (fraseEliminarVocal.matches("[aeiouáéíóú]")) validarFrase = true;
+                                                    if (fraseEliminarVocal.matches(".*[aeiouáéíóú].*")) validarFrase = true;
                                                     else imprimirErrorFrase();
                                             } while (!validarFrase);
 
@@ -554,7 +554,7 @@ public class Controller_Poliretos {
                                                 validarFrase = false;
                                                     System.out.print("Ingrese una frase: ");
                                                     fraseEliminarConsonante = ingresoDatos.nextLine().toLowerCase();
-                                                    if (fraseEliminarConsonante.matches("[a-zñáéíóú]")) validarFrase = true;
+                                                    if (fraseEliminarConsonante.matches(".*[a-zñáéíóú].*")) validarFrase = true;
                                                     else imprimirErrorFrase();
                                             } while (!validarFrase);
 
@@ -645,7 +645,7 @@ public class Controller_Poliretos {
                                                 validarFrase = false;
                                                     System.out.print("Ingrese una frase: ");
                                                     textoCadCinco = ingresoDatos.nextLine().toLowerCase();
-                                                    if (textoCadCinco.matches("[aeiouáéíóú]")) validarFrase = true;
+                                                    if (textoCadCinco.matches(".*[aeiouáéíóú].*")) validarFrase = true;
                                                     else imprimirErrorFrase();
                                             } while (!validarFrase);
 
@@ -725,7 +725,7 @@ public class Controller_Poliretos {
                                                 validarFrase = false;
                                                     System.out.print("Ingrese una frase: ");
                                                     textoCadSeis = ingresoDatos.nextLine().toLowerCase();
-                                                    if (textoCadSeis.matches("[aeiouáéíóú]")) validarFrase = true;
+                                                    if (textoCadSeis.matches(".*[aeiouáéíóú].*")) validarFrase = true;
                                                     else imprimirErrorFrase();
                                             } while (!validarFrase);
 
@@ -807,7 +807,7 @@ public class Controller_Poliretos {
                                                 validarFrase = false;
                                                     System.out.print("Ingrese una frase: ");
                                                     textoCadSiete = ingresoDatos.nextLine();
-                                                    if (textoCadSiete.matches("[aeiouáéíóú]")) validarFrase = true;
+                                                    if (textoCadSiete.matches(".*[aeiouáéíóú].*")) validarFrase = true;
                                                     else imprimirErrorFrase();
                                             } while (!validarFrase);
                                             
@@ -960,7 +960,7 @@ public class Controller_Poliretos {
                                                 validarFrase = false;
                                                     System.out.print("Ingrese una frase: ");
                                                     textoCadNueve = ingresoDatos.nextLine();
-                                                    if (textoCadNueve.matches("[aeiouáéíóú]")) validarFrase = true;
+                                                    if (textoCadNueve.matches(".*[aeiouáéíóú].*")) validarFrase = true;
                                                     else imprimirErrorFrase();
                                             } while (!validarFrase);
 

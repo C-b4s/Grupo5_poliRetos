@@ -1,6 +1,6 @@
 package src.Poliretos.recursividad;
 
-public class gr5_Multiplicacion {
+public class G5_Multiplicacion {
 
     /**
      * Multiplicación usando bucle FOR.
