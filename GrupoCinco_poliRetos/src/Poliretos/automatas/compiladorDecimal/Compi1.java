@@ -1,6 +1,6 @@
 package src.Poliretos.automatas.compiladorDecimal;
 
-public class compi1 {
+public class Compi1 {
     // compilador para numeros decimales
     double numero;
 
@@ -16,4 +16,5 @@ public class compi1 {
 
         }
     }
+
 }
