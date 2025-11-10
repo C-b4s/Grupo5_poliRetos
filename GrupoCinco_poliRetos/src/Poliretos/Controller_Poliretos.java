@@ -1772,11 +1772,6 @@ public class Controller_Poliretos {
     
     }
 
-
-
-        
-    
-
     private void imprimirMatrizChar(char[][] iniciales) {
         for (char[] fila : iniciales) {
             System.out.println(new String(fila));
