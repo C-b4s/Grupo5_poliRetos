@@ -37,7 +37,6 @@ import src.Poliretos.cadenaCaracteres.G5_eliminarConsonante;
 import src.Poliretos.cadenaCaracteres.G5_eliminarVocal;
 import src.Poliretos.cadenaCaracteres.G5_invertirConConsonantesEnMayus;
 import src.Poliretos.cadenaCaracteres.G5_invertirConVocalesEnMayus;
-import src.Poliretos.cadenaCaracteres.G5_contarVocales;
 import src.Poliretos.automatas.automatas1.Aut1;
 import src.Poliretos.automatas.automatas2.Aut2;
 import src.Poliretos.automatas.automatas3.Aut3;
@@ -54,12 +53,13 @@ public class Controller_Poliretos {
 
     Integer operaciones;
 
-    public void inicializar() {
+    public void inicializar() throws InterruptedException {
         Scanner ingresoDatos = null;
         try {
             ingresoDatos = new Scanner(System.in);
-            int opcionGeneral = 0, continuar = 0, operacionARealizar = 0, seguirOperaciones = 0, opcBucles = 0,
+            int opcionGeneral = 0, continuar = 0, seguirOperaciones = 0, opcBucles = 0,
                     seleccionPolireto = 0, numero = 0;
+            String otroBucle = " ", otraOperacion = " ";
 
             String[] opcMenuPrincipal = { "1. Ver integrantes del grupo", "2. Ingresar al menú de operaciones",
                     "3. Salir" };
@@ -100,22 +100,21 @@ public class Controller_Poliretos {
                     }
                 } while (!entradaValida);
 
+                operacionValida = false;
                 switch (opcionGeneral) {
                     case 1:
+
                         imprimirMenu(integrantes, "integrantes");
+                        operacionValida = true;
                         break;
+
                     case 2:
                         do {
-                            operacionValida = false;
                             imprimirMenu(secciones, "operaciones");
                             System.out.print("Operación seleccionada: ");
                             try {
                                 seleccionPolireto = ingresoDatos.nextInt();
                                 ingresoDatos.nextLine();
-                                if (seleccionPolireto >= 1 && seleccionPolireto <= 8)
-                                    operacionValida = true;
-                                else
-                                    imprimirErrorOpcionIncorrecta();
 
                             } catch (InputMismatchException e) {
                                 imprimirErrorDatosInvalidos();
@@ -250,7 +249,6 @@ public class Controller_Poliretos {
                                 case 4://cadenas
                                     int opcCadenas = 0;
                                     boolean validarOpcCadena, validarFrase, validarBucle, datoValido;
-                                    String otroBucle = "", otraOperacion = "";
                                     String[] cadenasCaracteres = { "Cadenas 1)", "Cadenas 2)", "Cadenas 3)",
                                             "Cadenas 4)", "Cadenas 5)", "Cadenas 6)", "Cadenas 7)", "Cadenas 8)",
                                             "Cadenas 9)" };
@@ -1076,7 +1074,7 @@ public class Controller_Poliretos {
                                 case 5:
                                     String [] nombreCompleto = {"Sebastián", "Josué", "Zúñiga", "Mendoza"};
                                     String [] operacionesArrays = {"Arrays 1)", "Arrays 2)", "Arrays 3)", "Arrays 4)", "Arrays 5)"};
-                                    int opcArrays;
+                                    int opcArrays = 0;;
                                     boolean validarOpcArrays;
                                     
                                     System.out.println(
@@ -1087,7 +1085,7 @@ public class Controller_Poliretos {
                                         do{
                                             datoValido = false;
                                             try {
-                                               System.out.println("Operación seleccionada: ");
+                                               System.out.print("Operación seleccionada: ");
                                                 opcArrays = ingresoDatos.nextInt();
                                                 ingresoDatos.nextLine();
                                                 datoValido = true; 
@@ -1098,6 +1096,7 @@ public class Controller_Poliretos {
                                             }  
                                         }while (!datoValido);
 
+                                        validarOpcArrays = false;
                                         switch (opcArrays) {
                                             case 1:
                                                 G5_mostrarNombresConPorcentajes arraysUno = new G5_mostrarNombresConPorcentajes();
@@ -1111,7 +1110,7 @@ public class Controller_Poliretos {
                                                     validarPorcentaje = true;
                                                     System.out.print("Ingrese los porcentajes de carga separados por espacios: ");
                                                     porcentajes = ingresoDatos.nextLine().trim().split(" ");
-                                                    
+                                                                                                        
                                                     if (porcentajes.length != nombreCompleto.length){
                                                         imprimirErrorDatosInvalidos();
                                                         validarPorcentaje = false;
@@ -1142,6 +1141,7 @@ public class Controller_Poliretos {
                                                     
                                                 } catch (InputMismatchException e) {
                                                     imprimirErrorDatosInvalidos();
+                                                    ingresoDatos.nextLine();
                                                     datoValido = false;
                                                 }
                                                 
@@ -1160,7 +1160,7 @@ public class Controller_Poliretos {
                                                     break;
 
                                                     case 3:
-                                                    System.out.println("Usted ha seleccionado emplear el bucle do-while para realizar la operación " + operacionesArrays[1]);
+                                                    System.out.println("Usted ha seleccionado emplear el bucle do-while para realizar la operación " + operacionesArrays[0]);
                                                     arraysUno.g5_mostrarNombresConPorcentajesDoWhile(nombreCompleto, porcentajesNombre);
                                                     break;
 
@@ -1175,6 +1175,7 @@ public class Controller_Poliretos {
                                                     
                                                     do{
                                                         try {
+                                                            System.out.print("Respuesta: ");
                                                             otroBucle = ingresoDatos.nextLine();
                                                             otroBucle = Normalizer.normalize(otroBucle, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toLowerCase();
                                                             if (!otroBucle.equals("si") && !otroBucle.equals("no")) imprimirErrorOpcionIncorrecta();
@@ -1182,13 +1183,15 @@ public class Controller_Poliretos {
                                                             imprimirErrorDatosInvalidos();
                                                         }
                                                         
-                                                    }while (otroBucle != "si" && otroBucle != "no");
+                                                    }while (!otroBucle.equals("si") && !otroBucle.equals("no"));
                                                 }
+                                             
                                             }while (!validarBucle || otroBucle.equals("si"));
+                                            break;
 
                                             case 2:
                                             G5_crearMatrizIniciales arraysDos = new G5_crearMatrizIniciales();
-                                            int tamIniciales;
+                                            int tamIniciales = 0;
                                             char simboloUsuario;
                                             boolean validarTamanio, validarSimbolo;
 
@@ -1237,6 +1240,8 @@ public class Controller_Poliretos {
                                                 }
                                                 
                                                 } while (!datoValido);
+
+                                                validarBucle = false;
                                                 switch (opcBucles) {
                                                     case 1:
                                                         System.out.println("Usted ha seleccionado emplear el bucle for para la operación " + operacionesArrays[1]);
@@ -1261,6 +1266,7 @@ public class Controller_Poliretos {
                                                     
                                                     do{
                                                         try {
+                                                            System.out.print("Respuesta: ");
                                                             otroBucle = ingresoDatos.nextLine();
                                                             otroBucle = Normalizer.normalize(otroBucle, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toLowerCase();
                                                             if (!otroBucle.equals("si") && !otroBucle.equals("no")) imprimirErrorOpcionIncorrecta();
@@ -1268,7 +1274,7 @@ public class Controller_Poliretos {
                                                             imprimirErrorDatosInvalidos();
                                                         }
                                                         
-                                                    }while (otroBucle != "si" && otroBucle != "no");
+                                                    }while (!otroBucle.equals("si") && !otroBucle.equals("no"));
                                                 }
                                             }while (!validarBucle || otroBucle.equals("si"));
                                             break;
@@ -1296,6 +1302,7 @@ public class Controller_Poliretos {
                                                 
                                                 } while (!datoValido);
 
+                                                validarBucle = false;
                                                 switch (opcBucles){
                                                     case 1:
                                                     System.out.println("Usted ha seleccionado emplear el bucle for para realizar la operación Arrays 3)");
@@ -1322,6 +1329,7 @@ public class Controller_Poliretos {
                                                     
                                                     do{
                                                         try {
+                                                            System.out.print("Respuesta: ");
                                                             otroBucle = ingresoDatos.nextLine();
                                                             otroBucle = Normalizer.normalize(otroBucle, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toLowerCase();
                                                             if (!otroBucle.equals("si") && !otroBucle.equals("no")) imprimirErrorOpcionIncorrecta();
@@ -1329,7 +1337,7 @@ public class Controller_Poliretos {
                                                             imprimirErrorDatosInvalidos();
                                                         }
                                                         
-                                                    }while (otroBucle != "si" && otroBucle != "no");
+                                                    }while (!otroBucle.equals("si") && !otroBucle.equals("no"));
                                                 }
                                             }while (!validarBucle || otroBucle.equals("si"));
                                             break;
@@ -1339,7 +1347,8 @@ public class Controller_Poliretos {
                                             String nombreYApellido = nombreCompleto[0] + " " + nombreCompleto[1];
 
                                             System.out.println("Usted ha seleccionado realizar la operación " + operacionesArrays[3]);
-
+                                            do{
+                                                imprimirMenu(bucles, "bucle " + operacionesArrays[3]);
                                             do {
                                                 datoValido = false;
 
@@ -1356,6 +1365,7 @@ public class Controller_Poliretos {
                                                 
                                             } while (!datoValido);
 
+                                            validarBucle = false;
                                             switch (opcBucles){
                                                 case 1:
                                                     System.out.println("Usted ha seleccionado emplear el bucle for para realizar la operación " + operacionesArrays[3]);
@@ -1379,6 +1389,7 @@ public class Controller_Poliretos {
                                                     
                                                     do{
                                                         try {
+                                                            System.out.print("Respuesta: ");
                                                             otroBucle = ingresoDatos.nextLine();
                                                             otroBucle = Normalizer.normalize(otroBucle, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toLowerCase();
                                                             if (!otroBucle.equals("si") && !otroBucle.equals("no")) imprimirErrorOpcionIncorrecta();
@@ -1386,7 +1397,7 @@ public class Controller_Poliretos {
                                                             imprimirErrorDatosInvalidos();
                                                         }
                                                         
-                                                    }while (otroBucle != "si" && otroBucle != "no");
+                                                    }while (!otroBucle.equals("si") && !otroBucle.equals("no"));
                                                 }
                                             }while (!validarBucle || otroBucle.equals("si"));
                                             break;
@@ -1428,13 +1439,13 @@ public class Controller_Poliretos {
                                                     break;
                                             }
 
-                                           verificarBucleCorrecto(opcBucles, validarBucle, otroBucle, ingresoDatos);
                                             
                                             if (opcBucles >= 1 && opcBucles <= 3){
                                                     validarBucle = true;
                                                     System.out.println("Si desea probar otro bucle, escriba si. De lo contrario, escriba no");
                                                     
                                                     do{
+                                                        System.out.print("Respuesta: ");
                                                         try {
                                                             System.out.print("Respuesta: ");
                                                             otroBucle = ingresoDatos.nextLine();
@@ -1444,7 +1455,7 @@ public class Controller_Poliretos {
                                                             imprimirErrorDatosInvalidos();
                                                         }
                                                         
-                                                    }while (otroBucle != "si" && otroBucle != "no");
+                                                    }while (!otroBucle.equals("si") && !otroBucle.equals("no"));
                                             }
 
 
@@ -1452,13 +1463,15 @@ public class Controller_Poliretos {
                                             default:
                                                 imprimirErrorOpcionIncorrecta();
                                                 break;
+                                        }
                                         if (opcArrays>= 1 && opcArrays<= 5){
                                         validarOpcArrays = true;
-                                        System.out.println("\nSi desea realizar otra operación con cadenas, escriba si. De lo contrario, escriba no");
-                                        System.out.print("Respuesta: ");
+                                        System.out.println("\nSi desea realizar otra operación con arrays, escriba si. De lo contrario, escriba no");
+                                        
                                         
                                         do{
                                         try {
+                                            System.out.print("Respuesta: ");
                                             otraOperacion = ingresoDatos.nextLine();
                                             otraOperacion = Normalizer.normalize(otraOperacion, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toLowerCase();
                                             if (!otraOperacion.equals("si") && !otraOperacion.equals("no")) imprimirErrorOpcionIncorrecta();
@@ -1467,7 +1480,7 @@ public class Controller_Poliretos {
                                         }
               
                                         }while (!otraOperacion.equals("si") && !otraOperacion.equals("no"));
-                                    }
+                                        }
                                 }while (!validarOpcArrays || otraOperacion.equals("si"));
                                 break;
                                 case 6:
@@ -1570,11 +1583,11 @@ public class Controller_Poliretos {
 
                                 default:
                                     imprimirErrorOpcionIncorrecta();
-                                    operacionARealizar = 0;
                                     break;
                             }
 
-                            if (operacionValida) {
+                            if (opcionGeneral >= 1 && opcionGeneral <= 2) {
+                                operacionValida = true;
                                 System.out.println(
                                         "Si desea realizar otra operacción, digite 2. De lo contrario, digite 1.");
 
@@ -1602,6 +1615,7 @@ public class Controller_Poliretos {
                         break;
                     case 3:
                         System.out.println("Usted ha salido del programa POLIRETOS - GRUPO 5");
+                        entradaValida = true;
                         break;
                     default:
                         imprimirErrorOpcionIncorrecta();
@@ -1625,20 +1639,19 @@ public class Controller_Poliretos {
                         }
                     } while (continuar != 1);
                 }
-            } finally {
+            } while (!entradaValida || opcionGeneral != 3);               
+        } finally {
             if (ingresoDatos != null) {
                 ingresoDatos.close();
             }
-    } 
-                {
-                    }       
-
-                
-
-         
-            } while (!entradaValida || opcionGeneral != 3);
-         
+        }
+        
+      
     
+    }
+
+
+
         
     
 
