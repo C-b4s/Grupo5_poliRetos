@@ -91,7 +91,7 @@ public class Controller_Poliretos {
                     "8. Validador de claves", "9. Salir al menú de operaciones" };
 
             boolean entradaValida, operacionValida, confirmacionValida, poliretosValida;
-
+            char repetir;
             imprimirTitulo();
 
             do {
@@ -148,7 +148,7 @@ public class Controller_Poliretos {
                                     G5_ContadorRegresivo reg=new G5_ContadorRegresivo();
                                     G5_ContadorProgresivo prog=new G5_ContadorProgresivo();
                                     G5_Potencia pot=new G5_Potencia();
-                                        char repetir;
+                                    
 
                                         do {
                                              System.out.println(ROJO + "\n================== POLIRETOS - GRUPO 5 ==================" + RESET);
@@ -1610,7 +1610,128 @@ public class Controller_Poliretos {
                                     break;
                                 case 7:
                                     // Recursion
-                                    break;
+                                    G5_S1serie s1 = new G5_S1serie();
+                                    G5_S2serie s2 = new G5_S2serie ();
+                                    G5_S3serie s3 = new G5_S3serie ();
+                                    G5_S4serie s4 = new G5_S4serie ();
+                                    G5_S5serie s5 = new G5_S5serie ();
+                                    G5_S6serie s6 = new G5_S6serie ();
+                                    G5_S7serie s7 = new G5_S7serie ();
+                                    G5_S8serie s8 = new G5_S8serie ();
+                                    G5_S9serie s9 = new G5_S9serie ();
+
+                                        do{
+                                        System.out.println("\n================== IMPRESIÓN DE SERIES ==================");
+                                        System.out.println("Seleccione la serie que desea generar:");
+                                        System.out.println("1. Serie S1");
+                                        System.out.println("2. Serie S2");
+                                        System.out.println("3. Serie S3");
+                                        System.out.println("4. Serie S4");
+                                        System.out.println("5. Serie S5");
+                                        System.out.println("6. Serie S6");
+                                        System.out.println("7. Serie S7");
+                                        System.out.println("8. Serie S8");
+                                        System.out.println("9. Serie S9");
+
+                                        
+                                            try {
+                                                System.out.print("Opción (1–9): ");
+                                                int opcion = ingresoDatos.nextInt();
+
+                                                System.out.print("Seleccione el tipo de ciclo (for / while / do-while): ");
+                                                String tipoCiclo = ingresoDatos.next().toLowerCase();
+                                                System.out.print("Ingrese la cantidad de elementos n: ");
+                                                int n = ingresoDatos.nextInt();
+
+                                                switch (opcion) {
+                                                    case 1:
+                                                        switch (tipoCiclo) {
+                                                             case "for": System.out.println("Serie S1 con for: " + s1.g5_generarS1_for(n)); break;
+                                                            case "while": System.out.println("Serie S1 con while: " + s1.g5_generarS1_while(n)); break;
+                                                             case "do-while": System.out.println("Serie S1 con do-while: " + s1.g5_generarS1_doWhile(n)); break;
+                                                            default: System.err.println(ROJO + "Tipo de ciclo no válido." + RESET);
+                                                        }
+                                                        break;
+                                                    case 2:
+                                                        switch (tipoCiclo) {
+                                                            case "for": System.out.println("Serie S2 con for: " + s2.g5_generarS2_for(n)); break;
+                                                            case "while": System.out.println("Serie S2 con while: " + s2.g5_generarS2_while(n)); break;
+                                                            case "do-while": System.out.println("Serie S2 con do-while: " + s2.g5_generarS2_doWhile(n)); break;
+                                                            default: System.err.println(ROJO + "Tipo de ciclo no válido." + RESET);
+                                                        }
+                                                        break;
+                                                    case 3:
+                                                        switch (tipoCiclo) {
+                                                            case "for": System.out.println("Serie S3 con for: " + s3.g5_generarS3_for(n)); break;
+                                                            case "while": System.out.println("Serie S3 con while: " + s3.g5_generarS3_while(n)); break;
+                                                            case "do-while": System.out.println("Serie S3 con do-while: " + s3.g5_generarS3_doWhile(n)); break;
+                                                            default: System.err.println(ROJO + "Tipo de ciclo no válido." + RESET);
+                                                        }
+                                                        break;
+                                                    case 4:
+                                                        switch (tipoCiclo) {
+                                                            case "for": System.out.println("Serie S4 con for: " + s4.g5_generarS4_for(n)); break;
+                                                            case "while": System.out.println("Serie S4 con while: " + s4.g5_generarS4_while(n)); break;
+                                                            case "do-while": System.out.println("Serie S4 con do-while: " + s4.g5_generarS4_doWhile(n)); break;
+                                                            default: System.err.println(ROJO + "Tipo de ciclo no válido." + RESET);
+                                                        }
+                                                        break;
+                                                    case 5:
+                                                        switch (tipoCiclo) {
+                                                             case "for": System.out.println("Serie S5 con for: " + s5.g5_generarS5_for(n)); break;
+                                                            case "while": System.out.println("Serie S5 con while: " + s5.g5_generarS5_while(n)); break;
+                                                            case "do-while": System.out.println("Serie S5 con do-while: " + s5.g5_generarS5_doWhile(n)); break;
+                                                            default: System.err.println(ROJO + "Tipo de ciclo no válido." + RESET);
+                                                        }
+                                                        break;
+                                                    case 6:
+                                                        switch (tipoCiclo) {
+                                                            case "for": System.out.println("Serie S6 con for: " + s6.g5_generarS6_for(n)); break;
+                                                            case "while": System.out.println("Serie S6 con while: " + s6.g5_generarS6_while(n)); break;
+                                                            case "do-while": System.out.println("Serie S6 con do-while: " + s6.g5_generarS6_doWhile(n)); break;
+                                                            default: System.err.println(ROJO + "Tipo de ciclo no válido." + RESET);
+                                                        }
+                                                        break;
+                                                    case 7:
+                                                    switch (tipoCiclo) {
+                                                        case "for": System.out.println("Serie S7 con for: " + s7.g5_generarS7_for(n)); break;
+                                                         case "while": System.out.println("Serie S7 con while: " + s7.g5_generarS7_while(n)); break;
+                                                        case "do-while": System.out.println("Serie S7 con do-while: " + s7.g5_generarS7_doWhile(n)); break;
+                                                        default: System.err.println(ROJO + "Tipo de ciclo no válido." + RESET);
+                                                    }
+                                                    break;
+                                                    case 8:
+                                                        switch (tipoCiclo) {
+                                                            case "for": System.out.println("Serie S8 con for: " + s8.g5_generarS8_for(n)); break;
+                                                            case "while": System.out.println("Serie S8 con while: " + s8.g5_generarS8_while(n)); break;
+                                                            case "do-while": System.out.println("Serie S8 con do-while: " + s8.g5_generarS8_doWhile(n)); break;
+                                                            default: System.err.println(ROJO + "Tipo de ciclo no válido." + RESET);
+                                                        }
+                                                    break;
+                                                    case 9:
+                                                        switch (tipoCiclo) {
+                                                            case "for": System.out.println("Serie S9 con for: " + s9.g5_generarS9_for(n)); break;
+                                                            case "while": System.out.println("Serie S9 con while: " + s9.g5_generarS9_while(n)); break;
+                                                            case "do-while": System.out.println("Serie S9 con do-while: " + s9.g5_generarS9_doWhile(n)); break;
+                                                            default: System.err.println(ROJO + "Tipo de ciclo no válido." + RESET);
+                                                        }
+                                                        break;
+                                                    default:
+                                                    System.err.println(ROJO + "La opción ingresada no es válida." + RESET);
+                                                }
+
+                                                } catch (Exception e) {
+                                                    System.err.println(ROJO + "Error: entrada inválida. Intente nuevamente." + RESET);
+                                                    ingresoDatos.nextLine();
+                                                }
+
+                                                    System.out.print("\n¿Desea generar otra serie? (s/n): ");
+                                                    repetir = ingresoDatos.next().charAt(0);
+                                                
+                                        } while (repetir == 's' || repetir == 'S');
+                                    
+                                      break;
+
                                 case 8:
                                     // Grafos y automatas
                                     int opcAutCompi = 0;
