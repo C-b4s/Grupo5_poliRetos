@@ -45,6 +45,21 @@ import src.Poliretos.automatas.compiladorDecimal.Compi1;
 import src.Poliretos.automatas.compiladorLenguaje.Compi2;
 import src.Poliretos.automatas.compiladorVariable.Compi3;
 import src.Poliretos.automatas.validadorClave.Compi4;
+import src.Poliretos.recursividad.G5_Factorial;
+import src.Poliretos.recursividad.G5_Sumar;
+import src.Poliretos.recursividad.G5_Multiplicacion;
+import src.Poliretos.recursividad.G5_ContadorRegresivo;
+import src.Poliretos.recursividad.G5_ContadorProgresivo;
+import src.Poliretos.recursividad.G5_Potencia;
+import src.Poliretos.serieCaracteres.G5_S1serie;
+import src.Poliretos.serieCaracteres.G5_S2serie;
+import src.Poliretos.serieCaracteres.G5_S3serie;
+import src.Poliretos.serieCaracteres.G5_S4serie;
+import src.Poliretos.serieCaracteres.G5_S5serie;
+import src.Poliretos.serieCaracteres.G5_S6serie;
+import src.Poliretos.serieCaracteres.G5_S7serie;
+import src.Poliretos.serieCaracteres.G5_S8serie;
+import src.Poliretos.serieCaracteres.G5_S9serie;
 
 public class Controller_Poliretos {
     public final String ROJO = "\u001B[31m";
@@ -127,6 +142,114 @@ public class Controller_Poliretos {
                                     break;
                                 case 2:
                                     // Series de caracteres
+                                    G5_Factorial fact=new G5_Factorial();
+                                    G5_Sumar sum=new G5_Sumar();
+                                    G5_Multiplicacion mul=new G5_Multiplicacion();
+                                    G5_ContadorRegresivo reg=new G5_ContadorRegresivo();
+                                    G5_ContadorProgresivo prog=new G5_ContadorProgresivo();
+                                    G5_Potencia pot=new G5_Potencia();
+                                        char repetir;
+
+                                        do {
+                                             System.out.println(ROJO + "\n================== POLIRETOS - GRUPO 5 ==================" + RESET);
+                                             System.out.println("Seleccione la operación que desea realizar:");
+                                            System.out.println("1. Factorial");
+                                            System.out.println("2. Suma");
+                                            System.out.println("3. Multiplicación");
+                                            System.out.println("4. Potencia");
+                                            System.out.println("5. Conteo progresivo");
+                                            System.out.println("6. Conteo regresivo");
+
+                                        try {
+                                         System.out.print("Opción (1–6): ");
+                                        int opcion = ingresoDatos.nextInt();
+
+                                        System.out.print("Seleccione el tipo de ciclo (for / while / do-while): ");
+                                        String tipoCiclo = ingresoDatos.next().toLowerCase();
+
+                                        int n = 0, a = 0, b = 0;
+
+                                         // Solicitar valores según operación
+                                        if (opcion == 1 || opcion == 5 || opcion == 6) {
+                                            System.out.print("Ingrese el valor de n: ");
+                                            n = ingresoDatos.nextInt();
+                                        } else {
+                                            System.out.print("Ingrese el valor de a: ");
+                                            a = ingresoDatos.nextInt();
+                                            System.out.print("Ingrese el valor de b: ");
+                                            b = ingresoDatos.nextInt();
+                                        }
+
+                                        switch (opcion) {
+                                        case 1: // Factorial
+                                        switch (tipoCiclo) {
+                                            case "for": System.out.println("Factorial con for: " + fact.g5_factorialFor(n)); break;
+                                            case "while": System.out.println("Factorial con while: " + fact.g5_factorialWhile(n)); break;
+                                            case "do-while": System.out.println("Factorial con do-while: " + fact.g5_factorialDoWhile(n)); break;
+                                            default: System.err.println(ROJO + "Tipo de ciclo no válido." + RESET); break;
+                                        }
+                                        break;
+
+                                        case 2: // Suma
+                                        switch (tipoCiclo) {
+                                            case "for": System.out.println("Suma con for: " + sum.g5_sumarFor(a, b)); break;
+                                            case "while": System.out.println("Suma con while: " + sum.g5_sumarWhile(a, b)); break;
+                                            case "do-while": System.out.println("Suma con do-while: " + sum.g5_sumarDoWhile(a, b)); break;
+                                            default: System.err.println(ROJO + "Tipo de ciclo no válido." + RESET); break;
+                                        }
+                                        break;
+
+                                        case 3: // Multiplicación
+                                        switch (tipoCiclo) {
+                                            case "for": System.out.println("Multiplicación con for: " + mul.g5_multiplicarFor(a, b)); break;
+                                            case "while": System.out.println("Multiplicación con while: " + mul.g5_multiplicarWhile(a, b)); break;
+                                            case "do-while": System.out.println("Multiplicación con do-while: " + mul.g5_multiplicarDoWhile(a, b)); break;
+                                            default: System.err.println(ROJO + "Tipo de ciclo no válido." + RESET); break;
+                                        }
+                                        break;
+
+                                        case 4: // Potencia
+                                        switch (tipoCiclo) {
+                                            case "for": System.out.println("Potencia con for: " + pot.potenciaFor(a, b)); break;
+                                            case "while": System.out.println("Potencia con while: " + pot.potenciaWhile(a, b)); break;
+                                            case "do-while": System.out.println("Potencia con do-while: " + pot.potenciaDoWhile(a, b)); break;
+                                            default: System.err.println(ROJO + "Tipo de ciclo no válido." + RESET); break;
+                                        }
+                                        break;
+
+                                        case 5: // Conteo progresivo
+                                        switch (tipoCiclo) {
+                                        case "for": System.out.println("Conteo progresivo con for:"); prog.contarFor(n); break;
+                                        case "while": System.out.println("Conteo progresivo con while:"); prog.contarWhile(n); break;
+                                        case "do-while": System.out.println("Conteo progresivo con do-while:"); prog.contarDoWhile(n); break;
+                                         default: System.err.println(ROJO + "Tipo de ciclo no válido." + RESET); break;
+                                        }
+                                        break;
+
+                                        case 6: // Conteo regresivo
+                                        switch (tipoCiclo) {
+                                        case "for": System.out.println("Conteo regresivo con for:"); reg.contarDesdeFor(n); break;
+                                        case "while": System.out.println("Conteo regresivo con while:"); reg.contarDesdeWhile(n); break;
+                                        case "do-while": System.out.println("Conteo regresivo con do-while:"); reg.contarDesdeDoWhile(n); break;
+                                         default: System.err.println(ROJO + "Tipo de ciclo no válido." + RESET); break;
+                                        }
+                                        break;
+
+                                        default:
+                                        System.err.println(ROJO + "La opción ingresada no es válida." + RESET);
+                                         break;
+                                        }
+
+                                        } catch (Exception e) {
+                                        System.err.println(ROJO + "Error: entrada inválida. Intente nuevamente." + RESET);
+                                         ingresoDatos.nextLine(); // Limpiar buffer
+                                    }
+
+                                    System.out.print("\n¿Desea realizar otra operación? (s/n): ");
+                                    repetir = ingresoDatos.next().charAt(0);
+
+                                    } while (repetir == 's' || repetir == 'S');
+                                        
                                     break;
                                 case 3:
                                     // Figuras
@@ -1400,8 +1523,7 @@ public class Controller_Poliretos {
                                                     }while (!otroBucle.equals("si") && !otroBucle.equals("no"));
                                                 }
                                             }while (!validarBucle || otroBucle.equals("si"));
-                                            break;
-
+                                                 
                                             case 5:
                                             String miNombreCompleto = nombreCompleto[0] + nombreCompleto[1] + nombreCompleto[2] + nombreCompleto[3];
                                             G5_colocarLetrasNombreAleatorio arraysCinco = new G5_colocarLetrasNombreAleatorio();
