@@ -1,6 +1,7 @@
 package src.Poliretos.array;
 
 public class G5_imprimirXConNombre {
+    public final String ROJO = "\u001B[31m";
     public void g5_imprimirXConNombreFor(String nombreCompleto) {
 
         // Eliminar espacios para usar solo los caracteres
@@ -9,6 +10,12 @@ public class G5_imprimirXConNombre {
         String apellido = nombreSinEspacios.substring(9, 15);
         int nombreTamanio = nombre.length(); // Tamaño de la matriz cuadrada
         char[][] matriz = new char[nombreTamanio][nombreTamanio];
+
+        if (nombreSinEspacios.length() < 15) {
+            System.err.println("================= ERROR =================");
+            System.err.println("El nombre completo debe tener al menos 15 caracteres (incluyendo espacios).");
+            return;
+        }
 
         // Inicializar la matriz con espacios
         for (int i = 0; i < nombreTamanio; i++) {

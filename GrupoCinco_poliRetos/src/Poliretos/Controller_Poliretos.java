@@ -1344,7 +1344,7 @@ public class Controller_Poliretos {
                                             
                                             case 4:
                                             G5_imprimirXConNombre arraysCuatro = new G5_imprimirXConNombre();
-                                            String nombreYApellido = nombreCompleto[0] + " " + nombreCompleto[1];
+                                            String nombreYApellido = nombreCompleto[0] + " " + nombreCompleto[2];
 
                                             System.out.println("Usted ha seleccionado realizar la operación " + operacionesArrays[3]);
                                             do{
@@ -1408,7 +1408,7 @@ public class Controller_Poliretos {
                                             System.out.println("Usted ha seleccionado realizar la operación " + operacionesArrays[4]);
                                             do {
                                                 datoValido = false;
-
+                                                imprimirMenu(bucles, "bucle " + operacionesArrays[4]);
                                                 try {
                                                     System.out.print("Bucle seleccionado (ingrese el número): ");
                                                     opcBucles = ingresoDatos.nextInt();
