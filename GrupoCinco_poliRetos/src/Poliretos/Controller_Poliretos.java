@@ -484,7 +484,6 @@ public class Controller_Poliretos {
                                                         
                                                     }while (!otroBucle.equals("si") && !otroBucle.equals("no"));
                                                 }
-                                                
 
                                             }while (!validarBucle || otroBucle.equals("si"));
                                             break;
@@ -1777,23 +1776,23 @@ public class Controller_Poliretos {
         
     
 
-    private void imprimirMatrizChar(char[][] iniciales) {
+    public void imprimirMatrizChar(char[][] iniciales) {
         for (char[] fila : iniciales) {
             System.out.println(new String(fila));
         }
     }
 
-    private void imprimirErrorFrase() {
+    public void imprimirErrorFrase() {
         System.err.println(ROJO + "\n============= ERROR =============");
         System.err.println("La frase no contiene los caracteres necesarios para realizar la operación." + RESET + "\n");
     }
 
-    private void imprimirResultadoFrase(String resultado) {
+    public void imprimirResultadoFrase(String resultado) {
         System.out.println("\n========== RESULTADO ==========");
         System.out.println("La nueva frase es " + resultado + "\n");
     }
 
-    private void imprimirErrorTipoDato() {
+    public void imprimirErrorTipoDato() {
         System.err.println(ROJO + "\n============= ERROR =============");
         System.err.println("El dato ingresado no coincide con el tipo de dato solicitado" + RESET + "\n");
     }
