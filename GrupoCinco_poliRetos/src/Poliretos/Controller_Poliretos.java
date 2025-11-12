@@ -61,6 +61,18 @@ import src.Poliretos.serieCaracteres.G5_S6serie;
 import src.Poliretos.serieCaracteres.G5_S7serie;
 import src.Poliretos.serieCaracteres.G5_S8serie;
 import src.Poliretos.serieCaracteres.G5_S9serie;
+import src.Poliretos.serieNumericas.G5_S1SeriesNum;
+import src.Poliretos.serieNumericas.G5_S2SeriesNum;
+import src.Poliretos.serieNumericas.G5_S3SeriesNum;
+import src.Poliretos.serieNumericas.G5_S4SeriesNum;
+import src.Poliretos.serieNumericas.G5_S5SeriesNum;
+import src.Poliretos.serieNumericas.G5_S6SeriesNum;
+import src.Poliretos.serieNumericas.G5_S7SeriesNum;
+import src.Poliretos.serieNumericas.G5_S8SeriesNum;
+import src.Poliretos.serieNumericas.G5_S9SeriesNum;
+import src.Poliretos.serieNumericas.G5_S10SeriesNum;
+import src.Poliretos.serieNumericas.G5_S11SeriesNum;
+import src.Poliretos.serieNumericas.G5_S12SeriesNum;
 import src.Poliretos.Loadings.G5_S1Loading;
 import src.Poliretos.Loadings.G5_S2Loading;
 import src.Poliretos.Loadings.G5_S3Loading;
@@ -140,20 +152,111 @@ public class Controller_Poliretos {
                     case 2:
                         do {
                             imprimirMenu(secciones, "operaciones");
+                            do {
+                            operacionValida=false;
                             System.out.print("Operación seleccionada: ");
                             try {
                                 seleccionPolireto = ingresoDatos.nextInt();
                                 ingresoDatos.nextLine();
-
+                                if(seleccionPolireto>=1 && seleccionPolireto<=8){
+                                    operacionValida = true;
+                                } else{ 
+                                    imprimirErrorOpcionIncorrecta();
+                                }
                             } catch (InputMismatchException e) {
                                 imprimirErrorDatosInvalidos();
                                 ingresoDatos.nextLine();
                             }
+                           } while (!operacionValida);
                             switch (seleccionPolireto) {
                                 case 1:
-                                imprimirMenu(opcMenuPoliretos,"Series Numericas");
-                                    // Series numericas
-                                    break;
+                                // Series Numericas
+                                G5_S1SeriesNum sn1 = new G5_S1SeriesNum();
+                                        G5_S2SeriesNum sn2 = new G5_S2SeriesNum();
+                                        G5_S3SeriesNum sn3 = new G5_S3SeriesNum();
+                                        G5_S4SeriesNum sn4 = new G5_S4SeriesNum();
+                                        G5_S5SeriesNum sn5 = new G5_S5SeriesNum();
+                                        G5_S6SeriesNum sn6 = new G5_S6SeriesNum();
+                                        G5_S7SeriesNum sn7 = new G5_S7SeriesNum();
+                                        G5_S8SeriesNum sn8 = new G5_S8SeriesNum();
+                                        G5_S9SeriesNum sn9 = new G5_S9SeriesNum();
+                                        G5_S10SeriesNum sn10 = new G5_S10SeriesNum();
+                                        G5_S11SeriesNum sn11 = new G5_S11SeriesNum();
+                                        G5_S12SeriesNum sn12 = new G5_S12SeriesNum();
+
+                                        System.out.println("Usted ha seleccionado Series Numéricas.");
+                                    
+                                        do {
+                                            String[] opcSeriesNum = { 
+                                                "SN1: Fibonacci",
+                                                "SN2: Suma números consecutivos",
+                                                "SN3: Fracciones",
+                                                "SN4: Fracciones con pares",
+                                                "SN5: Números primos",
+                                                "SN6: Cuadrados",
+                                                "SN7: Aritmética 3",
+                                                "SN8: Aritmética 5",
+                                                "SN9: Potencias de 2",
+                                                "SN10: Aritmética general",
+                                                "SN11: Harmónica",
+                                                "SN12: Geométrica"
+                                            };
+                                        
+                                            imprimirMenu(opcSeriesNum, "series numericas disponibles");
+                                        
+                                            int opcSerieNum = 0;
+                                            boolean validarOpcSerieNum;
+                                        
+                                            do {
+                                                System.out.print("Seleccione la serie numérica (1-12): ");
+                                                try {
+                                                    opcSerieNum = ingresoDatos.nextInt();
+                                                    ingresoDatos.nextLine();
+                                                    validarOpcSerieNum = (opcSerieNum >= 1 && opcSerieNum <= 12);
+                                                    if (!validarOpcSerieNum) imprimirErrorOpcionIncorrecta();
+                                                } catch (InputMismatchException e) {
+                                                    imprimirErrorDatosInvalidos();
+                                                    ingresoDatos.nextLine();
+                                                    validarOpcSerieNum = false;
+                                                }
+                                            } while (!validarOpcSerieNum);
+                                        
+                                            String[] opcBuclesSeriesNum = { "1.-FOR", "2.-WHILE", "3.-DO WHILE" };
+                                            int tipoCicloSeriesNum = 0;
+                                            boolean validarTipoCicloSeriesNum;
+                                        
+                                            do {
+                                                imprimirMenu(opcBuclesSeriesNum, "tipo de ciclo");
+                                                System.out.print("Seleccione el tipo de ciclo (1-3): ");
+                                                try {
+                                                    tipoCicloSeriesNum = ingresoDatos.nextInt();
+                                                    ingresoDatos.nextLine();
+                                                    validarTipoCicloSeriesNum = (tipoCicloSeriesNum >= 1 && tipoCicloSeriesNum <= 3);
+                                                    if (!validarTipoCicloSeriesNum) imprimirErrorOpcionIncorrecta();
+                                                } catch (InputMismatchException e) {
+                                                    imprimirErrorDatosInvalidos();
+                                                    ingresoDatos.nextLine();
+                                                    validarTipoCicloSeriesNum = false;
+                                                }
+                                            } while (!validarTipoCicloSeriesNum);
+                                        
+                                            // Ejecutar la serie numérica seleccionada
+                                            ejecutarSerieNumerica(opcSerieNum, tipoCicloSeriesNum, sn1, sn2, sn3, sn4, sn5, sn6, sn7, sn8, sn9, sn10, sn11, sn12);
+                                        
+                                            System.out.print("\n¿Desea ejecutar otra serie numérica? (si/no): ");
+                                            do{
+                                                operacionValida=false;
+                                            repetir = ingresoDatos.next().charAt(0);
+                                            ingresoDatos.nextLine();
+                                            if((repetir=='s') || (repetir =='n')||(repetir=='S') || (repetir=='N')){
+                                                operacionValida=true;
+                                            }else{
+                                                imprimirErrorOpcionIncorrecta();
+                                            }
+                                        }while(!operacionValida);
+                                        } while (repetir == 's' || repetir == 'S');
+                                        operacionValida = true;
+                                        break;
                                 case 2:
                                     // Series de caracteres
                                     
@@ -1406,9 +1509,16 @@ public class Controller_Poliretos {
                                         ejecutarLoading(opcLoading, tipoCicloLoading, l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12);
                                         
                                         System.out.print("\n¿Desea ejecutar otro Loading? (si/no): ");
+                                        do{
+                                        operacionValida=false;
                                         repetir = ingresoDatos.next().charAt(0);
                                         ingresoDatos.nextLine();
-                                        
+                                        if((repetir=='s' || repetir == 'S')||(repetir=='n')||(repetir == 'N')){
+                                            operacionValida=true;
+                                        }else{
+                                            imprimirErrorOpcionIncorrecta();
+                                        }
+                                        }while(!operacionValida);
                                     } while (repetir == 's' || repetir == 'S');
                                     operacionValida = true;
                                     break;
@@ -1679,9 +1789,122 @@ public class Controller_Poliretos {
                 ingresoDatos.close();
             }
         }
-        
-      
+    }
     
+    public void ejecutarSerieNumerica(int numero, int tipoCiclo,
+            src.Poliretos.serieNumericas.G5_S1SeriesNum sn1,
+            src.Poliretos.serieNumericas.G5_S2SeriesNum sn2,
+            src.Poliretos.serieNumericas.G5_S3SeriesNum sn3,
+            src.Poliretos.serieNumericas.G5_S4SeriesNum sn4,
+            src.Poliretos.serieNumericas.G5_S5SeriesNum sn5,
+            src.Poliretos.serieNumericas.G5_S6SeriesNum sn6,
+            src.Poliretos.serieNumericas.G5_S7SeriesNum sn7,
+            src.Poliretos.serieNumericas.G5_S8SeriesNum sn8,
+            src.Poliretos.serieNumericas.G5_S9SeriesNum sn9,
+            src.Poliretos.serieNumericas.G5_S10SeriesNum sn10,
+            src.Poliretos.serieNumericas.G5_S11SeriesNum sn11,
+            src.Poliretos.serieNumericas.G5_S12SeriesNum sn12) {
+        switch (numero) {
+            case 1:
+                switch (tipoCiclo) {
+                    case 1: sn1.g5_S1_Fibonacci_FOR(); break;
+                    case 2: sn1.g5_S1_Fibonacci_WHILE(); break;
+                    case 3: sn1.g5_S1_Fibonacci_DO_WHILE(); break;
+                    default: imprimirErrorTipoCiclo(); break;
+                }
+                break;
+            case 2:
+                switch (tipoCiclo) {
+                    case 1: sn2.g5_S2_Alternante_FOR(); break;
+                    case 2: sn2.g5_S2_Alternante_WHILE(); break;
+                    case 3: sn2.g5_S2_Alternante_DO_WHILE(); break;
+                    default: imprimirErrorTipoCiclo(); break;
+                }
+                break;
+            case 3:
+                switch (tipoCiclo) {
+                    case 1: sn3.g5_S3_Fracciones_FOR(); break;
+                    case 2: sn3.g5_S3_Fracciones_WHILE(); break;
+                    case 3: sn3.g5_S3_Fracciones_DOWHILE(); break;
+                    default: imprimirErrorTipoCiclo(); break;
+                }
+                break;
+            case 4:
+                switch (tipoCiclo) {
+                    case 1: sn4.g5_S4_FraccionesPares_FOR(); break;
+                    case 2: sn4.g5_S4_FraccionesPares_WHILE(); break;
+                    case 3: sn4.g5_S4_FraccionesPares_DOWHILE(); break;
+                    default: imprimirErrorTipoCiclo(); break;
+                }
+                break;
+            case 5:
+                switch (tipoCiclo) {
+                    case 1: sn5.g5_S5_Primos_FOR(); break;
+                    case 2: sn5.g5_S5_Primos_WHILE(); break;
+                    case 3: sn5.g5_S5_Primos_DOWHILE(); break;
+                    default: imprimirErrorTipoCiclo(); break;
+                }
+                break;
+            case 6:
+                switch (tipoCiclo) {
+                    case 1: sn6.g5_S6_Cuadrados_FOR(); break;
+                    case 2: sn6.g5_S6_Cuadrados_WHILE(); break;
+                    case 3: sn6.g5_S6_Cuadrados_DOWHILE(); break;
+                    default: imprimirErrorTipoCiclo(); break;
+                }
+                break;
+            case 7:
+                switch (tipoCiclo) {
+                    case 1: sn7.g5_S7_Aritmetica3_FOR(); break;
+                    case 2: sn7.g5_S7_Aritmetica3_WHILE(); break;
+                    case 3: sn7.g5_S7_Aritmetica3_DOWHILE(); break;
+                    default: imprimirErrorTipoCiclo(); break;
+                }
+                break;
+            case 8:
+                switch (tipoCiclo) {
+                    case 1: sn8.g5_S8_Aritmetica5_FOR(); break;
+                    case 2: sn8.g5_S8_Aritmetica5_WHILE(); break;
+                    case 3: sn8.g5_S8_Aritmetica5_DOWHILE(); break;
+                    default: imprimirErrorTipoCiclo(); break;
+                }
+                break;
+            case 9:
+                switch (tipoCiclo) {
+                    case 1: sn9.g5_S9_Potencias2_FOR(); break;
+                    case 2: sn9.g5_S9_Potencias2_WHILE(); break;
+                    case 3: sn9.g5_S9_Potencias2_DOWHILE(); break;
+                    default: imprimirErrorTipoCiclo(); break;
+                }
+                break;
+            case 10:
+                switch (tipoCiclo) {
+                    case 1: sn10.g5_S10_Potencias3_FOR(); break;
+                    case 2: sn10.g5_S10_Potencias3_WHILE(); break;
+                    case 3: sn10.g5_S10_Potencias3_DOWHILE(); break;
+                    default: imprimirErrorTipoCiclo(); break;
+                }
+                break;
+            case 11:
+                switch (tipoCiclo) {
+                    case 1: sn11.g5_S11_Aritmetica4_FOR(); break;
+                    case 2: sn11.g5_S11_Aritmetica4_WHILE(); break;
+                    case 3: sn11.g5_S11_Aritmetica4_DOWHILE(); break;
+                    default: imprimirErrorTipoCiclo(); break;
+                }
+                break;
+            case 12:
+                switch (tipoCiclo) {
+                    case 1: sn12.g5_S12_n_n1_FOR(); break;
+                    case 2: sn12.g5_S12_n_n1_WHILE(); break;
+                    case 3: sn12.g5_S12_n_n1_DOWHILE(); break;
+                    default: imprimirErrorTipoCiclo(); break;
+                }
+                break;
+            default:
+                imprimirErrorOpcionIncorrecta();
+                break;
+        }
     }
 
     private int leerEnteroValido(String mensaje) {
@@ -2037,6 +2260,7 @@ public class Controller_Poliretos {
 
         String subtitulo = "================= " + nombreMenu.toUpperCase() + " ================";
         int offset = 60 - subtitulo.length();
+        if (offset < 0) offset = 0; // evitar String.repeat con conteo negativo
         System.out.println(VERDE + " ".repeat(offset) + subtitulo + RESET);
 
         for (String elemento : datos) {
