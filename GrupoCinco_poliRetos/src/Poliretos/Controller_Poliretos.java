@@ -254,7 +254,7 @@ public class Controller_Poliretos {
                                                         break;
                                                     case 10:
                                                         switch (tipoCiclo) {
-                                                            case "for": System.out.println("Serie S10 con for: " + s9.g5_generarS10_for(n)); break;
+                                                            case "for": System.out.println("Serie S10 con for: " + s10.g5_generarS10_for(n)); break;
                                                             case "while": System.out.println("Serie S10 con while: " + s10.g5_generarS10_while(n)); break;
                                                             case "do-while": System.out.println("Serie S10 con do-while: " + s10.g5_generarS10_doWhile(n)); break;
                                                             default: System.err.println(ROJO + "Tipo de ciclo no válido." + RESET);

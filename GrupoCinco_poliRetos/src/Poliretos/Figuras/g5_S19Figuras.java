@@ -15,7 +15,8 @@ public class G5_S19Figuras {
                 } else {
                     System.out.print(prev[d]);
                 }
-                System.out.println();
+            }
+            System.out.println();
             int[] next = new int[prev.length + 1];
             next[0] = 1;
             for (int k = 1; k <= prev.length - 1; k++) {
@@ -23,7 +24,6 @@ public class G5_S19Figuras {
             }
             next[next.length - 1] = 2;
             prev = next;
-            }
         }
     }
     /*
