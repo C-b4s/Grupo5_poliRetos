@@ -339,7 +339,7 @@ public class Controller_Poliretos {
                                                             try {
                                                                 numeroFilas = ingresoDatos.nextInt();
                                                                 ingresoDatos.nextLine();
-                                                                if (numeroFilas > 0)
+                                                                if (numeroFilas > 0 && numeroFilas<=19)
                                                                     confirmacionValida = true;
                                                                 else
                                                                     imprimirErrorOpcionIncorrecta();
@@ -2193,9 +2193,6 @@ public class Controller_Poliretos {
                         fg19.g5_Figuras19DoWhile(filas);
                         break;
                 }
-            default:
-                System.out.println("Número de figura no válido");
-                break;
         }
     }
 
