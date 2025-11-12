@@ -7,7 +7,11 @@ public class G5_S1serie {
 public String g5_generarS1_for(int n) {
     String resultado = "";
     for (int i = 0; i < n; i++) {
-        resultado += (i % 2 == 0) ? "+" : "-";
+        if (i % 2 == 0) {
+            resultado += "+";
+        } else {
+            resultado += "-";
+        }
         resultado += " ";
     }
     return resultado;
@@ -20,7 +24,11 @@ public String g5_generarS1_while(int n) {
     String resultado = "";
     int i = 0;
     while (i < n) {
-        resultado += (i % 2 == 0) ? "+" : "-";
+        if (i % 2 == 0) {
+            resultado += "+";
+        } else {
+            resultado += "-";
+        }
         resultado += " ";
         i++;
     }
@@ -35,8 +43,12 @@ public String g5_generarS1_doWhile(int n) {
     int i = 0;
     if (n > 0) {
         do {
-            resultado += (i % 2 == 0) ? "+" : "-";
-            resultado += " ";
+            if (i % 2 == 0) {
+            resultado += "+";
+        } else {
+            resultado += "-";
+        }
+        resultado += " ";
             i++;
         } while (i < n);
     }

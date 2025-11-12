@@ -5,7 +5,14 @@ public class G5_S12Figuras{
      * 
      */
     public void g5_crearFigura12For(int serieNumerica){
-        for (int j=1; j<=9; j++) {
+        int clone;
+        clone=serieNumerica;
+        int filas=0;
+        while(clone>0){
+            clone/=10;
+            filas++;
+        }
+        for (int j=1; j<=filas; j++) {
             System.out.println(serieNumerica);
             serieNumerica = serieNumerica / 10;
         }
@@ -14,8 +21,15 @@ public class G5_S12Figuras{
      * 
      */
     public void g5_crearFigura12While(int serieNumerica){
+        int clone;
+        clone=serieNumerica;
+        int filas=0;
+        while(clone>0){
+            clone/=10;
+            filas++;
+        }
         int j=1;
-        while (j<=9) {
+        while (j<=filas) {
             System.out.println(serieNumerica);
             serieNumerica = serieNumerica / 10;
             j++;
@@ -25,11 +39,18 @@ public class G5_S12Figuras{
      * 
      */
     public void g5_crearFigura12DoWhile(int serieNumerica){
+        int clone;
+        clone=serieNumerica;
+        int filas=0;
+        while(clone>0){
+            clone/=10;
+            filas++;
+        }
         int j=1;
         do {
             System.out.println(serieNumerica);
             serieNumerica = serieNumerica / 10;
             j++;
-        } while (j<=9);
+        } while (j<=filas);
     }
 }
