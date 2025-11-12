@@ -12,11 +12,11 @@ public class G5_adivinarAnagramas {
 public void g5_adivinarAnagramasFor (Scanner sc){
         
         Map<String, String> anagramas = new HashMap<>();
-        anagramas.put("calor", "colar");
-        anagramas.put("Sergio", "riesgo");
-        anagramas.put("mejorar", "remojar");
-        anagramas.put("abusar", "basura");
-        anagramas.put("animales", "milanesa");
+        anagramas.put("delira", "lidera");
+        anagramas.put("ballena", "llenaba");
+        anagramas.put("Alondra", "ladrona");
+        anagramas.put("España", "apañes");
+        anagramas.put("Enrique", "quieren");
 
         ArrayList <String> anagramasKeys = new ArrayList<>(anagramas.keySet());
         Random palabraAleatoria = new Random();
