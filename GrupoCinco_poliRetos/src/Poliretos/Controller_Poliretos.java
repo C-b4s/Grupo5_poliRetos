@@ -61,7 +61,6 @@ import src.Poliretos.serieCaracteres.G5_S6serie;
 import src.Poliretos.serieCaracteres.G5_S7serie;
 import src.Poliretos.serieCaracteres.G5_S8serie;
 import src.Poliretos.serieCaracteres.G5_S9serie;
-import src.Poliretos.serieCaracteres.G5_S10serie;
 
 public class Controller_Poliretos {
     public final String ROJO = "\u001B[31m";
