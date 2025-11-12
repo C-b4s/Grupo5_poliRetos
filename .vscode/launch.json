@@ -9,6 +9,13 @@
             "name": "App",
             "request": "launch",
             "mainClass": "src.App",
+            "projectName": "Grupo5_poliRetos_90fad234"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "src.App",
             "projectName": "Grupo5_poliRetos_c1bc7856"
         },
         {
