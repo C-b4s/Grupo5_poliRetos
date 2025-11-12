@@ -3,7 +3,7 @@ package src.Poliretos.cadenaCaracteres;
 public class G5_invertirConVocalesEnMayus {
 public String g5_invertirConVocalesMayusFor(String textoIngresado){
         String textoInvertido = "";
-        if (textoIngresado == null || textoIngresado.length() == 0) {
+        if (textoIngresado == null || textoIngresado.isEmpty()) {
             return textoInvertido;
         }
         for (int i = textoIngresado.length() - 1; i >= 0; i--) {
@@ -20,7 +20,7 @@ public String g5_invertirConVocalesMayusFor(String textoIngresado){
     public String g5_invertirConVocalesMayusWhile(String textoIngresado){
         String textoInvertido = "";
         int i = textoIngresado.length() - 1;
-        if (textoIngresado == null || textoIngresado.length() == 0) {
+        if (textoIngresado == null || textoIngresado.isEmpty()) {
             return textoInvertido;
         }
         while (i >= 0) {
@@ -38,7 +38,7 @@ public String g5_invertirConVocalesMayusFor(String textoIngresado){
     public String g5_invertirConVocalesMayusDoWhile(String textoIngresado){
         String textoInvertido = "";
         int i = textoIngresado.length() - 1;
-        if (textoIngresado == null || textoIngresado.length() == 0) {
+        if (textoIngresado == null || textoIngresado.isEmpty()) {
             return textoInvertido;
         }
         do {
