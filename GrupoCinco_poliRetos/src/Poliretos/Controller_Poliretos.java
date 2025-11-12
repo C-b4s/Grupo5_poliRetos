@@ -61,6 +61,18 @@ import src.Poliretos.serieCaracteres.G5_S6serie;
 import src.Poliretos.serieCaracteres.G5_S7serie;
 import src.Poliretos.serieCaracteres.G5_S8serie;
 import src.Poliretos.serieCaracteres.G5_S9serie;
+import src.Poliretos.Loadings.G5_S1Loading;
+import src.Poliretos.Loadings.G5_S2Loading;
+import src.Poliretos.Loadings.G5_S3Loading;
+import src.Poliretos.Loadings.G5_S4Loading;
+import src.Poliretos.Loadings.G5_S5Loading;
+import src.Poliretos.Loadings.G5_S6Loading;
+import src.Poliretos.Loadings.G5_S7Loading;
+import src.Poliretos.Loadings.G5_S8Loading;
+import src.Poliretos.Loadings.G5_S9Loading;
+import src.Poliretos.Loadings.G5_S10Loading;
+import src.Poliretos.Loadings.G5_S11Loading;
+import src.Poliretos.Loadings.G5_S12Loading;
 
 public class Controller_Poliretos {
     public final String ROJO = "\u001B[31m";
@@ -1321,6 +1333,84 @@ public class Controller_Poliretos {
                                 break;
                                 case 6:
                                     // Loading
+                                    G5_S1Loading l1 = new G5_S1Loading();
+                                    G5_S2Loading l2 = new G5_S2Loading();
+                                    G5_S3Loading l3 = new G5_S3Loading();
+                                    G5_S4Loading l4 = new G5_S4Loading();
+                                    G5_S5Loading l5 = new G5_S5Loading();
+                                    G5_S6Loading l6 = new G5_S6Loading();
+                                    G5_S7Loading l7 = new G5_S7Loading();
+                                    G5_S8Loading l8 = new G5_S8Loading();
+                                    G5_S9Loading l9 = new G5_S9Loading();
+                                    G5_S10Loading l10 = new G5_S10Loading();
+                                    G5_S11Loading l11 = new G5_S11Loading();
+                                    G5_S12Loading l12 = new G5_S12Loading();
+
+                                    System.out.println("Usted ha seleccionado realizar simulaciones de Loading.");
+                                    
+                                    do {
+                                        String[] opcLoadings = { 
+                                            "L1: Rotación Simple |/-\\",
+                                            "L2: Barra Fija (#)",
+                                            "L3: Barra Progresiva (>)",
+                                            "L4: Pulsación (*)",
+                                            "L5: Luces LED (+*+*)",
+                                            "L6: Rebote (<>)",
+                                            "L7: Ondulación (~)",
+                                            "L8: Relleno Progresivo (●)",
+                                            "L9: Puntos Progresivos (...)",
+                                            "L10: Barras Cruzadas (||)",
+                                            "L11: Contador Numérico",
+                                            "L12: Secuencia Especial"
+                                        };
+                                        
+                                        imprimirMenu(opcLoadings, "loadings disponibles");
+                                        
+                                        int opcLoading = 0;
+                                        boolean validarOpcLoading;
+                                        
+                                        do {
+                                            System.out.print("Seleccione el Loading (1-12): ");
+                                            try {
+                                                opcLoading = ingresoDatos.nextInt();
+                                                ingresoDatos.nextLine();
+                                                validarOpcLoading = (opcLoading >= 1 && opcLoading <= 12);
+                                                if (!validarOpcLoading) imprimirErrorOpcionIncorrecta();
+                                            } catch (InputMismatchException e) {
+                                                imprimirErrorDatosInvalidos();
+                                                ingresoDatos.nextLine();
+                                                validarOpcLoading = false;
+                                            }
+                                        } while (!validarOpcLoading);
+                                        
+                                        String[] opcBuclesLoading = { "1.-FOR", "2.-WHILE", "3.-DO WHILE" };
+                                        int tipoCicloLoading = 0;
+                                        boolean validarTipoCiclo;
+                                        
+                                        do {
+                                            imprimirMenu(opcBuclesLoading, "tipo de ciclo");
+                                            System.out.print("Seleccione el tipo de ciclo (1-3): ");
+                                            try {
+                                                tipoCicloLoading = ingresoDatos.nextInt();
+                                                ingresoDatos.nextLine();
+                                                validarTipoCiclo = (tipoCicloLoading >= 1 && tipoCicloLoading <= 3);
+                                                if (!validarTipoCiclo) imprimirErrorOpcionIncorrecta();
+                                            } catch (InputMismatchException e) {
+                                                imprimirErrorDatosInvalidos();
+                                                ingresoDatos.nextLine();
+                                                validarTipoCiclo = false;
+                                            }
+                                        } while (!validarTipoCiclo);
+                                        
+                                        // Ejecutar el Loading seleccionado
+                                        ejecutarLoading(opcLoading, tipoCicloLoading, l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12);
+                                        
+                                        System.out.print("\n¿Desea ejecutar otro Loading? (si/no): ");
+                                        repetir = ingresoDatos.next().charAt(0);
+                                        ingresoDatos.nextLine();
+                                        
+                                    } while (repetir == 's' || repetir == 'S');
+                                    operacionValida = true;
                                     break;
                                 case 7:
                                     // Recursion
@@ -1960,6 +2050,174 @@ public class Controller_Poliretos {
         }
 
         System.out.println(" ".repeat(offset) + "_".repeat(subtitulo.length()) + "\n");
+    }
+
+    public void ejecutarLoading(int numeroLoading, int tipoCiclo, G5_S1Loading l1, G5_S2Loading l2, 
+                                 G5_S3Loading l3, G5_S4Loading l4, G5_S5Loading l5, G5_S6Loading l6,
+                                 G5_S7Loading l7, G5_S8Loading l8, G5_S9Loading l9, G5_S10Loading l10,
+                                 G5_S11Loading l11, G5_S12Loading l12) {
+        
+        switch (numeroLoading) {
+            case 1:
+                switch (tipoCiclo) {
+                    case 1: // FOR
+                        l1.g5_L01_RotacionSimple_FOR();
+                        break;
+                    case 2: // WHILE
+                        l1.g5_L01_RotacionSimple_While();
+                        break;
+                    case 3: // DO WHILE
+                        l1.g5_L01_RotacionSimple_DoWhile();
+                        break;
+                }
+                break;
+            case 2:
+                switch (tipoCiclo) {
+                    case 1: // FOR
+                        l2.g5_L02_BarraFija_For();
+                        break;
+                    case 2: // WHILE
+                        l2.g5_L02_BarraFija_WHILE();
+                        break;
+                    case 3: // DO WHILE
+                        l2.g5_L02_BarraFija_DoWHILE();
+                        break;
+                }
+                break;
+            case 3:
+                switch (tipoCiclo) {
+                    case 1: // FOR
+                        l3.g5_L03_DesplazamientoSimple_FOR();
+                        break;
+                    case 2: // WHILE
+                        l3.g5_L03_DesplazamientoSimple_WHILE();
+                        break;
+                    case 3: // DO WHILE
+                        l3.g5_L03_DesplazamientoSimple_DoWHILE();
+                        break;
+                }
+                break;
+            case 4:
+                switch (tipoCiclo) {
+                    case 1: // FOR
+                        l4.g5_L04_Waiting_For();
+                        break;
+                    case 2: // WHILE
+                        l4.g5_L04_Waiting_WHILE();
+                        break;
+                    case 3: // DO WHILE
+                        l4.g5_L04_Waiting_DOWHILE();
+                        break;
+                }
+                break;
+            case 5:
+                switch (tipoCiclo) {
+                    case 1: // FOR
+                        l5.g5_L05_PuntaDinamica_FOR();
+                        break;
+                    case 2: // WHILE
+                        l5.g5_L05_PuntaDinamica_WHILE();
+                        break;
+                    case 3: // DO WHILE
+                        l5.g5_L05_PuntaDinamica_DOWHILE();
+                        break;
+                }
+                break;
+            case 6:
+                switch (tipoCiclo) {
+                    case 1: // FOR
+                        l6.g5_L06_DesplazamientoDoble_FOR();
+                        break;
+                    case 2: // WHILE
+                        l6.g5_L06_DesplazamientoDoble_WHILE();
+                        break;
+                    case 3: // DO WHILE
+                        l6.g5_L06_DesplazamientoDoble_DOWHILE();
+                        break;
+                }
+                break;
+            case 7:
+                switch (tipoCiclo) {
+                    case 1: // FOR
+                        l7.g5_L07_BarraPuntaRotacional_For();
+                        break;
+                    case 2: // WHILE
+                        l7.g5_L07_BarraPuntaRotacional_WHILE();
+                        break;
+                    case 3: // DO WHILE
+                        l7.g5_L07_BarraPuntaRotacional_DOWHILE();
+                        break;
+                }
+                break;
+            case 8:
+                switch (tipoCiclo) {
+                    case 1: // FOR
+                        l8.g5_L08_CargaPorNombre_FOR();
+                        break;
+                    case 2: // WHILE
+                        l8.g5_L08_CargaPorNombre_WHILE();
+                        break;
+                    case 3: // DO WHILE
+                        l8.g5_L08_CargaPorNombre_DOWHILE();
+                        break;
+                }
+                break;
+            case 9:
+                switch (tipoCiclo) {
+                    case 1: // FOR
+                        l9.g5_L09_NombreLetra_FOR();
+                        break;
+                    case 2: // WHILE
+                        l9.g5_L09_NombreLetra_WHILE();
+                        break;
+                    case 3: // DO WHILE
+                        l9.g5_L09_NombreLetra_DOWHILE();
+                        break;
+                }
+                break;
+            case 10:
+                switch (tipoCiclo) {
+                    case 1: // FOR
+                        l10.g5_L10_CargaArchivo_FOR();
+                        break;
+                    case 2: // WHILE
+                        l10.g5_L10_CargaArchivo_WHILE();
+                        break;
+                    case 3: // DO WHILE
+                        l10.g5_L10_CargaArchivo_DOWHILE();
+                        break;
+                }
+                break;
+            case 11:
+                switch (tipoCiclo) {
+                    case 1: // FOR
+                        l11.g5_L11_BarraSonido_FOR();
+                        break;
+                    case 2: // WHILE
+                        l11.g5_L11_BarraSonido_WHILE();
+                        break;
+                    case 3: // DO WHILE
+                        l11.g5_L11_BarraSonido_DOWHILE();
+                        break;
+                }
+                break;
+            case 12:
+                switch (tipoCiclo) {
+                    case 1: // FOR
+                        l12.g5_L12_DesplazarFigura_FOR();
+                        break;
+                    case 2: // WHILE
+                        l12.g5_L12_DesplazarFigura_WHILE();
+                        break;
+                    case 3: // DO WHILE
+                        l12.g5_L12_DesplazarFigura_DOWHILE();
+                        break;
+                }
+                break;
+            default:
+                imprimirErrorOpcionIncorrecta();
+                break;
+        }
     }
 
 }
