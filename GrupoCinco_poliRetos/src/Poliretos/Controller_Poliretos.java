@@ -521,7 +521,7 @@ public class Controller_Poliretos {
                                     imprimirMenu(cadenasCaracteres, "cadenas de caracteres");
                                     
                                     do {
-                                        leerEnteroValido("Operación selecionada: ");
+                                        opcCadenas = leerEnteroValido("Operación selecionada: ");
                                         if (opcCadenas < 1 || opcCadenas > 9)  imprimirErrorOpcionIncorrecta();
                                     } while (opcCadenas < 1 || opcCadenas > 9);
                                     
@@ -548,7 +548,7 @@ public class Controller_Poliretos {
                                                                                  
                                             do{
                                                 imprimirMenu(bucles, "bucles " + cadenasCaracteres[1]);
-                                                leerEnteroValido("Bucle seleccionado (ingrese el número): ");
+                                               opcBucles= leerEnteroValido("Bucles seleccionado (ingrese el numero): ");
                                             
                                             int cantVocales;
                                             validarBucle = false;
@@ -610,7 +610,7 @@ public class Controller_Poliretos {
                                                     
                                             do{
                                                 imprimirMenu(bucles, "bucles " + cadenasCaracteres[1]);
-                                            leerEnteroValido("Bucle seleccionado (ingrese el número): ");
+                                               ;;
                                             
                                             int cantConsonantes;
                                             validarBucle = false;
@@ -689,7 +689,7 @@ public class Controller_Poliretos {
                                             validarBucle = false;
                                             do{
                                                 imprimirMenu(bucles, "bucles " + cadenasCaracteres[2]);
-                                                leerEnteroValido("Bucle seleccionado (ingrese el número): ");
+                                              ;;
                                             
                                     
                                             switch (opcBucles) {
@@ -912,7 +912,7 @@ public class Controller_Poliretos {
 
                                             do{
                                                 imprimirMenu(bucles, "bucles " + cadenasCaracteres[5]);
-                                                leerEnteroValido("Bucle seleccionado (ingrese el número): ");
+                                              ;
                                             
                                             validarBucle = false;
                                             switch (opcBucles) {
@@ -969,7 +969,7 @@ public class Controller_Poliretos {
                                             
                                             do{
                                                 imprimirMenu(bucles, "bucles " + cadenasCaracteres[6]);
-                                                leerEnteroValido("Bucle seleccionado (ingrese el número): ");
+                                              opcBucles = leerEnteroValido("Bucles seleccionado (ingrese el numero): ");
                                             
                                             validarBucle = false;
                                             
@@ -1030,7 +1030,7 @@ public class Controller_Poliretos {
                                             
                                             do{
                                                 imprimirMenu(bucles, "bucles " + cadenasCaracteres[7]);
-                                                leerEnteroValido("Bucle seleccionado (ingrese el número): ");
+                                              ;;
                                             
                                                 validarBucle = false;
 
@@ -1092,7 +1092,7 @@ public class Controller_Poliretos {
                                             } while (!validarFrase);
 
                                             do{
-                                                leerEnteroValido("Bucle seleccionado (ingrese el número): ");
+                                              ;
                                             
                                             validarBucle = false;
                                             switch (opcBucles) {
@@ -1202,8 +1202,8 @@ public class Controller_Poliretos {
                                                 
                                                do{
                                                 imprimirMenu(bucles, "bucles " + operacionesArrays[0]);
-
-                                                leerEnteroValido("Bucle seleccionado (ingrese el número): ");
+                                                opcBucles = leerEnteroValido("Bucle seleccionado (ingrese numero): ");
+                                            
 
                                                 validarBucle = false;
                                                 switch(opcBucles){
@@ -1259,8 +1259,8 @@ public class Controller_Poliretos {
                                             validarBucle = false;
                                             do{
                                                 imprimirMenu(bucles, "bucles " + operacionesArrays[1]);
-
-                                                leerEnteroValido("Bucle seleccionado (ingrese el número): ");
+                                                opcBucles = leerEnteroValido("Bucle seleccionado (ingrese numero): ");
+                                             
                                                 validarBucle = false;
                                                 switch (opcBucles) {
                                                     case 1:
@@ -1332,22 +1332,7 @@ public class Controller_Poliretos {
                                             System.out.println("Usted ha seleccionado realizar la operación " + operacionesArrays[3]);
                                             do{
                                                 imprimirMenu(bucles, "bucle " + operacionesArrays[3]);
-                                            do {
-                                                datoValido = false;
-
-                                                try {
-                                                    System.out.print("Bucle seleccionado (ingrese el número): ");
-                                                    opcBucles = ingresoDatos.nextInt();
-                                                    ingresoDatos.nextLine();
-                                                    datoValido = true;
-                                                    
-                                                } catch (InputMismatchException e) {
-                                                    imprimirErrorDatosInvalidos();
-                                                    datoValido = false;
-                                                }
-                                                
-                                            } while (!datoValido);
-
+                                                opcBucles= leerEnteroValido("Bucle seleccionado (ingrese numero): ");
                                             validarBucle = false;
                                             switch (opcBucles){
                                                 case 1:
@@ -1379,21 +1364,8 @@ public class Controller_Poliretos {
                                             System.out.println("Usted ha seleccionado realizar la operación " + operacionesArrays[4]);
                                             
                                            do{ 
-                                            do {
-                                                datoValido = false;
-                                                imprimirMenu(bucles, "bucle " + operacionesArrays[4]);
-                                                try {
-                                                    System.out.print("Bucle seleccionado (ingrese el número): ");
-                                                    opcBucles = ingresoDatos.nextInt();
-                                                    ingresoDatos.nextLine();
-                                                    datoValido = true;
-                                                    
-                                                } catch (InputMismatchException e) {
-                                                    imprimirErrorDatosInvalidos();
-                                                    datoValido = false;
-                                                }
-                                                
-                                            } while (!datoValido);
+                                            imprimirMenu(bucles, "bucle " + operacionesArrays[4]);
+                                            opcBucles=leerEnteroValido("Bucle seleccionado (ingrese numero): ");
 
                                             validarBucle = false;
                                             switch (opcBucles){
