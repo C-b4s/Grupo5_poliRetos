@@ -159,19 +159,19 @@ public class Controller_Poliretos {
                                         do{
                                         System.out.println("\n================== IMPRESIÓN DE SERIES ==================");
                                         System.out.println("Seleccione la serie que desea generar:");
-                                        System.out.println("1. Serie S1");
-                                        System.out.println("2. Serie S2");
-                                        System.out.println("3. Serie S3");
-                                        System.out.println("4. Serie S4");
-                                        System.out.println("5. Serie S5");
-                                        System.out.println("6. Serie S6");
-                                        System.out.println("7. Serie S7");
-                                        System.out.println("8. Serie S8");
-                                        System.out.println("9. Serie S9");
-
+                                        System.out.println("1. Serie S1: + - + - + - ");
+                                        System.out.println("2. Serie S2: + ++ +++ +++++ ");
+                                        System.out.println("3. Serie S3: + ++ +++ +++++ ");
+                                        System.out.println("4. Serie S4:+ - * / + - * /");
+                                        System.out.println("5. Serie S5: \\ | / - | ");
+                                        System.out.println("6. Serie S6: a b c d e f ");
+                                        System.out.println("7. Serie S7: a + c - e +");
+                                        System.out.println("8. Serie S8: aa bbbb cccccc");
+                                        System.out.println("9. Serie S9:a bbb ccccc");
+                                        System.out.println("10. Serie S10: a b c dd eee");
                                         
                                             try {
-                                                System.out.print("Opción (1–9): ");
+                                                System.out.print("Opción (1 - 10): ");
                                                 int opcion = ingresoDatos.nextInt();
 
                                                 System.out.print("Seleccione el tipo de ciclo (for / while / do-while): ");
@@ -254,7 +254,11 @@ public class Controller_Poliretos {
                                                         break;
                                                     case 10:
                                                         switch (tipoCiclo) {
+<<<<<<< HEAD
                                                             case "for": System.out.println("Serie S10 con for: " + s10.g5_generarS10_for(n)); break;
+=======
+                                                            case "for": System.out.println("Serie S10 con for: " + s9.g5_generarS9_for(n)); break;
+>>>>>>> characteres-recursividad/victoria
                                                             case "while": System.out.println("Serie S10 con while: " + s10.g5_generarS10_while(n)); break;
                                                             case "do-while": System.out.println("Serie S10 con do-while: " + s10.g5_generarS10_doWhile(n)); break;
                                                             default: System.err.println(ROJO + "Tipo de ciclo no válido." + RESET);
@@ -269,11 +273,10 @@ public class Controller_Poliretos {
                                                     ingresoDatos.nextLine();
                                                 }
 
-                                                    System.out.print("\n¿Desea generar otra serie? (s/n): ");
+                                                    System.out.print("\n¿Desea generar otra serie de caracteres? (s/n): ");
                                                     repetir = ingresoDatos.next().charAt(0);
                                                 
                                         } while (repetir == 's' || repetir == 'S');
-                                    
                                     break;
                                 case 3:
                                     // Figuras
