@@ -5,7 +5,7 @@ public class G5_contarVocales {
         int contVocales = 0;
         String cadenaVocales = "áéíóúaeiou";
         textoIngresado = textoIngresado.toLowerCase();
-        if (textoIngresado == null || textoIngresado.length() == 0) {
+        if (textoIngresado == null || textoIngresado.isEmpty()) {
             return contVocales;
         }
         for (int i = 0; i < textoIngresado.length(); i++) {
@@ -21,7 +21,7 @@ public class G5_contarVocales {
         String cadenaVocales = "áéíóúaeiou";
         textoIngresado = textoIngresado.toLowerCase();
         int i = 0;
-        if (textoIngresado == null || textoIngresado.length() == 0) {
+        if (textoIngresado == null || textoIngresado.isEmpty()) {
             return contVocales;
         }
         while (i < textoIngresado.length()) {
@@ -38,7 +38,7 @@ public class G5_contarVocales {
         String cadenaVocales = "áéíóúaeiou";
         textoIngresado = textoIngresado.toLowerCase();
         int i = 0;
-        if (textoIngresado == null || textoIngresado.length() == 0) {
+        if (textoIngresado == null || textoIngresado.isEmpty()) {
             return contVocales;
         }
         do {

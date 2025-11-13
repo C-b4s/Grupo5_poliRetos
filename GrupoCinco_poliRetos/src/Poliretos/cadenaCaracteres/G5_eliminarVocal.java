@@ -6,6 +6,7 @@ public class G5_eliminarVocal {
         if (textoIngresado == null || textoIngresado.isEmpty()) {
             return "";
         }
+textoIngresado = textoIngresado.toLowerCase();
 
         StringBuilder textoSinVocal = new StringBuilder();
         for (char caracter : textoIngresado.toCharArray()) {
@@ -19,6 +20,9 @@ public class G5_eliminarVocal {
         if (textoIngresado == null || textoIngresado.isEmpty()) {
             return "";
         }
+
+textoIngresado = textoIngresado.toLowerCase();
+
         StringBuilder textoSinVocal = new StringBuilder();
 
         int i = 0;
@@ -33,6 +37,9 @@ public class G5_eliminarVocal {
         if (textoIngresado == null || textoIngresado.isEmpty()) {
             return "";
         }
+
+textoIngresado = textoIngresado.toLowerCase();
+
         StringBuilder textoSinVocal = new StringBuilder();
 
         int i = 0;
