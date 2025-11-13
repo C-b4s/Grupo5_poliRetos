@@ -8,20 +8,22 @@ import java.util.Scanner;
 
 public class G5_adivinarAnagramas {
     public static final String AMARILLO = "\u001B[33m";
+    public static final String MORADO = "\u001B[35m";
     public static final String RESET = "\u001B[0m";
 public void g5_adivinarAnagramasFor (Scanner sc){
         
         Map<String, String> anagramas = new HashMap<>();
-        anagramas.put("calor", "colar");
-        anagramas.put("Sergio", "riesgo");
-        anagramas.put("mejorar", "remojar");
-        anagramas.put("abusar", "basura");
-        anagramas.put("animales", "milanesa");
+        anagramas.put("delira", "lidera");
+        anagramas.put("ballena", "llenaba");
+        anagramas.put("Alondra", "ladrona");
+        anagramas.put("España", "apañes");
+        anagramas.put("Enrique", "quieren");
 
         ArrayList <String> anagramasKeys = new ArrayList<>(anagramas.keySet());
         Random palabraAleatoria = new Random();
 
-        String parDeAnagrama = anagramasKeys.get(palabraAleatoria.nextInt(anagramasKeys.size()));
+        int indicePalabra = palabraAleatoria.nextInt(anagramasKeys.size());
+        String parDeAnagrama = anagramasKeys.get(indicePalabra);
         String solucionAnagrama = anagramas.get(parDeAnagrama);
 
         int intentos = 0;
@@ -50,17 +52,18 @@ public void g5_adivinarAnagramasFor (Scanner sc){
 
     public void g5_adivinarAnagramasWhile (Scanner sc){
         // Implementación similar a la del método for, pero usando while
-        Map <String, String> anagramas = new HashMap <>();
-        anagramas.put("calor", "colar");
-        anagramas.put("Sergio", "riesgo");
-        anagramas.put("mejorar", "remojar");
-        anagramas.put("abusar", "basura");
-        anagramas.put("animales", "milanesa");
+        Map<String, String> anagramas = new HashMap<>();
+        anagramas.put("delira", "lidera");
+        anagramas.put("ballena", "llenaba");
+        anagramas.put("Alondra", "ladrona");
+        anagramas.put("España", "apañes");
+        anagramas.put("Enrique", "quieren");
 
-        ArrayList <String> anagramasKeys = new ArrayList <> (anagramas.keySet());
+        ArrayList <String> anagramasKeys = new ArrayList<>(anagramas.keySet());
         Random palabraAleatoria = new Random();
 
-        String parDeAnagrama = anagramasKeys.get(palabraAleatoria.nextInt(anagramasKeys.size()));
+        int indicePalabra = palabraAleatoria.nextInt(anagramasKeys.size());
+        String parDeAnagrama = anagramasKeys.get(indicePalabra);
         String solucionAnagrama = anagramas.get(parDeAnagrama);
 
         int i = 0, intentos = 0;
@@ -92,12 +95,12 @@ public void g5_adivinarAnagramasFor (Scanner sc){
         // Implementación similar a la del método for, pero usando do while
         
         Map <String, String> anagramas = new HashMap <>();
-        anagramas.put("calor", "colar");
-        anagramas.put("Sergio", "riesgo");
-        anagramas.put("mejorar", "remojar");
-        anagramas.put("abusar", "basura");
-        anagramas.put("animales", "milanesa");
-
+        anagramas.put("delira", "lidera");
+        anagramas.put("ballena", "llenaba");
+        anagramas.put("Alondra", "ladrona");
+        anagramas.put("España", "apañes");
+        anagramas.put("Enrique", "quieren");
+        
         ArrayList <String> anagramasKeys = new ArrayList <> (anagramas.keySet());
         Random palabraAleatoria = new Random();
         String parDeAnagrama = anagramasKeys.get(palabraAleatoria.nextInt(anagramas.size()));

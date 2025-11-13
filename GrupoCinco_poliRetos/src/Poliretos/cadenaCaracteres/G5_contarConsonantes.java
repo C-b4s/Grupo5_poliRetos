@@ -5,7 +5,7 @@ public int g5_contarConstantesFor(String textoIngresado){
         int contConstantes = 0;
         String cadenaVocales = "áéíóúaeiou";
         textoIngresado = textoIngresado.toLowerCase();
-        if (textoIngresado == null || textoIngresado.length() == 0) {
+        if (textoIngresado == null || textoIngresado.isEmpty()) {
             return contConstantes;
         }
         for (char i : textoIngresado.toCharArray()) {
@@ -21,7 +21,7 @@ public int g5_contarConstantesFor(String textoIngresado){
         String cadenaVocales = "áéíóúaeiou";
         textoIngresado = textoIngresado.toLowerCase();
         int i = 0;
-        if (textoIngresado == null || textoIngresado.length() == 0) {
+        if (textoIngresado == null || textoIngresado.isEmpty()) {
             return contConstantes;
         }
         while (i < textoIngresado.length()) {
@@ -38,7 +38,7 @@ public int g5_contarConstantesFor(String textoIngresado){
         String cadenaVocales = "áéíóúaeiou";
        textoIngresado = textoIngresado.toLowerCase();
         int i = 0;
-        if (textoIngresado == null || textoIngresado.length() == 0) {
+        if (textoIngresado == null || textoIngresado.isEmpty()) {
             return contConstantes;
         }
         do {
