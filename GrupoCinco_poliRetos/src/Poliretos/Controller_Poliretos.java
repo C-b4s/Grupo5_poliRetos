@@ -1393,11 +1393,12 @@ public class Controller_Poliretos {
                                                     otroBucle = leerRespuestaSiNo();
                                             }
                                         }while (!validarBucle || otroBucle.equals("si"));
+                                        break;
 
 
-                                            default:
-                                                imprimirErrorOpcionIncorrecta();
-                                                break;
+                                        default:
+                                            imprimirErrorOpcionIncorrecta();
+                                            break;
                                         }
                                         if (opcArrays>= 1 && opcArrays<= 5){
                                         validarOpcArrays = true;
