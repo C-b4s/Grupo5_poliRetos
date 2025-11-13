@@ -862,7 +862,6 @@ public class Controller_Poliretos {
 
                                             System.out
                                                     .println("Usted ha seleccionado realizar la operación Cadenas 6)");
-
                                             
                                             do {
                                                 validarFrase = false;
@@ -983,7 +982,6 @@ public class Controller_Poliretos {
                                             do{
                                                 imprimirMenu(bucles, "bucles " + cadenasCaracteres[7]);
                                                 opcBucles = leerEnteroValido("Bucle seleccionado (ingrese el número): ");
-                                            
                                                 validarBucle = false;
 
                                             switch (opcBucles) {
@@ -1036,7 +1034,6 @@ public class Controller_Poliretos {
                                             do{
                                                 imprimirMenu(bucles, "bucles " + cadenasCaracteres[8]);
                                                 opcBucles = leerEnteroValido("Bucle seleccionado (ingrese el numero): ");
-                                            
                                             validarBucle = false;
                                             switch (opcBucles) {
                                                 case 1:
@@ -1087,7 +1084,7 @@ public class Controller_Poliretos {
                                 }while (!validarOpcCadena || otraOperacion.equals("si"));
                                 break;
                                 
-                                case 5:
+                                case 5://arrays
                                     String [] nombreCompleto = {"Sebastián", "Josué", "Zúñiga", "Mendoza"};
                                     String [] operacionesArrays = {"Arrays 1)", "Arrays 2)", "Arrays 3)", "Arrays 4)", "Arrays 5)"};
                                     int opcArrays = 0;;
