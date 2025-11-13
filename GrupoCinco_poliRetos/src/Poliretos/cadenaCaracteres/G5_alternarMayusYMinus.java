@@ -4,7 +4,7 @@ public class G5_alternarMayusYMinus {
     public String g5_alternarMayusYMinusFor(String textoIngresado){
         StringBuilder textoAlternado = new StringBuilder();
     
-        if (textoIngresado == null || textoIngresado.length() == 0){
+        if (textoIngresado == null || textoIngresado.isEmpty()){
             return textoAlternado.toString();
         }
 
@@ -23,7 +23,7 @@ public class G5_alternarMayusYMinus {
         StringBuilder textoAlternado = new StringBuilder();
         int i = 0;
 
-        if (textoIngresado == null || textoIngresado.length() == 0){
+        if (textoIngresado == null || textoIngresado.isEmpty()){
             return "";
         }
 
@@ -42,7 +42,7 @@ public class G5_alternarMayusYMinus {
         StringBuilder textoAlternado = new StringBuilder();
         int i = 0;
 
-        if (textoIngresado == null || textoIngresado.length() == 0){
+        if (textoIngresado == null || textoIngresado.isEmpty()){
             return "";
         }
 
