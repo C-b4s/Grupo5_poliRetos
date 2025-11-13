@@ -2,54 +2,59 @@ package src.Poliretos.cadenaCaracteres;
 
 public class G5_invertirConVocalesEnMayus {
 public String g5_invertirConVocalesMayusFor(String textoIngresado){
-        String textoInvertido = "";
-        if (textoIngresado == null || textoIngresado.isEmpty()) {
-            return textoInvertido;
-        }
+        
+        textoIngresado = textoIngresado.toLowerCase();
+        StringBuilder textoInvertido = new StringBuilder();
+
         for (int i = textoIngresado.length() - 1; i >= 0; i--) {
             char caracterActual = textoIngresado.charAt(i);
-            if ("áéíóúaeiou".indexOf(Character.toLowerCase(caracterActual)) != -1) {
-                textoInvertido += Character.toUpperCase(caracterActual);
+            if (Character.isLetter(caracterActual) && "áéíóúaeiou".indexOf((caracterActual)) != -1) {
+                textoInvertido.append(Character.toUpperCase(caracterActual));
             } else {
-                textoInvertido += caracterActual;
+                textoInvertido.append(caracterActual);
             }
         }
-        return textoInvertido;
+        return textoInvertido.toString();
     }
 
     public String g5_invertirConVocalesMayusWhile(String textoIngresado){
-        String textoInvertido = "";
+        
+        textoIngresado = textoIngresado.toLowerCase();
+        StringBuilder textoInvertido = new StringBuilder();
+
         int i = textoIngresado.length() - 1;
-        if (textoIngresado == null || textoIngresado.isEmpty()) {
-            return textoInvertido;
-        }
         while (i >= 0) {
             char caracterActual = textoIngresado.charAt(i);
-            if ("áéíóúaeiou".indexOf(Character.toLowerCase(caracterActual)) != -1) {
-                textoInvertido += Character.toUpperCase(caracterActual);
+            if (Character.isLetter(caracterActual) && "áéíóúaeiou".indexOf((caracterActual)) != -1) {
+                textoInvertido.append(Character.toUpperCase(caracterActual));
             } else {
-                textoInvertido += caracterActual;
+                textoInvertido.append(caracterActual);
             }
             i--;
         }
-        return textoInvertido;
+        return textoInvertido.toString();
     }
 
     public String g5_invertirConVocalesMayusDoWhile(String textoIngresado){
-        String textoInvertido = "";
-        int i = textoIngresado.length() - 1;
+        
+        
         if (textoIngresado == null || textoIngresado.isEmpty()) {
-            return textoInvertido;
+            return "";
         }
+
+        textoIngresado = textoIngresado.toLowerCase();
+        StringBuilder textoInvertido = new StringBuilder();
+        int i = textoIngresado.length() - 1;
+
         do {
-            char caracterActual = textoIngresado.charAt(i);
-            if ("áéíóúaeiou".indexOf(Character.toLowerCase(caracterActual)) != -1) {
-                textoInvertido += Character.toUpperCase(caracterActual);
+           char caracterActual = textoIngresado.charAt(i);
+            if (Character.isLetter(caracterActual) && "áéíóúaeiou".indexOf((caracterActual)) != -1) {
+                textoInvertido.append(Character.toUpperCase(caracterActual));
             } else {
-                textoInvertido += caracterActual;
+                textoInvertido.append(caracterActual);
             }
             i--;
         } while (i >= 0);
-        return textoInvertido;
+        return textoInvertido.toString();
     }
 }
