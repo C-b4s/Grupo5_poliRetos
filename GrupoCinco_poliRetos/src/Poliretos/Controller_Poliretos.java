@@ -1120,10 +1120,18 @@ public class Controller_Poliretos {
                                                         validarPorcentaje = false;
                                                     }
 
+                                                    
+
                                                     for (int i = 0; i < nombreCompleto.length; i++){
                                                         try {
                                                             porcentajesNombre[i] = Double.parseDouble(porcentajes[i]);
-                                                        } catch (Exception e) {
+                                                            if (porcentajesNombre[i] < 0 || porcentajesNombre[i] > 100){
+                                                                imprimirErrorDatosInvalidos();
+                                                                validarPorcentaje = false;
+                                                                break;
+                                                            }
+
+                                                        } catch (InputMismatchException e) {
                                                             imprimirErrorDatosInvalidos();
                                                             validarPorcentaje = false;
                                                             break;
