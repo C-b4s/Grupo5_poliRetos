@@ -874,7 +874,9 @@ public class Controller_Poliretos {
                                             do{
                                                 imprimirMenu(bucles, "bucles " + cadenasCaracteres[5]);
                                                 opcBucles = leerEnteroValido("Bucle seleccionado (ingrese el numero): ");
+=========
                                               opcBucles=leerEnteroValido("Bucle seleccionado (ingrese un numero): ");
+>>>>>>>>> Temporary merge branch 2
                                             
                                             validarBucle = false;
                                             switch (opcBucles) {
@@ -984,7 +986,9 @@ public class Controller_Poliretos {
                                                 imprimirMenu(bucles, "bucles " + cadenasCaracteres[7]);
                                                 opcBucles = leerEnteroValido("Bucle seleccionado (ingrese el número): ");
                                             
+=========
                                               opcBucles=leerEnteroValido("Bucle seleccionado (ingrese un numero): ");
+>>>>>>>>> Temporary merge branch 2
                                                 validarBucle = false;
 
                                             switch (opcBucles) {
@@ -1038,8 +1042,10 @@ public class Controller_Poliretos {
                                                 imprimirMenu(bucles, "bucles " + cadenasCaracteres[8]);
                                                 opcBucles = leerEnteroValido("Bucle seleccionado (ingrese el numero): ");
                                             
+=========
                                                 imprimirMenu(bucles, "bucles");
                                             opcBucles=leerEnteroValido("Bucle seleccionado (ingrese un numero): ");
+>>>>>>>>> Temporary merge branch 2
                                             validarBucle = false;
                                             switch (opcBucles) {
                                                 case 1:
